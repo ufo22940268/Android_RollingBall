@@ -19,7 +19,8 @@ public abstract class GLDrawable {
     public GLDrawable(Context context, int width, int height) {
         mContext = context;
 
-        mEnvProgram = Utils.loadProgram(context, "environment_vertex_shader.glsl", "environment_fragment_shader.glsl");
+        ProgramLoader loader = new ProgramLoader(context, "environment_vertex_shader.glsl", "environment_fragment_shader.glsl");
+        mEnvProgram = loader.load();
     }
 }
 
