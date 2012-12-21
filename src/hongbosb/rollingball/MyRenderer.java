@@ -14,6 +14,8 @@ import java.util.*;
 import javax.microedition.khronos.opengles.*;
 import javax.microedition.khronos.egl.*;
 
+import hongbosb.rollingball.model.*;
+
 public class MyRenderer implements GLSurfaceView.Renderer {
 
     Context mContext;

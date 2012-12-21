@@ -1,4 +1,4 @@
-package hongbosb.rollingball;
+package hongbosb.rollingball.model;
 
 import android.content.Context;
 

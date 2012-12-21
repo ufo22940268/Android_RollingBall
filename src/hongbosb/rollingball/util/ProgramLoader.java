@@ -1,4 +1,4 @@
-package hongbosb.rollingball;
+package hongbosb.rollingball.util;
 
 import android.util.*;
 import android.widget.*;
@@ -11,6 +11,8 @@ import android.opengl.*;
 
 import java.util.*;
 import java.io.*;
+
+import hongbosb.rollingball.*;
 
 public class ProgramLoader implements Loadable {
     public final String TAG = "Utils";
@@ -31,7 +33,7 @@ public class ProgramLoader implements Loadable {
     public int load() {
         int program = GLES20.glCreateProgram();
         if (program == 0) {
-            throw new GLException();
+            throw new GLException(0);
         }
 
         int vertexHandler = loadShader(program, mVertexFile, GLES20.GL_VERTEX_SHADER);
@@ -44,26 +46,27 @@ public class ProgramLoader implements Loadable {
     private int loadShader(int program, String file, int type) {
         int shaderHandler = GLES20.glCreateShader(type);
         if (shaderHandler == 0) {
-            throw new GLException();
+            throw new GLException(0);
         }
 
         String source = loadSource(file);
         GLES20.glAttachShader(program, shaderHandler);
         GLES20.glShaderSource(shaderHandler, source);
         GLES20.glCompileShader(shaderHandler);
-        checkCompileError(shaderHandler);
+        checkCompileError(shaderHandler, type);
         return shaderHandler;
     }
 
-    private void checkCompileError(int handler) {
+    private void checkCompileError(int handler, int type) {
         int[] result = new int[1];
         GLES20.glGetShaderiv(handler, GLES20.GL_COMPILE_STATUS, result, 0);
         if (result[0] == GLES20.GL_FALSE) {
             //Print log.
+            String typeStr = type == GLES20.GL_VERTEX_SHADER ? "vertex" : "fragment";
             String log = GLES20.glGetShaderInfoLog(handler);
-            Log.d(TAG, "compile error:\n" + log);
+            Log.d(TAG, typeStr + " compile error:\n" + log);
             GLES20.glDeleteShader(handler);
-            throw new GLException();
+            throw new GLException(0);
         }
     }
 
@@ -73,7 +76,7 @@ public class ProgramLoader implements Loadable {
         if (result[0] == GLES20.GL_FALSE) {
             Log.d(TAG, "link error:\n" + GLES20.glGetProgramInfoLog(program));
             GLES20.glDeleteProgram(program);
-            throw new GLException();
+            throw new GLException(0);
         }
     }
 
