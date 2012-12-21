@@ -1,0 +1,1595 @@
+cscope 15 $HOME/workspace/Android_RollingBall -q 0000000164 0000007887
+	@gen/hongbosb/rollingball/BuildConfig.java
+
+2 
+·ckage
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+;
+
+4 
+public
+ 
+fš®
+ cÏs 
+	cBudCÚfig
+ {
+
+5 
+public
+ 
+fš®
+ 
+boŞ—n
+ 
+	mDEBUG
+ = 
+Œue
+;
+
+	@gen/hongbosb/rollingball/R.java
+
+8 
+·ckage
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+;
+
+10 
+public
+ 
+fš®
+ cÏs 
+	cR
+ {
+
+11 
+public
+ 
+fš®
+ cÏs 
+	c©Œ
+ {
+
+13 
+public
+ 
+fš®
+ cÏs 
+	cd¿wabË
+ {
+
+14 
+public
+ 
+fš®
+ 
+	gic_Ïunch”
+=0x7f020000;
+
+16 
+public
+ 
+fš®
+ cÏs 
+	cÏyout
+ {
+
+17 
+public
+ 
+fš®
+ 
+	gmaš
+=0x7f030000;
+
+19 
+public
+ 
+fš®
+ cÏs 
+	c¿w
+ {
+
+20 
+public
+ 
+fš®
+ 
+	g’vœÚm’t_äagm’t_shad”
+=0x7f040000;
+
+21 
+public
+ 
+fš®
+ 
+	g’vœÚm’t_v”‹x_shad”
+=0x7f040001;
+
+23 
+public
+ 
+fš®
+ cÏs 
+	c¡ršg
+ {
+
+24 
+public
+ 
+fš®
+ 
+	g­p_Çme
+=0x7f050000;
+
+	@src/hongbosb/rollingball/EnvironmentGLEntity.java
+
+1 
+·ckage
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+;
+
+3 
+impÜt
+ 
+	gªdroid
+.
+	gut
+.*;
+
+4 
+impÜt
+ 
+	gªdroid
+.
+	gwidg‘
+.*;
+
+5 
+impÜt
+ 
+	gªdroid
+.
+	gv›w
+.*;
+
+6 
+impÜt
+ 
+	gªdroid
+.
+	gcÚ‹Á
+.*;
+
+7 
+impÜt
+ 
+	gªdroid
+.
+	g­p
+.*;
+
+8 
+impÜt
+ 
+	gªdroid
+.
+	gos
+.*;
+
+9 
+impÜt
+ 
+	gªdroid
+.
+	gd©aba£
+.*;
+
+10 
+impÜt
+ 
+	gªdroid
+.
+	gİ’gl
+.*;
+
+12 
+impÜt
+ 
+	gjava
+.
+	gut
+.*;
+
+13 
+impÜt
+ 
+	gjava
+.
+	gnio
+.*;
+
+15 
+impÜt
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+.
+	gN©u¿lCÚ¡ªts
+.*;
+
+17 
+public
+ cÏs 
+	cEnvœÚm’tGLEÁ™y
+ 
+ex‹nds
+ 
+	mGLEÁ™y
+ {
+
+19 
+´iv©e
+ 
+CÚ‹xt
+ 
+	mmCÚ‹xt
+;
+
+20 
+´Ùeùed
+ 
+	mmProg¿m
+;
+
+22 
+´iv©e
+ 
+FlßtBufãr
+ 
+	mmPosBufãr
+;
+
+24 
+´iv©e
+ 
+	mmaV”‹xPosHªdËr
+;
+
+26 
+public
+ 
+fš®
+ 
+	mTRIANGLE_POS_ARRAY
+[] = {
+
+32 
+public
+ 
+	$EnvœÚm’tGLEÁ™y
+(
+CÚ‹xt
+ 
+cÚ‹xt
+, 
+width
+, 
+height
+) {
+
+33 
+mCÚ‹xt
+ = 
+cÚ‹xt
+;
+
+35 
+Prog¿mLßd”
+ 
+lßd”
+ = 
+Ãw
+ 
+	`Prog¿mLßd”
+(
+cÚ‹xt
+, "environment_vertex_shader.glsl", "environment_fragment_shader.glsl");
+
+36 
+mProg¿m
+ = 
+lßd”
+.
+	`lßd
+();
+
+38 
+maV”‹xPosHªdËr
+ = 
+GLES20
+.
+	`glG‘A‰ribLoÿtiÚ
+(
+mProg¿m
+, "a_VertexPos");
+
+40 
+mPosBufãr
+ = 
+By‹Bufãr
+.
+	`®loÿ‹
+(4*2*
+FLOAT_SIZE
+)
+
+41 .
+	`Üd”
+(
+By‹Ord”
+.
+	`ÇtiveOrd”
+()).
+	`asFlßtBufãr
+();
+
+42 
+mPosBufãr
+.
+	`put
+(
+TRIANGLE_POS_ARRAY
+).
+	`pos™iÚ
+(0);
+
+43 
+	}
+}
+
+	@src/hongbosb/rollingball/GLEntity.java
+
+1 
+·ckage
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+;
+
+3 
+impÜt
+ 
+	gªdroid
+.
+	gcÚ‹Á
+.
+	gCÚ‹xt
+;
+
+5 
+public
+ 
+ab¡¿ù
+ cÏs 
+	cGLEÁ™y
+ {
+
+6 
+public
+ 
+ab¡¿ù
+ 
+d¿w
+();
+
+	@src/hongbosb/rollingball/GLException.java
+
+1 
+·ckage
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+;
+
+3 
+public
+ cÏs 
+	cGLExû±iÚ
+ 
+ex‹nds
+ 
+	mRuÁimeExû±iÚ
+ {
+
+	@src/hongbosb/rollingball/MainActivity.java
+
+1 
+·ckage
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+;
+
+3 
+impÜt
+ 
+	gªdroid
+.
+	g­p
+.
+	gAùiv™y
+;
+
+4 
+impÜt
+ 
+	gªdroid
+.
+	gos
+.
+	gBundË
+;
+
+6 
+public
+ cÏs 
+	cMašAùiv™y
+ 
+ex‹nds
+ 
+	mAùiv™y
+
+
+9 @
+Ov”ride
+
+
+10 
+public
+ 
+	$ÚC»©e
+(
+BundË
+ 
+§vedIn¡ªûS‹
+)
+
+12 
+su³r
+.
+	`ÚC»©e
+(
+§vedIn¡ªûS‹
+);
+
+13 
+MyGLSurçûV›w
+ 
+glV›w
+ = 
+Ãw
+ 
+	`MyGLSurçûV›w
+(
+this
+);
+
+14 
+	`£tCÚ‹ÁV›w
+(
+glV›w
+);
+
+16 
+	}
+}
+
+	@src/hongbosb/rollingball/MyGLSurfaceView.java
+
+1 
+·ckage
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+;
+
+3 
+impÜt
+ 
+	gªdroid
+.
+	gut
+.*;
+
+4 
+impÜt
+ 
+	gªdroid
+.
+	gwidg‘
+.*;
+
+5 
+impÜt
+ 
+	gªdroid
+.
+	gv›w
+.*;
+
+6 
+impÜt
+ 
+	gªdroid
+.
+	gcÚ‹Á
+.*;
+
+7 
+impÜt
+ 
+	gªdroid
+.
+	g­p
+.*;
+
+8 
+impÜt
+ 
+	gªdroid
+.
+	gos
+.*;
+
+9 
+impÜt
+ 
+	gªdroid
+.
+	gd©aba£
+.*;
+
+10 
+impÜt
+ 
+	gªdroid
+.
+	gÃt
+.*;
+
+11 
+impÜt
+ 
+	gªdroid
+.
+	gİ’gl
+.*;
+
+13 
+impÜt
+ 
+	gjava
+.
+	gut
+.*;
+
+15 
+public
+ cÏs 
+	cMyGLSurçûV›w
+ 
+ex‹nds
+ 
+	mGLSurçûV›w
+ {
+
+17 
+public
+ 
+	$MyGLSurçûV›w
+(
+CÚ‹xt
+ 
+cÚ‹xt
+) {
+
+18 
+	`su³r
+(
+cÚ‹xt
+);
+
+19 
+	`£tEGLCÚ‹xtCl›ÁV”siÚ
+(2);
+
+20 
+	`£tR’d””
+(
+Ãw
+ 
+	`MyR’d””
+(
+cÚ‹xt
+));
+
+22 
+	}
+}
+
+	@src/hongbosb/rollingball/MyRenderer.java
+
+1 
+·ckage
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+;
+
+3 
+impÜt
+ 
+	gªdroid
+.
+	gut
+.*;
+
+4 
+impÜt
+ 
+	gªdroid
+.
+	gwidg‘
+.*;
+
+5 
+impÜt
+ 
+	gªdroid
+.
+	gv›w
+.*;
+
+6 
+impÜt
+ 
+	gªdroid
+.
+	gcÚ‹Á
+.*;
+
+7 
+impÜt
+ 
+	gªdroid
+.
+	g­p
+.*;
+
+8 
+impÜt
+ 
+	gªdroid
+.
+	gos
+.*;
+
+9 
+impÜt
+ 
+	gªdroid
+.
+	gd©aba£
+.*;
+
+10 
+impÜt
+ 
+	gªdroid
+.
+	gÃt
+.*;
+
+11 
+impÜt
+ 
+	gªdroid
+.
+	gİ’gl
+.*;
+
+13 
+impÜt
+ 
+	gjava
+.
+	gut
+.*;
+
+14 
+impÜt
+ 
+	gjavax
+.
+	gmiüÛd™iÚ
+.
+	gkhrÚos
+.
+	gİ’gËs
+.*;
+
+15 
+impÜt
+ 
+	gjavax
+.
+	gmiüÛd™iÚ
+.
+	gkhrÚos
+.
+	gegl
+.*;
+
+17 
+public
+ 
+şass
+ 
+MyR’d””
+ 
+im¶em’ts
+ 
+	gGLSurçûV›w
+.
+	gR’d””
+ {
+
+19 
+CÚ‹xt
+ 
+	gmCÚ‹xt
+;
+
+21 
+EnvœÚm’tGLEÁ™y
+ 
+	gmEÁ™y
+;
+
+23 
+public
+ 
+MyR’d””
+(
+CÚ‹xt
+ 
+cÚ‹xt
+) {
+
+24 
+	gmCÚ‹xt
+ = 
+cÚ‹xt
+;
+
+27 
+public
+ 
+ÚSurçûC»©ed
+(
+GL10
+ 
+gl
+, 
+EGLCÚfig
+ 
+cÚfig
+) {
+
+30 
+public
+ 
+ÚSurçûChªged
+(
+GL10
+ 
+gl
+, 
+width
+, 
+height
+) {
+
+31 
+	gmEÁ™y
+ = 
+Ãw
+ 
+EnvœÚm’tGLEÁ™y
+(
+mCÚ‹xt
+, 
+width
+, 
+height
+);
+
+34 
+public
+ 
+ÚD¿wF¿me
+(
+GL10
+ 
+gl
+) {
+
+	@src/hongbosb/rollingball/NaturalConstants.java
+
+1 
+·ckage
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+;
+
+3 
+public
+ cÏs 
+	cN©u¿lCÚ¡ªts
+ {
+
+4 
+public
+ 
+fš®
+ 
+	mFLOAT_SIZE
+ = 4;
+
+	@src/hongbosb/rollingball/ProgramLoader.java
+
+1 
+·ckage
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+;
+
+3 
+impÜt
+ 
+	gªdroid
+.
+	gut
+.*;
+
+4 
+impÜt
+ 
+	gªdroid
+.
+	gwidg‘
+.*;
+
+5 
+impÜt
+ 
+	gªdroid
+.
+	gv›w
+.*;
+
+6 
+impÜt
+ 
+	gªdroid
+.
+	gcÚ‹Á
+.*;
+
+7 
+impÜt
+ 
+	gªdroid
+.
+	g­p
+.*;
+
+8 
+impÜt
+ 
+	gªdroid
+.
+	gos
+.*;
+
+9 
+impÜt
+ 
+	gªdroid
+.
+	gd©aba£
+.*;
+
+10 
+impÜt
+ 
+	gªdroid
+.
+	gİ’gl
+.*;
+
+12 
+impÜt
+ 
+	gjava
+.
+	gut
+.*;
+
+13 
+impÜt
+ 
+	gjava
+.
+	gio
+.*;
+
+15 
+public
+ cÏs 
+	cProg¿mLßd”
+ {
+
+16 
+public
+ 
+fš®
+ 
+SŒšg
+ 
+	mTAG
+ = "Utils";
+
+18 
+public
+ 
+fš®
+ 
+boŞ—n
+ 
+	mDEBUG
+ = 
+çl£
+;
+
+20 
+´iv©e
+ 
+SŒšg
+ 
+	mmV”‹xFe
+;
+
+21 
+´iv©e
+ 
+SŒšg
+ 
+	mmF¿gm’tFe
+;
+
+22 
+´iv©e
+ 
+CÚ‹xt
+ 
+	mmCÚ‹xt
+;
+
+24 
+public
+ 
+	$Prog¿mLßd”
+(
+CÚ‹xt
+ 
+cÚ‹xt
+, 
+SŒšg
+ 
+v”‹xFe
+, SŒšg 
+äagm’tFe
+) {
+
+25 
+mCÚ‹xt
+ = 
+cÚ‹xt
+;
+
+26 
+mV”‹xFe
+ = 
+v”‹xFe
+;
+
+27 
+mF¿gm’tFe
+ = 
+äagm’tFe
+;
+
+30 
+public
+ 
+	$lßd
+() {
+
+31 
+´og¿m
+ = 
+GLES20
+.
+	`glC»©eProg¿m
+();
+
+32 ià(
+´og¿m
+ == 0) {
+
+33 
+throw
+ 
+Ãw
+ 
+	`GLExû±iÚ
+();
+
+36 
+v”‹xHªdËr
+ = 
+	`lßdShad”
+(
+´og¿m
+, 
+mV”‹xFe
+, 
+GLES20
+.
+GL_VERTEX_SHADER
+);
+
+37 
+äagm’tHªdËr
+ = 
+	`lßdShad”
+(
+´og¿m
+, 
+mF¿gm’tFe
+, 
+GLES20
+.
+GL_FRAGMENT_SHADER
+);
+
+38 
+GLES20
+.
+	`glLškProg¿m
+(
+´og¿m
+);
+
+39 
+	`checkLškE¼Ü
+(
+´og¿m
+);
+
+40  
+´og¿m
+;
+
+41 
+	}
+}
+
+43 
+´iv©e
+ 
+	$lßdShad”
+(
+´og¿m
+, 
+SŒšg
+ 
+fe
+, 
+ty³
+) {
+
+44 
+shad”HªdËr
+ = 
+GLES20
+.
+	`glC»©eShad”
+(
+ty³
+);
+
+45 ià(
+shad”HªdËr
+ == 0) {
+
+46 
+throw
+ 
+Ãw
+ 
+	`GLExû±iÚ
+();
+
+49 
+SŒšg
+ 
+sourû
+ = 
+	`lßdSourû
+(
+fe
+);
+
+50 
+GLES20
+.
+	`glA‰achShad”
+(
+´og¿m
+, 
+shad”HªdËr
+);
+
+51 
+GLES20
+.
+	`glShad”Sourû
+(
+shad”HªdËr
+, 
+sourû
+);
+
+52 
+GLES20
+.
+	`glCompeShad”
+(
+shad”HªdËr
+);
+
+53 
+	`checkCompeE¼Ü
+(
+shad”HªdËr
+);
+
+54  
+shad”HªdËr
+;
+
+55 
+	}
+}
+
+57 
+´iv©e
+ 
+	$checkCompeE¼Ü
+(
+hªdËr
+) {
+
+58 [] 
+»suÉ
+ = 
+Ãw
+ [1];
+
+59 
+GLES20
+.
+	`glG‘Shad”iv
+(
+hªdËr
+, GLES20.
+GL_COMPILE_STATUS
+, 
+»suÉ
+, 0);
+
+60 ià(
+»suÉ
+[0] =ğ
+GLES20
+.
+GL_FALSE
+) {
+
+62 
+SŒšg
+ 
+log
+ = 
+GLES20
+.
+	`glG‘Shad”InfoLog
+(
+hªdËr
+);
+
+63 
+Log
+.
+	`d
+(
+TAG
+, "comp”rÜ:\n" + 
+log
+);
+
+64 
+GLES20
+.
+	`glD–‘eShad”
+(
+hªdËr
+);
+
+65 
+throw
+ 
+Ãw
+ 
+	`GLExû±iÚ
+();
+
+67 
+	}
+}
+
+69 
+´iv©e
+ 
+	$checkLškE¼Ü
+(
+´og¿m
+) {
+
+70 
+»suÉ
+[] = 
+Ãw
+ [1];
+
+71 
+GLES20
+.
+	`glG‘Prog¿miv
+(
+´og¿m
+, GLES20.
+GL_LINK_STATUS
+, 
+»suÉ
+, 0);
+
+72 ià(
+»suÉ
+[0] =ğ
+GLES20
+.
+GL_FALSE
+) {
+
+73 
+Log
+.
+	`d
+(
+TAG
+, "lškƒ¼Ü:\n" + 
+GLES20
+.
+	`glG‘Prog¿mInfoLog
+(
+´og¿m
+));
+
+74 
+GLES20
+.
+	`glD–‘eProg¿m
+(
+´og¿m
+);
+
+75 
+throw
+ 
+Ãw
+ 
+	`GLExû±iÚ
+();
+
+77 
+	}
+}
+
+79 
+´iv©e
+ 
+SŒšg
+ 
+	$lßdSourû
+(
+SŒšg
+ 
+feName
+) {
+
+80 
+Œy
+ {
+
+81 
+IÅutSŒ—m
+ 
+š
+ = 
+mCÚ‹xt
+.
+	`g‘As£ts
+().
+	`İ’
+(
+feName
+);
+
+82 
+Bufã»dR—d”
+ 
+»ad”
+ = 
+Ãw
+ 
+	`Bufã»dR—d”
+Òew 
+	`IÅutSŒ—mR—d”
+(
+š
+));
+
+83 
+SŒšgBufãr
+ 
+sb
+ = 
+Ãw
+ 
+	`SŒšgBufãr
+();
+
+84 
+SŒšg
+ 
+lše
+;
+
+85 (
+lše
+ = 
+»ad”
+.
+	`»adLše
+()è!ğ
+nuÎ
+) {
+
+86 
+sb
+.
+	`­³nd
+(
+lše
+);
+
+87 
+sb
+.
+	`­³nd
+('\n');
+
+90 ià(
+DEBUG
+) {
+
+91 
+Log
+.
+	`d
+(
+TAG
+, "sourû: " + 
+sb
+.
+	`toSŒšg
+());
+
+93  
+sb
+.
+	`toSŒšg
+();
+
+94 } 
+	`ÿtch
+ (
+IOExû±iÚ
+ 
+e
+) {
+
+95 
+e
+.
+	`´štSckT¿û
+();
+
+97  
+nuÎ
+;
+
+98 
+	}
+}
+
+	@src/hongbosb/rollingball/Utils.java
+
+1 
+·ckage
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+;
+
+3 
+impÜt
+ 
+	gªdroid
+.
+	gut
+.*;
+
+4 
+impÜt
+ 
+	gªdroid
+.
+	gwidg‘
+.*;
+
+5 
+impÜt
+ 
+	gªdroid
+.
+	gv›w
+.*;
+
+6 
+impÜt
+ 
+	gªdroid
+.
+	gcÚ‹Á
+.*;
+
+7 
+impÜt
+ 
+	gªdroid
+.
+	g­p
+.*;
+
+8 
+impÜt
+ 
+	gªdroid
+.
+	gos
+.*;
+
+9 
+impÜt
+ 
+	gªdroid
+.
+	gd©aba£
+.*;
+
+11 
+impÜt
+ 
+	gjava
+.
+	gut
+.*;
+
+13 
+public
+ cÏs 
+	cUts
+ {
+
+14 
+public
+ 
+	$lßdProg¿m
+(
+CÚ‹xt
+ 
+cÚ‹xt
+, 
+SŒšg
+ 
+v”‹xFe
+, SŒšg 
+shad”Fe
+) {
+
+17 
+	}
+}
+
+	@
+1
+.
+1
+/usr/include
+11
+462
+gen/hongbosb/rollingball/BuildConfig.java
+gen/hongbosb/rollingball/R.java
+src/hongbosb/rollingball/EnvironmentGLEntity.java
+src/hongbosb/rollingball/GLEntity.java
+src/hongbosb/rollingball/GLException.java
+src/hongbosb/rollingball/MainActivity.java
+src/hongbosb/rollingball/MyGLSurfaceView.java
+src/hongbosb/rollingball/MyRenderer.java
+src/hongbosb/rollingball/NaturalConstants.java
+src/hongbosb/rollingball/ProgramLoader.java
+src/hongbosb/rollingball/Utils.java

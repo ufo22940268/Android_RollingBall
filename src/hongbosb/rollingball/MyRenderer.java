@@ -18,7 +18,7 @@ public class MyRenderer implements GLSurfaceView.Renderer {
 
     Context mContext;
 
-    GLDrawable mEnvironment;
+    GLEnvironmentEntity mEntity;
 
     public MyRenderer(Context context) {
         mContext = context;
@@ -28,9 +28,10 @@ public class MyRenderer implements GLSurfaceView.Renderer {
     }
 
     public void onSurfaceChanged(GL10 gl, int width, int height) {
-        mEnvironment = new EnvironmentGLDrawable(mContext, width, height);
+        mEntity = new GLEnvironmentEntity(mContext, width, height);
     }
 
     public void onDrawFrame(GL10 gl) {
+        mEntity.draw();
     }
 }

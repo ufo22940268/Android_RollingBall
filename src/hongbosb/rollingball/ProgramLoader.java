@@ -12,21 +12,22 @@ import android.opengl.*;
 import java.util.*;
 import java.io.*;
 
-public class ProgramLoader {
-     public final String TAG = "Utils";
+public class ProgramLoader implements Loadable {
+    public final String TAG = "Utils";
 
-     static public final boolean DEBUG = true;
+    static public final boolean DEBUG = false;
 
-     private String mVertexFile;
-     private String mShaderFile;
-     private Context mContext;
+    private String mVertexFile;
+    private String mFragmentFile;
+    private Context mContext;
 
-     public ProgramLoader(Context context, String vertexFile, String shaderFile) {
-         mContext = context;
-         mVertexFile = vertexFile;
-         mShaderFile = shaderFile;
-     }
+    public ProgramLoader(Context context, String vertexFile, String fragmentFile) {
+        mContext = context;
+        mVertexFile = vertexFile;
+        mFragmentFile = fragmentFile;
+    }
 
+    @Override
     public int load() {
         int program = GLES20.glCreateProgram();
         if (program == 0) {
@@ -34,8 +35,9 @@ public class ProgramLoader {
         }
 
         int vertexHandler = loadShader(program, mVertexFile, GLES20.GL_VERTEX_SHADER);
-        //int fragmentHandler = loadShader(program, fragmentFile, GLES20.GL_FRAGMENT_SHADER);
-        //GLES20.glLinkProgram(program);
+        int fragmentHandler = loadShader(program, mFragmentFile, GLES20.GL_FRAGMENT_SHADER);
+        GLES20.glLinkProgram(program);
+        checkLinkError(program);
         return program;
     }
 
@@ -44,12 +46,10 @@ public class ProgramLoader {
         if (shaderHandler == 0) {
             throw new GLException();
         }
+
         String source = loadSource(file);
-        if (DEBUG) {
-            Log.d(TAG, "source: " + source);
-        }
         GLES20.glAttachShader(program, shaderHandler);
-        GLES20.glShaderSource(type, source);
+        GLES20.glShaderSource(shaderHandler, source);
         GLES20.glCompileShader(shaderHandler);
         checkCompileError(shaderHandler);
         return shaderHandler;
@@ -67,6 +67,16 @@ public class ProgramLoader {
         }
     }
 
+    private void checkLinkError(int program) {
+        int result[] = new int[1];
+        GLES20.glGetProgramiv(program, GLES20.GL_LINK_STATUS, result, 0);
+        if (result[0] == GLES20.GL_FALSE) {
+            Log.d(TAG, "link error:\n" + GLES20.glGetProgramInfoLog(program));
+            GLES20.glDeleteProgram(program);
+            throw new GLException();
+        }
+    }
+
     private String loadSource(String fileName) {
         try {
             InputStream in = mContext.getAssets().open(fileName);
@@ -76,6 +86,10 @@ public class ProgramLoader {
             while ((line = reader.readLine()) != null) {
                 sb.append(line);
                 sb.append('\n');
+            }
+
+            if (DEBUG) {
+                Log.d(TAG, "source: " + sb.toString());
             }
             return sb.toString();
         } catch (IOException e) {
