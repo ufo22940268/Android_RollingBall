@@ -252,7 +252,7 @@ public class GLEnvironmentEntity extends GLEntity {
         GLES20.glUniformMatrix4fv(muMVPMatrixHandler, 1, false, mMVPMatrix, 0);
 
         Matrix.setIdentityM(mLightModelMatrix, 0);
-        Matrix.translateM(mLightModelMatrix, 0, 0.0f, 0.0f, 2.8f);
+        Matrix.translateM(mLightModelMatrix, 0, 0.0f, 0.0f, 4.8f);
         Matrix.multiplyMV(mLightPosInWorldSpace, 0, mLightModelMatrix, 0, mLightPosInModelSpace, 0);
         Matrix.multiplyMV(mLightPosInEyeSpace, 0, mViewMatrix, 0, mLightPosInWorldSpace, 0);
         GLES20.glUniform3f(muLightPosHandler,

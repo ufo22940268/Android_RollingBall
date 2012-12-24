@@ -5,5 +5,5 @@ varying float v_Diffuse;
 varying vec4 v_Color;
 void main(void) 
 {
-    gl_FragColor = v_Color*v_Diffuse;
+    gl_FragColor = v_Color;
 }
