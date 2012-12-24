@@ -5,7 +5,7 @@ attribute vec3 a_Normal;
 
 uniform vec3 u_LightPos;
 uniform mat4 u_MVPMatrix;
-uniform mat4 u_VMatrix;
+uniform mat4 u_MVMatrix;
 
 varying vec2 v_TexCoord;
 varying float v_Diffuse;
@@ -13,8 +13,8 @@ varying vec4 v_Color;
 
 void main(void) 
 {
-    vec3 modelViewVertex = vec3(u_VMatrix*a_VertexPos);
-    vec3 modelViewNormal = vec3(u_VMatrix*vec4(a_Normal, 0));
+    vec3 modelViewVertex = vec3(u_MVMatrix*a_VertexPos);
+    vec3 modelViewNormal = vec3(u_MVMatrix*vec4(a_Normal, 0));
     vec3 lightVector = normalize(u_LightPos - modelViewVertex);
     float distant = length(u_LightPos - modelViewVertex);
     float diffuse = max(dot(modelViewNormal, lightVector), 0.1);

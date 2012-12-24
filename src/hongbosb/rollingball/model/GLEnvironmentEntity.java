@@ -35,7 +35,7 @@ public class GLEnvironmentEntity extends GLEntity {
     private int maVertexColorHandler;
     private int maNormalHandler;
     private int muMVPMatrixHandler;
-    private int muVMatrixHandler;
+    private int muMVMatrixHandler;
     private int muSamplerHandler;
     private int muLightPosHandler;
     private int mTextureHandler;
@@ -44,10 +44,11 @@ public class GLEnvironmentEntity extends GLEntity {
     private float[] mViewMatrix = new float[16];
     private float[] mModelMatrix = new float[16];
     private float[] mProjectionMatrix = new float[16];
+    private float[] mLightModelMatrix = new float[16];
 
     private float mViewX = 0.0f;
     private float mViewY = 0.0f;
-    private float mViewZ = 5.0f;
+    private float mViewZ = 3.0f;
 
     private float mRotateAngle = 0;
 
@@ -79,50 +80,50 @@ public class GLEnvironmentEntity extends GLEntity {
 
     static public final float NORMAL_ARRAY[] = {
         //Font face.
-        0.0f , 0.0f ,0.5f ,
-        0.0f , 0.0f ,0.5f ,
-        0.0f , 0.0f ,0.5f ,
-        0.0f , 0.0f  ,0.5f ,
+        0.0f, 0.0f, 0.5f,
+        0.0f, 0.0f, 0.5f,
+        0.0f, 0.0f, 0.5f,
+        0.0f, 0.0f, 0.5f,
 
         //Right face.
-       0.5f , 0.0f , 0.0f,
-       0.5f , 0.0f , 0.0f,
-       0.5f , 0.0f , 0.0f,
-       0.5f , 0.0f , 0.0f,
+        0.5f, 0.0f, 0.0f,
+        0.5f, 0.0f, 0.0f,
+        0.5f, 0.0f, 0.0f,
+        0.5f, 0.0f, 0.0f,
 
         //Background face.
-        0.0f , 0.0f , 0.5f ,
-        0.0f , 0.0f , 0.5f ,
-        0.0f , 0.0f , 0.5f ,
-        0.0f , 0.0f , 0.5f ,
+        0.0f, 0.0f, -0.5f,
+        0.0f, 0.0f, -0.5f,
+        0.0f, 0.0f, -0.5f,
+        0.0f, 0.0f, -0.5f,
 
         //Left face.
-        0.5f , 0.0f , 0.0f ,
-        0.5f , 0.0f , 0.0f ,
-        0.5f , 0.0f , 0.0f ,
-        0.5f , 0.0f , 0.0f ,
+        -0.5f, 0.0f, 0.0f,
+        -0.5f, 0.0f, 0.0f,
+        -0.5f, 0.0f, 0.0f,
+        -0.5f, 0.0f, 0.0f,
     };
 
     static public final float VERTEX_COLOR_ARRAY[] = {
-        1.0f, 0,0f, 0.0f, 1.0f,
-        1.0f, 0,0f, 0.0f, 1.0f,
-        1.0f, 0,0f, 0.0f, 1.0f,
-        1.0f, 0,0f, 0.0f, 1.0f,
+        1.0f, 0.0f, 0.0f, 1.0f,
+        1.0f, 0.0f, 0.0f, 1.0f,
+        1.0f, 0.0f, 0.0f, 1.0f,
+        1.0f, 0.0f, 0.0f, 1.0f,
 
-        0.0f, 1,0f, 0.0f, 1.0f,
-        0.0f, 1,0f, 0.0f, 1.0f,
-        0.0f, 1,0f, 0.0f, 1.0f,
-        0.0f, 1,0f, 0.0f, 1.0f,
+        0.0f, 1.0f, 0.0f, 1.0f,
+        0.0f, 1.0f, 0.0f, 1.0f,
+        0.0f, 1.0f, 0.0f, 1.0f,
+        0.0f, 1.0f, 0.0f, 1.0f,
 
-        0.0f, 0,0f, 1.0f, 1.0f,
-        0.0f, 0,0f, 1.0f, 1.0f,
-        0.0f, 0,0f, 1.0f, 1.0f,
-        0.0f, 0,0f, 1.0f, 1.0f,
+        0.0f, 0.0f, 1.0f, 1.0f,
+        0.0f, 0.0f, 1.0f, 1.0f,
+        0.0f, 0.0f, 1.0f, 1.0f,
+        0.0f, 0.0f, 1.0f, 1.0f,
 
-        1.0f, 0,0f, 0.0f, 1.0f,
-        1.0f, 0,0f, 0.0f, 1.0f,
-        1.0f, 0,0f, 0.0f, 1.0f,
-        1.0f, 0,0f, 0.0f, 1.0f,
+        1.0f, 1.0f, 0.0f, 1.0f,
+        1.0f, 1.0f, 0.0f, 1.0f,
+        1.0f, 1.0f, 0.0f, 1.0f,
+        1.0f, 1.0f, 0.0f, 1.0f,
     };
 
     static public final float TEXTURE_COORD_ARRAY[] = {
@@ -145,10 +146,11 @@ public class GLEnvironmentEntity extends GLEntity {
         0.0f , 1.0f ,
         1.0f , 0.0f ,
         1.0f , 1.0f ,
-
     };
 
-    static public final float LIGHT_POS_IN_MODEL_SPACE_ARRAY[] = {0.0f, 0.0f, 0.6f};
+    private float mLightPosInModelSpace[] = {0.0f, 0.0f, 0.0f, 1.0f};
+    private float mLightPosInEyeSpace[] = new float[4];
+    private float mLightPosInWorldSpace[] = new float[4];
 
     public GLEnvironmentEntity(Context context, int width, int height) {
         mContext = context;
@@ -156,7 +158,7 @@ public class GLEnvironmentEntity extends GLEntity {
         mWindowHeight = height;
 
         GLES20.glViewport(0, 0, width, height);
-        GLES20.glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+        GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
         //Init program.
         ProgramLoader pLoader = new ProgramLoader(context, "environment_vertex_shader.glsl", "environment_fragment_shader.glsl");
@@ -168,7 +170,7 @@ public class GLEnvironmentEntity extends GLEntity {
         maNormalHandler = GLES20.glGetAttribLocation(mProgram, "a_Normal");
 
         muMVPMatrixHandler = GLES20.glGetUniformLocation(mProgram, "u_MVPMatrix");
-        muVMatrixHandler = GLES20.glGetUniformLocation(mProgram, "u_VMatrix");
+        muMVMatrixHandler = GLES20.glGetUniformLocation(mProgram, "u_MVMatrix");
         muSamplerHandler = GLES20.glGetUniformLocation(mProgram, "u_Sampler");
         muLightPosHandler = GLES20.glGetUniformLocation(mProgram, "u_LightPos");
 
@@ -183,6 +185,9 @@ public class GLEnvironmentEntity extends GLEntity {
         mColorBuffer = ByteBuffer.allocateDirect(VERTEX_COLOR_ARRAY.length*FLOAT_SIZE)
             .order(ByteOrder.nativeOrder()).asFloatBuffer();
         mColorBuffer.put(VERTEX_COLOR_ARRAY).position(0);
+
+        Matrix.setLookAtM(mViewMatrix, 0,
+                mViewX, mViewY, mViewZ, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
 
         //Init texture.
         TextureLoader tLoader = new TextureLoader(context, R.drawable.wood_texture);
@@ -236,25 +241,24 @@ public class GLEnvironmentEntity extends GLEntity {
 
         Matrix.setIdentityM(mModelMatrix, 0);
         Matrix.setRotateM(mModelMatrix, 0, mRotateAngle, 0.0f, 1.0f, 0.0f);
-        Matrix.multiplyMM(mMVPMatrix, 0, mMVPMatrix, 0, mModelMatrix, 0);
 
-        Matrix.setLookAtM(mViewMatrix, 0,
-                mViewX, mViewY, mViewZ, 0.0f, 0.0f, 0.5f, 0.0f, 1.0f, 0.0f);
-        GLES20.glUniformMatrix4fv(muVMatrixHandler, 1, false, mViewMatrix, 0);
         Matrix.multiplyMM(mMVPMatrix, 0, mViewMatrix, 0, mModelMatrix, 0);
+        GLES20.glUniformMatrix4fv(muMVMatrixHandler, 1, false, mMVPMatrix, 0);
         
-
         Matrix.orthoM(mProjectionMatrix, 0,
-                -5.0f, 5.0f, -5.0f*((float)mWindowWidth/mWindowHeight), 5.0f*((float)mWindowHeight/mWindowWidth),
+                -2.0f*((float)mWindowWidth/mWindowHeight), 2.0f*((float)mWindowWidth/mWindowHeight), -2.0f, 2.0f,
                 1.0f, 10.0f);
         Matrix.multiplyMM(mMVPMatrix, 0, mProjectionMatrix, 0, mMVPMatrix, 0);
         GLES20.glUniformMatrix4fv(muMVPMatrixHandler, 1, false, mMVPMatrix, 0);
 
-        float[] lightPos = new float[16];
-        Matrix.setIdentityM(lightPos, 0);
-        Matrix.multiplyMM(lightPos, 0, mViewMatrix, 0, lightPos, 0);
-        //GLES20.glUniform4fv(muLightPosHandler, 3, lightPos, 0);
-        GLES20.glUniform3f(muLightPosHandler, lightPos[0], lightPos[1], lightPos[2]);
+        Matrix.setIdentityM(mLightModelMatrix, 0);
+        Matrix.translateM(mLightModelMatrix, 0, 0.0f, 0.0f, 2.8f);
+        Matrix.multiplyMV(mLightPosInWorldSpace, 0, mLightModelMatrix, 0, mLightPosInModelSpace, 0);
+        Matrix.multiplyMV(mLightPosInEyeSpace, 0, mViewMatrix, 0, mLightPosInWorldSpace, 0);
+        GLES20.glUniform3f(muLightPosHandler,
+                mLightPosInEyeSpace[0],
+                mLightPosInEyeSpace[1],
+                mLightPosInEyeSpace[2]);
 
         //Draw arrays.
         GLES20.glVertexAttribPointer(maTexCoordHandler,
