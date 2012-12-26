@@ -40,6 +40,7 @@ public class TextureLoader implements Loadable {
         options.inScaled = false;
         Bitmap bitmap = BitmapFactory.decodeResource(mContext.getResources(), mRes, options);
         GLUtils.texImage2D(GLES20.GL_TEXTURE_2D, 0, bitmap, 0);
+        //bitmap.recycle();
     }
 }
 

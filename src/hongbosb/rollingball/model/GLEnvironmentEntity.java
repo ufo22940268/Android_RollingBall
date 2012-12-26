@@ -19,9 +19,14 @@ import static hongbosb.rollingball.NaturalConstants.*;
 
 public class GLEnvironmentEntity extends GLEntity {
     
+    static public final float ROTATE_SCALE_FACTOR = 0.5f;
+
     private Context mContext;
     private int mWindowWidth;
     private int mWindowHeight;
+
+    private float mPreviousX;
+    private float mPreviousY;
 
     protected int mProgram; 
 
@@ -48,60 +53,43 @@ public class GLEnvironmentEntity extends GLEntity {
 
     private float mViewX = 0.0f;
     private float mViewY = 0.0f;
-    private float mViewZ = 3.0f;
+    private float mViewZ = 200.0f;
 
-    private float mRotateAngle = 0;
+    //Vertical rotate is the rotation around y axis.
+    private float mVerticalRotateAngle = -30.0f;
+
+    //Horizontal rotate is the rotation around x axis.
+    private float mHorizontalRotateAngle = 0.0f;
+
+    static public final float WALL_HEIGHT = 40;
+    static public final float WALL_WIDTH = 20;
 
     static public final float TRIANGLE_POS_ARRAY[] = {
-        //Font face.
-        -0.5f , 0.5f  , 0.5f ,
-        -0.5f , -0.5f , 0.5f ,
-        0.5f  , 0.5f  , 0.5f ,
-        0.5f  , -0.5f  , 0.5f ,
+        //Wall left top.
+        -100                    , 100                 , WALL_HEIGHT ,
+        -100                    , -100                , WALL_HEIGHT ,
+        -100 + WALL_WIDTH       , 100                 , WALL_HEIGHT ,
+        -100 + WALL_WIDTH       , -100                , WALL_HEIGHT ,
 
-        //Right face.
-        0.5f , 0.5f  , 0.5f ,
-        0.5f , -0.5f , 0.5f ,
-        0.5f , 0.5f  , -0.5f,
-        0.5f , -0.5f , -0.5f,
-
-        //Background face.
-        0.5f  , 0.5f  , -0.5f ,
-        0.5f  , -0.5f , -0.5f ,
-        -0.5f , 0.5f  , -0.5f ,
-        -0.5f , -0.5f , -0.5f ,
-
-        //Left face.
-        -0.5f , 0.5f  , -0.5f ,
-        -0.5f , -0.5f , -0.5f ,
-        -0.5f , 0.5f  , 0.5f  ,
-        -0.5f , -0.5f , 0.5f  ,
+        //Wall left inner face.
+        -100 + WALL_WIDTH       , 100 - WALL_WIDTH    , WALL_HEIGHT ,
+        -100 + WALL_WIDTH       , -(100 - WALL_WIDTH) , WALL_HEIGHT ,
+        -100 + WALL_WIDTH       , 100 - WALL_WIDTH    , 0           ,
+        -100 + WALL_WIDTH       , -(100 - WALL_WIDTH) , 0           ,
     };
 
     static public final float NORMAL_ARRAY[] = {
-        //Font face.
-        0.0f, 0.0f, 0.5f,
-        0.0f, 0.0f, 0.5f,
-        0.0f, 0.0f, 0.5f,
-        0.0f, 0.0f, 0.5f,
+        //Wall left top.
+        0.0f, 0.0f, 80.0f,
+        0.0f, 0.0f, 80.0f,
+        0.0f, 0.0f, 80.0f,
+        0.0f, 0.0f, 80.0f,
 
-        //Right face.
-        0.5f, 0.0f, 0.0f,
-        0.5f, 0.0f, 0.0f,
-        0.5f, 0.0f, 0.0f,
-        0.5f, 0.0f, 0.0f,
-
-        //Background face.
-        0.0f, 0.0f, -0.5f,
-        0.0f, 0.0f, -0.5f,
-        0.0f, 0.0f, -0.5f,
-        0.0f, 0.0f, -0.5f,
-
-        //Left face.
-        -0.5f, 0.0f, 0.0f,
-        -0.5f, 0.0f, 0.0f,
-        -0.5f, 0.0f, 0.0f,
-        -0.5f, 0.0f, 0.0f,
+        //Wall left inner face.
+        80.0f, 0.0f, 0.0f,
+        80.0f, 0.0f, 0.0f,
+        80.0f, 0.0f, 0.0f,
+        80.0f, 0.0f, 0.0f,
     };
 
     static public final float VERTEX_COLOR_ARRAY[] = {
@@ -200,21 +188,38 @@ public class GLEnvironmentEntity extends GLEntity {
         GLES20.glEnable(GLES20.GL_DEPTH_TEST);
         GLES20.glEnable(GLES20.GL_CULL_FACE);
 
-        startTimer();
+        //startTimer();
     }
 
     @Override
     public boolean onKeyDown(int keyCode) {
         if (keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
             mViewX += 0.3;
-            System.out.println("++++++++++++++++++++mViewX:" + mViewX + "++++++++++++++++++++");
             return true;
         } else if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
             mViewX -= 0.3;
-            System.out.println("++++++++++++++++++++mViewX:" + mViewX + "++++++++++++++++++++");
             return true;
         }
         return false;
+    }
+
+    private void rotate(float dVert, float dHori) {
+        mVerticalRotateAngle -= dVert;
+        mHorizontalRotateAngle += dHori;
+    }
+
+    @Override
+    public boolean onTouch(MotionEvent event) {
+        float x = event.getX();
+        float y = event.getY();
+        if (event.getAction() == MotionEvent.ACTION_MOVE) {
+            float dx = x - mPreviousX;
+            float dy = y - mPreviousY;
+            rotate(dx*ROTATE_SCALE_FACTOR, dy*ROTATE_SCALE_FACTOR);
+        }
+        mPreviousX = x;
+        mPreviousY = y;
+        return true;
     }
 
     private TimerTask mUpdatePosTimer = new TimerTask() {
@@ -224,7 +229,9 @@ public class GLEnvironmentEntity extends GLEntity {
         }
 
         private void updateData() {
-            mRotateAngle -= Math.PI/6;
+            //Actually, the unit of angle is degree. But because the short interval
+            //of timer task, so the animation appears just fine.
+            mVerticalRotateAngle -= Math.PI/6;
         }
     };
 
@@ -240,25 +247,24 @@ public class GLEnvironmentEntity extends GLEntity {
         GLES20.glUseProgram(mProgram);
 
         Matrix.setIdentityM(mModelMatrix, 0);
-        Matrix.setRotateM(mModelMatrix, 0, mRotateAngle, 0.0f, 1.0f, 0.0f);
+        Matrix.rotateM(mModelMatrix, 0, mVerticalRotateAngle, 0.0f, 1.0f, 0.0f);
+        Matrix.rotateM(mModelMatrix, 0, mHorizontalRotateAngle, 1.0f, 0.0f, 0.0f);
 
         Matrix.multiplyMM(mMVPMatrix, 0, mViewMatrix, 0, mModelMatrix, 0);
         GLES20.glUniformMatrix4fv(muMVMatrixHandler, 1, false, mMVPMatrix, 0);
         
         Matrix.orthoM(mProjectionMatrix, 0,
-                -2.0f*((float)mWindowWidth/mWindowHeight), 2.0f*((float)mWindowWidth/mWindowHeight), -2.0f, 2.0f,
-                1.0f, 10.0f);
+                -250.0f*((float)mWindowWidth/mWindowHeight), 250.0f*((float)mWindowWidth/mWindowHeight), -250.0f, 250.0f,
+                0.5f, 300.0f);
         Matrix.multiplyMM(mMVPMatrix, 0, mProjectionMatrix, 0, mMVPMatrix, 0);
         GLES20.glUniformMatrix4fv(muMVPMatrixHandler, 1, false, mMVPMatrix, 0);
 
         Matrix.setIdentityM(mLightModelMatrix, 0);
-        Matrix.translateM(mLightModelMatrix, 0, 0.0f, 0.0f, 4.8f);
+        Matrix.translateM(mLightModelMatrix, 0, 0.0f, 0.0f, 180.0f);
         Matrix.multiplyMV(mLightPosInWorldSpace, 0, mLightModelMatrix, 0, mLightPosInModelSpace, 0);
         Matrix.multiplyMV(mLightPosInEyeSpace, 0, mViewMatrix, 0, mLightPosInWorldSpace, 0);
-        GLES20.glUniform3f(muLightPosHandler,
-                mLightPosInEyeSpace[0],
-                mLightPosInEyeSpace[1],
-                mLightPosInEyeSpace[2]);
+        GLES20.glUniform3fv(muLightPosHandler, 1, mLightPosInEyeSpace, 0);
+
 
         //Draw arrays.
         GLES20.glVertexAttribPointer(maTexCoordHandler,
@@ -280,7 +286,7 @@ public class GLEnvironmentEntity extends GLEntity {
 
         GLES20.glDrawArrays(GLES20.GL_TRIANGLE_STRIP, 0, 4);
         GLES20.glDrawArrays(GLES20.GL_TRIANGLE_STRIP, 4, 4);
-        GLES20.glDrawArrays(GLES20.GL_TRIANGLE_STRIP, 8, 4);
-        GLES20.glDrawArrays(GLES20.GL_TRIANGLE_STRIP, 12, 4);
+        //GLES20.glDrawArrays(GLES20.GL_TRIANGLE_STRIP, 8, 4);
+        //GLES20.glDrawArrays(GLES20.GL_TRIANGLE_STRIP, 12, 4);
     }
 }

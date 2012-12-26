@@ -16,7 +16,7 @@ import javax.microedition.khronos.opengles.*;
 
 import hongbosb.rollingball.model.*;
 
-public class MyGLSurfaceView extends GLSurfaceView implements GLEventListener {
+public class MyGLSurfaceView extends GLSurfaceView implements GLInputable {
 
     private MyRenderer mRender;
 
@@ -32,7 +32,12 @@ public class MyGLSurfaceView extends GLSurfaceView implements GLEventListener {
         return true;
     }
 
-    public class MyRenderer implements GLSurfaceView.Renderer, GLEventListener {
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        return mRender.onTouch(event);
+    }
+
+    public class MyRenderer implements GLSurfaceView.Renderer, GLInputable {
 
         private Context mContext;
 
@@ -55,8 +60,17 @@ public class MyGLSurfaceView extends GLSurfaceView implements GLEventListener {
 
         @Override
         public boolean onKeyDown(int keyCode) {
-            mEntity.onKeyDown(keyCode);
-            return true;
+            if (mEntity != null) {
+                return mEntity.onKeyDown(keyCode);
+            }
+            return false;
+        }
+
+        public boolean onTouch(MotionEvent event) {
+            if (mEntity != null) {
+                return mEntity.onTouch(event);
+            }
+            return false;
         }
     }
 }

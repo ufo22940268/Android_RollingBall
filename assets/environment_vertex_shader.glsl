@@ -19,7 +19,6 @@ void main(void)
     float distant = length(u_LightPos - modelViewVertex);
     float diffuse = max(dot(modelViewNormal, lightVector), 0.1);
     diffuse = diffuse * (1.0 / (1.0 + (0.3 * distant)));
-    /*v_Diffuse = diffuse;*/
     v_Color = a_Color * diffuse;
 
     gl_Position = u_MVPMatrix*a_VertexPos;
