@@ -14,6 +14,7 @@ import java.nio.*;
 
 import hongbosb.rollingball.util.*;
 import hongbosb.rollingball.*;
+import hongbosb.rollingball.data.*;
 
 import static hongbosb.rollingball.NaturalConstants.*;
 
@@ -61,81 +62,6 @@ public class GLEnvironmentEntity extends GLEntity {
     //Horizontal rotate is the rotation around x axis.
     private float mHorizontalRotateAngle = 0.0f;
 
-    static public final float WALL_HEIGHT = 40;
-    static public final float WALL_WIDTH = 20;
-
-    static public final float TRIANGLE_POS_ARRAY[] = {
-        //Wall left top.
-        -100                    , 100                 , WALL_HEIGHT ,
-        -100                    , -100                , WALL_HEIGHT ,
-        -100 + WALL_WIDTH       , 100                 , WALL_HEIGHT ,
-        -100 + WALL_WIDTH       , -100                , WALL_HEIGHT ,
-
-        //Wall left inner face.
-        -100 + WALL_WIDTH       , 100 - WALL_WIDTH    , WALL_HEIGHT ,
-        -100 + WALL_WIDTH       , -(100 - WALL_WIDTH) , WALL_HEIGHT ,
-        -100 + WALL_WIDTH       , 100 - WALL_WIDTH    , 0           ,
-        -100 + WALL_WIDTH       , -(100 - WALL_WIDTH) , 0           ,
-    };
-
-    static public final float NORMAL_ARRAY[] = {
-        //Wall left top.
-        0.0f, 0.0f, 80.0f,
-        0.0f, 0.0f, 80.0f,
-        0.0f, 0.0f, 80.0f,
-        0.0f, 0.0f, 80.0f,
-
-        //Wall left inner face.
-        80.0f, 0.0f, 0.0f,
-        80.0f, 0.0f, 0.0f,
-        80.0f, 0.0f, 0.0f,
-        80.0f, 0.0f, 0.0f,
-    };
-
-    static public final float VERTEX_COLOR_ARRAY[] = {
-        1.0f, 0.0f, 0.0f, 1.0f,
-        1.0f, 0.0f, 0.0f, 1.0f,
-        1.0f, 0.0f, 0.0f, 1.0f,
-        1.0f, 0.0f, 0.0f, 1.0f,
-
-        0.0f, 1.0f, 0.0f, 1.0f,
-        0.0f, 1.0f, 0.0f, 1.0f,
-        0.0f, 1.0f, 0.0f, 1.0f,
-        0.0f, 1.0f, 0.0f, 1.0f,
-
-        0.0f, 0.0f, 1.0f, 1.0f,
-        0.0f, 0.0f, 1.0f, 1.0f,
-        0.0f, 0.0f, 1.0f, 1.0f,
-        0.0f, 0.0f, 1.0f, 1.0f,
-
-        1.0f, 1.0f, 0.0f, 1.0f,
-        1.0f, 1.0f, 0.0f, 1.0f,
-        1.0f, 1.0f, 0.0f, 1.0f,
-        1.0f, 1.0f, 0.0f, 1.0f,
-    };
-
-    static public final float TEXTURE_COORD_ARRAY[] = {
-        0.0f , 0.0f ,
-        0.0f , 1.0f ,
-        1.0f , 0.0f ,
-        1.0f , 1.0f ,
-
-        0.0f , 0.0f ,
-        0.0f , 1.0f ,
-        1.0f , 0.0f ,
-        1.0f , 1.0f ,
-
-        0.0f , 0.0f ,
-        0.0f , 1.0f ,
-        1.0f , 0.0f ,
-        1.0f , 1.0f ,
-
-        0.0f , 0.0f ,
-        0.0f , 1.0f ,
-        1.0f , 0.0f ,
-        1.0f , 1.0f ,
-    };
-
     private float mLightPosInModelSpace[] = {0.0f, 0.0f, 0.0f, 1.0f};
     private float mLightPosInEyeSpace[] = new float[4];
     private float mLightPosInWorldSpace[] = new float[4];
@@ -149,7 +75,9 @@ public class GLEnvironmentEntity extends GLEntity {
         GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
         //Init program.
-        ProgramLoader pLoader = new ProgramLoader(context, "environment_vertex_shader.glsl", "environment_fragment_shader.glsl");
+        String[] attribs = {"a_VertexPos", "a_TexCoord", "a_Color", "a_Normal",};
+        ProgramLoader pLoader = new ProgramLoader(context,
+                "environment_vertex_shader.glsl", "environment_fragment_shader.glsl", attribs );
         mProgram = pLoader.load();
 
         maVertexPosHandler = GLES20.glGetAttribLocation(mProgram, "a_VertexPos");
@@ -162,17 +90,17 @@ public class GLEnvironmentEntity extends GLEntity {
         muSamplerHandler = GLES20.glGetUniformLocation(mProgram, "u_Sampler");
         muLightPosHandler = GLES20.glGetUniformLocation(mProgram, "u_LightPos");
 
-        mPosBuffer = ByteBuffer.allocateDirect(TRIANGLE_POS_ARRAY.length*FLOAT_SIZE)
+        mPosBuffer = ByteBuffer.allocateDirect(EnvironmentData.TRIANGLE_POS_ARRAY.length*FLOAT_SIZE)
             .order(ByteOrder.nativeOrder()).asFloatBuffer();
-        mPosBuffer.put(TRIANGLE_POS_ARRAY).position(0);
+        mPosBuffer.put(EnvironmentData.TRIANGLE_POS_ARRAY).position(0);
 
-        mNormalBuffer = ByteBuffer.allocateDirect(NORMAL_ARRAY.length*FLOAT_SIZE)
+        mNormalBuffer = ByteBuffer.allocateDirect(EnvironmentData.NORMAL_ARRAY.length*FLOAT_SIZE)
                 .order(ByteOrder.nativeOrder()).asFloatBuffer();
-        mNormalBuffer.put(NORMAL_ARRAY).position(0);
+        mNormalBuffer.put(EnvironmentData.NORMAL_ARRAY).position(0);
 
-        mColorBuffer = ByteBuffer.allocateDirect(VERTEX_COLOR_ARRAY.length*FLOAT_SIZE)
+        mColorBuffer = ByteBuffer.allocateDirect(EnvironmentData.VERTEX_COLOR_ARRAY.length*FLOAT_SIZE)
             .order(ByteOrder.nativeOrder()).asFloatBuffer();
-        mColorBuffer.put(VERTEX_COLOR_ARRAY).position(0);
+        mColorBuffer.put(EnvironmentData.VERTEX_COLOR_ARRAY).position(0);
 
         Matrix.setLookAtM(mViewMatrix, 0,
                 mViewX, mViewY, mViewZ, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
@@ -181,9 +109,9 @@ public class GLEnvironmentEntity extends GLEntity {
         TextureLoader tLoader = new TextureLoader(context, R.drawable.wood_texture);
         mTextureHandler = tLoader.load();
 
-        mTexCoordBuffer = ByteBuffer.allocateDirect(TEXTURE_COORD_ARRAY.length*FLOAT_SIZE)
+        mTexCoordBuffer = ByteBuffer.allocateDirect(EnvironmentData.TEXTURE_COORD_ARRAY.length*FLOAT_SIZE)
                 .order(ByteOrder.nativeOrder()).asFloatBuffer();
-        mTexCoordBuffer.put(TEXTURE_COORD_ARRAY).position(0);
+        mTexCoordBuffer.put(EnvironmentData.TEXTURE_COORD_ARRAY).position(0);
 
         GLES20.glEnable(GLES20.GL_DEPTH_TEST);
         GLES20.glEnable(GLES20.GL_CULL_FACE);
@@ -204,7 +132,7 @@ public class GLEnvironmentEntity extends GLEntity {
     }
 
     private void rotate(float dVert, float dHori) {
-        mVerticalRotateAngle -= dVert;
+        mVerticalRotateAngle += dVert;
         mHorizontalRotateAngle += dHori;
     }
 
@@ -284,9 +212,10 @@ public class GLEnvironmentEntity extends GLEntity {
                 3, GLES20.GL_FLOAT, false, 0, mNormalBuffer);
         GLES20.glEnableVertexAttribArray(maNormalHandler);
 
-        GLES20.glDrawArrays(GLES20.GL_TRIANGLE_STRIP, 0, 4);
-        GLES20.glDrawArrays(GLES20.GL_TRIANGLE_STRIP, 4, 4);
-        //GLES20.glDrawArrays(GLES20.GL_TRIANGLE_STRIP, 8, 4);
-        //GLES20.glDrawArrays(GLES20.GL_TRIANGLE_STRIP, 12, 4);
+        int offset = 0;
+        for (int count : EnvironmentData.ITEMS_VERTEX_COUNT) {
+            GLES20.glDrawArrays(GLES20.GL_TRIANGLE_STRIP, offset, count);
+            offset += count;
+        }
     }
 }

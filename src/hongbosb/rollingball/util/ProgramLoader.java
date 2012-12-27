@@ -22,11 +22,20 @@ public class ProgramLoader implements Loadable {
     private String mVertexFile;
     private String mFragmentFile;
     private Context mContext;
+    private String[] mAttribNames;
 
-    public ProgramLoader(Context context, String vertexFile, String fragmentFile) {
+    public ProgramLoader(Context context, String vertexFile, String fragmentFile, String[] attribs) {
         mContext = context;
         mVertexFile = vertexFile;
         mFragmentFile = fragmentFile;
+        mAttribNames = attribs;
+    }
+
+    private void bindAttribs(int program) {
+        for (int i = 0; i < mAttribNames.length; i ++) {
+            String attrib = mAttribNames[i];
+            GLES20.glBindAttribLocation(program, i, attrib);
+        }
     }
 
     @Override
@@ -35,6 +44,8 @@ public class ProgramLoader implements Loadable {
         if (program == 0) {
             throw new GLException(0);
         }
+
+        bindAttribs(program);
 
         int vertexHandler = loadShader(program, mVertexFile, GLES20.GL_VERTEX_SHADER);
         int fragmentHandler = loadShader(program, mFragmentFile, GLES20.GL_FRAGMENT_SHADER);
