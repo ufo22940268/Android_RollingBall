@@ -57,14 +57,18 @@ public class GLEnvironmentEntity extends GLEntity {
     private float mViewZ = 200.0f;
 
     //Vertical rotate is the rotation around y axis.
-    private float mVerticalRotateAngle = -30.0f;
+    private float mVerticalRotateAngle = 0.0f;
 
     //Horizontal rotate is the rotation around x axis.
     private float mHorizontalRotateAngle = 0.0f;
 
+    private float mLightRotateAngle = 0.0f;
+
     private float mLightPosInModelSpace[] = {0.0f, 0.0f, 0.0f, 1.0f};
     private float mLightPosInEyeSpace[] = new float[4];
     private float mLightPosInWorldSpace[] = new float[4];
+
+    private Sphere mSphere;
 
     public GLEnvironmentEntity(Context context, int width, int height) {
         mContext = context;
@@ -117,6 +121,8 @@ public class GLEnvironmentEntity extends GLEntity {
         GLES20.glEnable(GLES20.GL_CULL_FACE);
 
         //startTimer();
+        //TODO
+        mSphere = new Sphere(100, 3);
     }
 
     @Override
@@ -159,7 +165,9 @@ public class GLEnvironmentEntity extends GLEntity {
         private void updateData() {
             //Actually, the unit of angle is degree. But because the short interval
             //of timer task, so the animation appears just fine.
-            mVerticalRotateAngle -= Math.PI/6;
+            //mVerticalRotateAngle -= Math.PI/6;
+
+            mLightRotateAngle -= 0.5;
         }
     };
 
@@ -182,13 +190,18 @@ public class GLEnvironmentEntity extends GLEntity {
         GLES20.glUniformMatrix4fv(muMVMatrixHandler, 1, false, mMVPMatrix, 0);
         
         Matrix.orthoM(mProjectionMatrix, 0,
-                -250.0f*((float)mWindowWidth/mWindowHeight), 250.0f*((float)mWindowWidth/mWindowHeight), -250.0f, 250.0f,
+                -250.0f*((float)mWindowWidth/mWindowHeight),
+                250.0f*((float)mWindowWidth/mWindowHeight),
+                -250.0f,
+                250.0f,
                 0.5f, 300.0f);
         Matrix.multiplyMM(mMVPMatrix, 0, mProjectionMatrix, 0, mMVPMatrix, 0);
         GLES20.glUniformMatrix4fv(muMVPMatrixHandler, 1, false, mMVPMatrix, 0);
 
         Matrix.setIdentityM(mLightModelMatrix, 0);
-        Matrix.translateM(mLightModelMatrix, 0, 0.0f, 0.0f, 180.0f);
+        Matrix.rotateM(mLightModelMatrix, 0, mLightRotateAngle, 0.0f, 1.0f, 0.0f);
+        Matrix.translateM(mLightModelMatrix, 0, 0.0f, 0.0f, 300.0f);
+
         Matrix.multiplyMV(mLightPosInWorldSpace, 0, mLightModelMatrix, 0, mLightPosInModelSpace, 0);
         Matrix.multiplyMV(mLightPosInEyeSpace, 0, mViewMatrix, 0, mLightPosInWorldSpace, 0);
         GLES20.glUniform3fv(muLightPosHandler, 1, mLightPosInEyeSpace, 0);
@@ -204,18 +217,19 @@ public class GLEnvironmentEntity extends GLEntity {
                 4, GLES20.GL_FLOAT, false, 0, mColorBuffer);
         GLES20.glEnableVertexAttribArray(maVertexColorHandler);
         
-        GLES20.glVertexAttribPointer(maVertexPosHandler,
-                3, GLES20.GL_FLOAT, false, 0, mPosBuffer);
-        GLES20.glEnableVertexAttribArray(maVertexPosHandler);
+        //GLES20.glVertexAttribPointer(maVertexPosHandler,
+                //3, GLES20.GL_FLOAT, false, 0, mPosBuffer);
+        //GLES20.glEnableVertexAttribArray(maVertexPosHandler);
         
-        GLES20.glVertexAttribPointer(maNormalHandler,
-                3, GLES20.GL_FLOAT, false, 0, mNormalBuffer);
-        GLES20.glEnableVertexAttribArray(maNormalHandler);
+        //GLES20.glVertexAttribPointer(maNormalHandler,
+                //3, GLES20.GL_FLOAT, false, 0, mNormalBuffer);
+        //GLES20.glEnableVertexAttribArray(maNormalHandler);
 
-        int offset = 0;
-        for (int count : EnvironmentData.ITEMS_VERTEX_COUNT) {
-            GLES20.glDrawArrays(GLES20.GL_TRIANGLE_STRIP, offset, count);
-            offset += count;
-        }
+        //int offset = 0;
+        //for (int count : EnvironmentData.ITEMS_VERTEX_COUNT) {
+            //GLES20.glDrawArrays(GLES20.GL_TRIANGLE_STRIP, offset, count);
+            //offset += count;
+        //}
+        mSphere.draw(maVertexPosHandler, maNormalHandler);
     }
 }

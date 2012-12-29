@@ -15,69 +15,58 @@ import java.util.*;
 import java.io.*;
 import java.nio.*;
 
-//This code is copied from http://stackoverflow.com/questions/6072308/problem-drawing-a-sphere-in-opengl-es
 public class Sphere {
 
-    static private FloatBuffer sphereVertex;
-    static private FloatBuffer sphereNormal;
-    static float sphere_parms[]=new float[3];
+    static public final double TO_RADIANS = Math.PI/180;
 
-    double mRaduis;
-    double mStep;
-    float mVertices[];
-    private static double DEG = Math.PI/180;
-    int mPoints;
+    private int mPointCount;
+    private FloatBuffer mPointBuffer;
+    private FloatBuffer mNormalBuffer;
+
+    public Sphere(float radius, int degreeStep) {
+        build(radius, degreeStep);
+    }
 
     /**
-     * The value of step will define the size of each facet as well as the number of facets
-     *  
-     * @param radius
-     * @param step
+     * x = rho*sin(phi)*cos(theta)
+     * y = rho*sin(phi)*sin(theta)
+     * z = rho*cos(phi)
      */
+    private void build(float radius, int degreeStep) {
+        float radiansStep = (float)(degreeStep*TO_RADIANS);
+        //int bufferSize = ((int)(Math.PI/radiansStep + 1) + (int)(Math.PI*2/radiansStep + 1))*3;
+        int bufferSize = 400000;
+        mPointBuffer = ByteBuffer.allocateDirect(bufferSize)
+                .order(ByteOrder.nativeOrder()).asFloatBuffer();
+        mNormalBuffer = ByteBuffer.allocateDirect(bufferSize).order(ByteOrder.nativeOrder()).asFloatBuffer();
+        int count = 0;
+        for (float phi = 0; phi <= Math.PI; phi += radiansStep) {
+            for (float theta = 0; theta <= 2*Math.PI; theta += radiansStep) {
+                mPointBuffer.put((float)(radius*Math.sin(phi)*Math.cos(theta))); //x
+                mPointBuffer.put((float)(radius*Math.sin(phi)*Math.sin(theta))); //y
+                mPointBuffer.put((float)(radius*Math.cos(phi))); //z
 
-    public Sphere( float radius, double step) {
-        this.mRaduis = radius;
-        this.mStep = step;
-        //sphereVertex = FloatBuffer.allocate(40000);
-        sphereVertex = ByteBuffer.allocateDirect(40000).order(ByteOrder.nativeOrder()).asFloatBuffer();
-        mPoints = build();
-    }
+                mNormalBuffer.put((float)(Math.sin(phi)*Math.cos(theta))); //x
+                mNormalBuffer.put((float)(Math.sin(phi)*Math.sin(theta))); //y
+                mNormalBuffer.put((float)(Math.cos(phi))); //z
 
-    public void draw(int vertexHandler) {
-        //gl.glFrontFace(GL10.GL_CW);
-        //gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
-        //gl.glVertexPointer(3, GL10.GL_FLOAT, 0, sphereVertex);
-        //gl.glDrawArrays(GL10.GL_POINTS, 0, mPoints);
-
-        GLES20.glFrontFace(GLES20.GL_CW);
-        GLES20.glVertexAttribPointer(vertexHandler,
-                3, GLES20.GL_FLOAT, false, 0, sphereVertex);
-        GLES20.glEnableVertexAttribArray(vertexHandler);
-        GLES20.glDrawArrays(GLES20.GL_POINTS, 0, mPoints);
-    }
-
-    private int build() {
-
-        /**
-         * x = p * sin(phi) * cos(theta)
-         * y = p * sin(phi) * sin(theta)
-         * z = p * cos(phi)
-         */
-        double dTheta = mStep * DEG;
-        double dPhi = dTheta;
-        int points = 0;
-
-        for(double phi = -(Math.PI/2); phi <= Math.PI/2; phi+=dPhi) {
-            //for each stage calculating the slices
-            for(double theta = 0.0; theta <= (Math.PI * 2); theta+=dTheta) {
-                sphereVertex.put((float) (mRaduis * Math.sin(phi) * Math.cos(theta)) );
-                sphereVertex.put((float) (mRaduis * Math.sin(phi) * Math.sin(theta)) );
-                sphereVertex.put((float) (mRaduis * Math.cos(phi)) );
-                points++;
-
+                count += 1;
             }
         }
-        sphereVertex.position(0);
-        return points;
+        mPointBuffer.position(0);
+        mNormalBuffer.position(0);
+        mPointCount = count;
+    }
+
+    public void draw(int posHandler, int normalHandler) {
+        GLES20.glVertexAttribPointer(posHandler,
+                3, GLES20.GL_FLOAT, false, 0, mPointBuffer);
+        GLES20.glEnableVertexAttribArray(posHandler);
+
+        GLES20.glVertexAttribPointer(normalHandler,
+                3, GLES20.GL_FLOAT, false, 0, mNormalBuffer);
+        GLES20.glEnableVertexAttribArray(normalHandler);
+
+        GLES20.glDrawArrays(GLES20.GL_TRIANGLE_FAN, 0, mPointCount);
     }
 }
