@@ -23,8 +23,6 @@ public class GLEnvironmentEntity extends GLEntity {
     static public final float ROTATE_SCALE_FACTOR = 0.5f;
 
     private Context mContext;
-    private int mWindowWidth;
-    private int mWindowHeight;
 
     private float mPreviousX;
     private float mPreviousY;
@@ -50,7 +48,6 @@ public class GLEnvironmentEntity extends GLEntity {
     private float[] mViewMatrix = new float[16];
     private float[] mModelMatrix = new float[16];
     private float[] mProjectionMatrix = new float[16];
-    private float[] mLightModelMatrix = new float[16];
 
     private float mViewX = 0.0f;
     private float mViewY = 0.0f;
@@ -64,16 +61,12 @@ public class GLEnvironmentEntity extends GLEntity {
 
     private float mLightRotateAngle = 0.0f;
 
-    private float mLightPosInModelSpace[] = {0.0f, 0.0f, 0.0f, 1.0f};
-    private float mLightPosInEyeSpace[] = new float[4];
-    private float mLightPosInWorldSpace[] = new float[4];
-
     private Sphere mSphere;
 
     public GLEnvironmentEntity(Context context, int width, int height) {
         mContext = context;
-        mWindowWidth = width;
-        mWindowHeight = height;
+        SharedData.mWindowWidth = width;
+        SharedData.mWindowHeight = height;
 
         GLES20.glViewport(0, 0, width, height);
         GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
@@ -106,15 +99,8 @@ public class GLEnvironmentEntity extends GLEntity {
             .order(ByteOrder.nativeOrder()).asFloatBuffer();
         mColorBuffer.put(EnvironmentData.VERTEX_COLOR_ARRAY).position(0);
 
-        Matrix.orthoM(mProjectionMatrix, 0,
-                -250.0f*((float)mWindowWidth/mWindowHeight),
-                250.0f*((float)mWindowWidth/mWindowHeight),
-                -250.0f,
-                250.0f,
-                0.5f, 300.0f);
-
-        Matrix.setLookAtM(mViewMatrix, 0,
-                mViewX, mViewY, mViewZ, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
+        mProjectionMatrix = CommonUtils.initProjectionMatrix();
+        mViewMatrix = CommonUtils.initViewMatrix();
 
         //Init texture.
         TextureLoader tLoader = new TextureLoader(context, R.drawable.wood_texture);
@@ -199,14 +185,7 @@ public class GLEnvironmentEntity extends GLEntity {
         Matrix.multiplyMM(mMVPMatrix, 0, mProjectionMatrix, 0, mMVPMatrix, 0);
         GLES20.glUniformMatrix4fv(muMVPMatrixHandler, 1, false, mMVPMatrix, 0);
 
-        Matrix.setIdentityM(mLightModelMatrix, 0);
-        Matrix.rotateM(mLightModelMatrix, 0, mLightRotateAngle, 0.0f, 1.0f, 0.0f);
-        Matrix.translateM(mLightModelMatrix, 0, 0.0f, 0.0f, 200.0f);
-
-        Matrix.multiplyMV(mLightPosInWorldSpace, 0, mLightModelMatrix, 0, mLightPosInModelSpace, 0);
-        Matrix.multiplyMV(mLightPosInEyeSpace, 0, mViewMatrix, 0, mLightPosInWorldSpace, 0);
-        GLES20.glUniform3fv(muLightPosHandler, 1, mLightPosInEyeSpace, 0);
-
+        GLES20.glUniform3fv(muLightPosHandler, 1, CommonUtils.initLightVector(), 0);
 
         //Draw arrays.
         GLES20.glVertexAttribPointer(maTexCoordHandler,

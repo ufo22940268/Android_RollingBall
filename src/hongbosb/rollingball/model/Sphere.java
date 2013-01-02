@@ -52,10 +52,10 @@ public class Sphere {
                 mNormalBuffer.put((float)(Math.sin(phi)*Math.sin(theta))); //y
                 mNormalBuffer.put((float)(Math.cos(phi))); //z
 
-                mColorBuffer.put((float)0x66/0xff); //y
-                mColorBuffer.put((float)0xcc/0xff); //y
-                mColorBuffer.put((float)0xff/0xff); //y
-                mColorBuffer.put((float)0xff/0xff); //y
+                mColorBuffer.put((float)0x66/0xff);
+                mColorBuffer.put((float)0xcc/0xff);
+                mColorBuffer.put((float)0xff/0xff);
+                mColorBuffer.put((float)0xff/0xff);
 
                 count += 1;
             }
