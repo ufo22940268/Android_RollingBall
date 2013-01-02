@@ -21,6 +21,7 @@ public class Sphere {
 
     private int mPointCount;
     private FloatBuffer mPointBuffer;
+    private FloatBuffer mColorBuffer;
     private FloatBuffer mNormalBuffer;
 
     public Sphere(float radius, int degreeStep) {
@@ -39,6 +40,7 @@ public class Sphere {
         mPointBuffer = ByteBuffer.allocateDirect(bufferSize)
                 .order(ByteOrder.nativeOrder()).asFloatBuffer();
         mNormalBuffer = ByteBuffer.allocateDirect(bufferSize).order(ByteOrder.nativeOrder()).asFloatBuffer();
+        mColorBuffer = ByteBuffer.allocateDirect(bufferSize*4/3).order(ByteOrder.nativeOrder()).asFloatBuffer();
         int count = 0;
         for (float phi = 0; phi <= Math.PI; phi += radiansStep) {
             for (float theta = 0; theta <= 2*Math.PI; theta += radiansStep) {
@@ -50,15 +52,21 @@ public class Sphere {
                 mNormalBuffer.put((float)(Math.sin(phi)*Math.sin(theta))); //y
                 mNormalBuffer.put((float)(Math.cos(phi))); //z
 
+                mColorBuffer.put((float)0x66/0xff); //y
+                mColorBuffer.put((float)0xcc/0xff); //y
+                mColorBuffer.put((float)0xff/0xff); //y
+                mColorBuffer.put((float)0xff/0xff); //y
+
                 count += 1;
             }
         }
         mPointBuffer.position(0);
         mNormalBuffer.position(0);
+        mColorBuffer.position(0);
         mPointCount = count;
     }
 
-    public void draw(int posHandler, int normalHandler) {
+    public void draw(int posHandler, int normalHandler, int colorHandler) {
         GLES20.glVertexAttribPointer(posHandler,
                 3, GLES20.GL_FLOAT, false, 0, mPointBuffer);
         GLES20.glEnableVertexAttribArray(posHandler);
@@ -66,6 +74,10 @@ public class Sphere {
         GLES20.glVertexAttribPointer(normalHandler,
                 3, GLES20.GL_FLOAT, false, 0, mNormalBuffer);
         GLES20.glEnableVertexAttribArray(normalHandler);
+
+        GLES20.glVertexAttribPointer(colorHandler,
+                4, GLES20.GL_FLOAT, false, 0, mColorBuffer);
+        GLES20.glEnableVertexAttribArray(colorHandler);
 
         GLES20.glDrawArrays(GLES20.GL_TRIANGLE_FAN, 0, mPointCount);
     }

@@ -36,9 +36,9 @@ public class GLEnvironmentEntity extends GLEntity {
     private FloatBuffer mColorBuffer;
     private FloatBuffer mTexCoordBuffer;
 
-    private int maVertexPosHandler;
+    private int maPosHandler;
     private int maTexCoordHandler;
-    private int maVertexColorHandler;
+    private int maColorHandler;
     private int maNormalHandler;
     private int muMVPMatrixHandler;
     private int muMVMatrixHandler;
@@ -84,9 +84,9 @@ public class GLEnvironmentEntity extends GLEntity {
                 "environment_vertex_shader.glsl", "environment_fragment_shader.glsl", attribs );
         mProgram = pLoader.load();
 
-        maVertexPosHandler = GLES20.glGetAttribLocation(mProgram, "a_VertexPos");
+        maPosHandler = GLES20.glGetAttribLocation(mProgram, "a_VertexPos");
         maTexCoordHandler = GLES20.glGetAttribLocation(mProgram, "a_TexCoord");
-        maVertexColorHandler = GLES20.glGetAttribLocation(mProgram, "a_Color");
+        maColorHandler = GLES20.glGetAttribLocation(mProgram, "a_Color");
         maNormalHandler = GLES20.glGetAttribLocation(mProgram, "a_Normal");
 
         muMVPMatrixHandler = GLES20.glGetUniformLocation(mProgram, "u_MVPMatrix");
@@ -106,6 +106,13 @@ public class GLEnvironmentEntity extends GLEntity {
             .order(ByteOrder.nativeOrder()).asFloatBuffer();
         mColorBuffer.put(EnvironmentData.VERTEX_COLOR_ARRAY).position(0);
 
+        Matrix.orthoM(mProjectionMatrix, 0,
+                -250.0f*((float)mWindowWidth/mWindowHeight),
+                250.0f*((float)mWindowWidth/mWindowHeight),
+                -250.0f,
+                250.0f,
+                0.5f, 300.0f);
+
         Matrix.setLookAtM(mViewMatrix, 0,
                 mViewX, mViewY, mViewZ, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
 
@@ -122,7 +129,7 @@ public class GLEnvironmentEntity extends GLEntity {
 
         //startTimer();
         //TODO
-        mSphere = new Sphere(100, 3);
+        mSphere = new Sphere(10, 3);
     }
 
     @Override
@@ -189,18 +196,12 @@ public class GLEnvironmentEntity extends GLEntity {
         Matrix.multiplyMM(mMVPMatrix, 0, mViewMatrix, 0, mModelMatrix, 0);
         GLES20.glUniformMatrix4fv(muMVMatrixHandler, 1, false, mMVPMatrix, 0);
         
-        Matrix.orthoM(mProjectionMatrix, 0,
-                -250.0f*((float)mWindowWidth/mWindowHeight),
-                250.0f*((float)mWindowWidth/mWindowHeight),
-                -250.0f,
-                250.0f,
-                0.5f, 300.0f);
         Matrix.multiplyMM(mMVPMatrix, 0, mProjectionMatrix, 0, mMVPMatrix, 0);
         GLES20.glUniformMatrix4fv(muMVPMatrixHandler, 1, false, mMVPMatrix, 0);
 
         Matrix.setIdentityM(mLightModelMatrix, 0);
         Matrix.rotateM(mLightModelMatrix, 0, mLightRotateAngle, 0.0f, 1.0f, 0.0f);
-        Matrix.translateM(mLightModelMatrix, 0, 0.0f, 0.0f, 300.0f);
+        Matrix.translateM(mLightModelMatrix, 0, 0.0f, 0.0f, 200.0f);
 
         Matrix.multiplyMV(mLightPosInWorldSpace, 0, mLightModelMatrix, 0, mLightPosInModelSpace, 0);
         Matrix.multiplyMV(mLightPosInEyeSpace, 0, mViewMatrix, 0, mLightPosInWorldSpace, 0);
@@ -213,23 +214,23 @@ public class GLEnvironmentEntity extends GLEntity {
         GLES20.glEnableVertexAttribArray(maTexCoordHandler);
         GLES20.glUniform1i(muSamplerHandler, 0);
         
-        GLES20.glVertexAttribPointer(maVertexColorHandler,
+        GLES20.glVertexAttribPointer(maColorHandler,
                 4, GLES20.GL_FLOAT, false, 0, mColorBuffer);
-        GLES20.glEnableVertexAttribArray(maVertexColorHandler);
+        GLES20.glEnableVertexAttribArray(maColorHandler);
         
-        //GLES20.glVertexAttribPointer(maVertexPosHandler,
-                //3, GLES20.GL_FLOAT, false, 0, mPosBuffer);
-        //GLES20.glEnableVertexAttribArray(maVertexPosHandler);
+        GLES20.glVertexAttribPointer(maPosHandler,
+                3, GLES20.GL_FLOAT, false, 0, mPosBuffer);
+        GLES20.glEnableVertexAttribArray(maPosHandler);
         
-        //GLES20.glVertexAttribPointer(maNormalHandler,
-                //3, GLES20.GL_FLOAT, false, 0, mNormalBuffer);
-        //GLES20.glEnableVertexAttribArray(maNormalHandler);
+        GLES20.glVertexAttribPointer(maNormalHandler,
+                3, GLES20.GL_FLOAT, false, 0, mNormalBuffer);
+        GLES20.glEnableVertexAttribArray(maNormalHandler);
 
-        //int offset = 0;
-        //for (int count : EnvironmentData.ITEMS_VERTEX_COUNT) {
-            //GLES20.glDrawArrays(GLES20.GL_TRIANGLE_STRIP, offset, count);
-            //offset += count;
-        //}
-        mSphere.draw(maVertexPosHandler, maNormalHandler);
+        int offset = 0;
+        for (int count : EnvironmentData.ITEMS_VERTEX_COUNT) {
+            GLES20.glDrawArrays(GLES20.GL_TRIANGLE_STRIP, offset, count);
+            offset += count;
+        }
+        mSphere.draw(maPosHandler, maNormalHandler, maColorHandler);
     }
 }
