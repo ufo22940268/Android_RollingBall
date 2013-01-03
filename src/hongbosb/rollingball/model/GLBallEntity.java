@@ -77,9 +77,20 @@ public class GLBallEntity extends GLEntity {
         GLES20.glEnable(GLES20.GL_CULL_FACE);
     }
 
+    private boolean isMeetEdge(float deltaX, float deltaY) {
+        if (mTranslateX + deltaX > SharedData.BOARD_SIZE ||
+                mTranslateY + deltaY > SharedData.BOARD_SIZE) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public void translate(float deltaX, float deltaY) {
-        mTranslateX += deltaX;
-        mTranslateY += deltaY;
+        if (!isMeetEdge(deltaX, deltaY)) {
+            mTranslateX += deltaX;
+            mTranslateY += deltaY;
+        }
     }
 
     public void draw() {

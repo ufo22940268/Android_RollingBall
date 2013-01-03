@@ -6,10 +6,10 @@ public class EnvironmentData {
 
     static public final float WALL_HEIGHT = 40;
     static public final float WALL_WIDTH = 20;
-    static public final float WALL_ABS_INNER_X = 100 - WALL_WIDTH;
-    static public final float WALL_ABS_INNER_Y = 100 - WALL_WIDTH;
-    static public final float WALL_ABS_OUTER_X = 100;
-    static public final float WALL_ABS_OUTER_Y = 100;
+    static public final float WALL_ABS_INNER_X = SharedData.BOARD_SIZE;
+    static public final float WALL_ABS_INNER_Y = SharedData.BOARD_SIZE;
+    static public final float WALL_ABS_OUTER_X = SharedData.BOARD_SIZE + WALL_WIDTH;
+    static public final float WALL_ABS_OUTER_Y = SharedData.BOARD_SIZE + WALL_WIDTH;
 
     static public final int VERTEX_COUNT_WALL_TOP = 10;
     static public final int VERTEX_COUNT_WALL_INNER_FACE = 10;
