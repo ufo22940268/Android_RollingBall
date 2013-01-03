@@ -18,9 +18,10 @@ import hongbosb.rollingball.data.*;
 
 import static hongbosb.rollingball.NaturalConstants.*;
 
-public class GLEnvironmentEntity extends GLEntity {
+public class GLEnvironmentEntity extends GLEntity implements GLInputable {
     
     static public final float ROTATE_SCALE_FACTOR = 0.5f;
+    static public final float TRANSLATE_SCALE_FACTOR = 0.5f;
 
     private Context mContext;
 
@@ -61,15 +62,10 @@ public class GLEnvironmentEntity extends GLEntity {
 
     private float mLightRotateAngle = 0.0f;
 
-    private Sphere mSphere;
+    private GLBallEntity mBallEntity;
 
-    public GLEnvironmentEntity(Context context, int width, int height) {
+    public GLEnvironmentEntity(Context context) {
         mContext = context;
-        SharedData.mWindowWidth = width;
-        SharedData.mWindowHeight = height;
-
-        GLES20.glViewport(0, 0, width, height);
-        GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
         //Init program.
         String[] attribs = {"a_VertexPos", "a_TexCoord", "a_Color", "a_Normal",};
@@ -115,7 +111,8 @@ public class GLEnvironmentEntity extends GLEntity {
 
         //startTimer();
         //TODO
-        mSphere = new Sphere(10, 3);
+        mBallEntity = new GLBallEntity(mContext);
+        addEntity(mBallEntity);
     }
 
     @Override
@@ -137,12 +134,16 @@ public class GLEnvironmentEntity extends GLEntity {
 
     @Override
     public boolean onTouch(MotionEvent event) {
+        super.onTouch(event);
         float x = event.getX();
         float y = event.getY();
         if (event.getAction() == MotionEvent.ACTION_MOVE) {
             float dx = x - mPreviousX;
             float dy = y - mPreviousY;
-            rotate(dx*ROTATE_SCALE_FACTOR, dy*ROTATE_SCALE_FACTOR);
+            //Don't rotate board when testing ball rotate.
+            //rotate(dx*ROTATE_SCALE_FACTOR, dy*ROTATE_SCALE_FACTOR);
+            
+            mBallEntity.translate(dx*TRANSLATE_SCALE_FACTOR, -dy*TRANSLATE_SCALE_FACTOR);
         }
         mPreviousX = x;
         mPreviousY = y;
@@ -171,8 +172,6 @@ public class GLEnvironmentEntity extends GLEntity {
 
     @Override
     public void draw() {
-        GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
-
         GLES20.glUseProgram(mProgram);
 
         Matrix.setIdentityM(mModelMatrix, 0);
@@ -185,7 +184,7 @@ public class GLEnvironmentEntity extends GLEntity {
         Matrix.multiplyMM(mMVPMatrix, 0, mProjectionMatrix, 0, mMVPMatrix, 0);
         GLES20.glUniformMatrix4fv(muMVPMatrixHandler, 1, false, mMVPMatrix, 0);
 
-        GLES20.glUniform3fv(muLightPosHandler, 1, CommonUtils.initLightVector(), 0);
+        GLES20.glUniform3fv(muLightPosHandler, 1, CommonUtils.initLightPositionVector(), 0);
 
         //Draw arrays.
         GLES20.glVertexAttribPointer(maTexCoordHandler,
@@ -210,6 +209,6 @@ public class GLEnvironmentEntity extends GLEntity {
             GLES20.glDrawArrays(GLES20.GL_TRIANGLE_STRIP, offset, count);
             offset += count;
         }
-        mSphere.draw(maPosHandler, maNormalHandler, maColorHandler);
+        mBallEntity.draw();
     }
 }

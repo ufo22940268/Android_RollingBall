@@ -17,7 +17,7 @@ import hongbosb.rollingball.data.*;
 
 public class CommonUtils {
 
-    static private final float[] LIGHT_POSITION = {0f, 0f, 100f, 1f};
+    static private final float[] LIGHT_POSITION = {0f, 0f, 100f};
 
     public static float[] initProjectionMatrix() {
         float[] matrix = new float[16];
@@ -30,7 +30,7 @@ public class CommonUtils {
         return matrix;
     }
 
-    public static float[] initLightVector() {
+    public static float[] initLightPositionVector() {
         return LIGHT_POSITION;
     }
 

@@ -48,9 +48,9 @@ public class Sphere {
                 mPointBuffer.put((float)(radius*Math.sin(phi)*Math.sin(theta))); //y
                 mPointBuffer.put((float)(radius*Math.cos(phi))); //z
 
-                mNormalBuffer.put((float)(Math.sin(phi)*Math.cos(theta))); //x
-                mNormalBuffer.put((float)(Math.sin(phi)*Math.sin(theta))); //y
-                mNormalBuffer.put((float)(Math.cos(phi))); //z
+                mNormalBuffer.put(80*(float)(Math.sin(phi)*Math.cos(theta))); //x
+                mNormalBuffer.put(80*(float)(Math.sin(phi)*Math.sin(theta))); //y
+                mNormalBuffer.put(80*(float)(Math.cos(phi))); //z
 
                 mColorBuffer.put((float)0x66/0xff);
                 mColorBuffer.put((float)0xcc/0xff);
