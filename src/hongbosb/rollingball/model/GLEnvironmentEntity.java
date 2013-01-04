@@ -153,54 +153,12 @@ public class GLEnvironmentEntity extends GLEntity implements GLInputable {
     }
 
     private TimerTask mUpdatePosTimer = new TimerTask() {
-
-        static public final int DIRECTION_DOWN   = 1;
-        static public final int DIRECTION_UP     = -1;
-        static public final int DIRECTION_IDLE = 0;
-
-        private float mBallAbsVelocity = 0;
-        private int mDirection = 1;
-
         @Override
         public void run() {
-            updateBallPosition();
-        }
-
-        //This method is called every time the timer update.
-        //The interval is defined in BALL_TIMER_UPDATE_INTERVAL.
-        private void updateBallPosition() {
-            //Convert the unit of timer to second.
-            float interval = (float)BALL_TIMER_UPDATE_INTERVAL/1000;
-
-            float distance = interval*mBallAbsVelocity;
-            mBallEntity.fall(distance*mDirection);   
-
-            int newDirection = getDirection();
-            if (newDirection == DIRECTION_IDLE) {
+            if (!mBallEntity.updatePosition()) {
                 cancel();
-                return;
-            } else if (newDirection != mDirection) {
-                evalVelocityLoss();
-                mDirection = newDirection;
-            }
-
-            mBallAbsVelocity = mBallAbsVelocity + mDirection*interval*NaturalConstants.GRAVITY;
-        }
-
-        private void evalVelocityLoss() {
-            mBallAbsVelocity = mBallAbsVelocity*3/4;
-        }
-
-        private int getDirection() {
-            if (mBallAbsVelocity == 0 && mBallEntity.isMeetEdge()) {
-                return DIRECTION_IDLE;
-            } else if (mBallEntity.isMeetEdge() || mBallAbsVelocity == 0) {
-                return -mDirection;
-            } else {
-                return mDirection;
             }
         }
-        
     };
 
     private void startTimer() {

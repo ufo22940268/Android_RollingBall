@@ -22,6 +22,15 @@ public class GLBallEntity extends GLEntity {
 
     static public final float BALL_RADIUS = 10;
 
+    static public final int DIRECTION_DOWN   = 1;
+    static public final int DIRECTION_UP     = -1;
+    static public final int DIRECTION_IDLE = 0;
+
+    static public final float VELOCITY_STATIC_THRESHOLD = 1;
+
+    private float mBallAbsVelocity = 0;
+    private int mDirection = 1;
+
     protected int mProgram; 
 
     private FloatBuffer mPosBuffer;
@@ -47,7 +56,7 @@ public class GLBallEntity extends GLEntity {
 
     //The bottom when the ball fall because of gravity.
     private float mFallBottom = -EnvironmentData.BOARD_SIZE;
-    
+
     private Context mContext;
 
     private Sphere mSphere;
@@ -81,8 +90,8 @@ public class GLBallEntity extends GLEntity {
     }
 
     private boolean isMeetEdge(float deltaX, float deltaY) {
-        if (Math.abs(mTranslateX + deltaX) + BALL_RADIUS > EnvironmentData.BOARD_SIZE ||
-                Math.abs(mTranslateY + deltaY) + BALL_RADIUS > EnvironmentData.BOARD_SIZE) {
+        if (Math.abs(mTranslateX + deltaX) + BALL_RADIUS >= EnvironmentData.BOARD_SIZE ||
+                Math.abs(mTranslateY + deltaY) + BALL_RADIUS >= EnvironmentData.BOARD_SIZE) {
             return true;
         } else {
             return false;
@@ -90,8 +99,8 @@ public class GLBallEntity extends GLEntity {
     }
 
     public boolean isMeetEdge() {
-        if (Math.abs(mTranslateX) + BALL_RADIUS > EnvironmentData.BOARD_SIZE ||
-                Math.abs(mTranslateY) + BALL_RADIUS > EnvironmentData.BOARD_SIZE) {
+        if (Math.abs(mTranslateX) + BALL_RADIUS >= EnvironmentData.BOARD_SIZE ||
+                Math.abs(mTranslateY) + BALL_RADIUS >= EnvironmentData.BOARD_SIZE) {
             return true;
         } else {
             return false;
@@ -111,6 +120,94 @@ public class GLBallEntity extends GLEntity {
     public void fall(float height) {
         translate(0, -height);
     }
+
+    //This method is called every time the timer update.
+    //The interval is defined in BALL_TIMER_UPDATE_INTERVAL.
+    public boolean updatePosition() {
+        if (mDirection == DIRECTION_IDLE) {
+            return false;
+        }
+
+        //Convert the unit of timer to second.
+        float interval = (float)GLEnvironmentEntity.BALL_TIMER_UPDATE_INTERVAL/1000;
+
+        float distance = interval*mBallAbsVelocity;
+        fall(distance*mDirection);   
+
+        updateVolecity();
+        return true;
+    }
+
+    /*
+     * Something wrong with this method. The ball rebounce for twice or three times, then it just stoped.
+     */
+    private void updateVolecity() {
+        if (mBallAbsVelocity < 0) {
+            mBallAbsVelocity = 0;
+        }
+
+        float interval = (float)GLEnvironmentEntity.BALL_TIMER_UPDATE_INTERVAL/1000;
+        float v = mBallAbsVelocity + mDirection*interval*NaturalConstants.GRAVITY;
+        if (v <= 0) {
+            if (isMeetEdge()) {
+                mDirection = DIRECTION_IDLE;
+                mBallAbsVelocity = 0;
+            } else {
+                //It's in the air and need to change direction.
+                mDirection = -mDirection;
+                mBallAbsVelocity = 0;
+            }
+        } else {
+            if (isMeetEdge()) {
+                //Hit ground.
+                System.out.println("++++++++++++++++++++" + mBallAbsVelocity + "++++++++++++++++++++");
+                System.out.println("++++++++++++++++++++x:" + mTranslateX + "\ty:" + mTranslateY + "++++++++++++++++++++");
+                if (mBallAbsVelocity < VELOCITY_STATIC_THRESHOLD) {
+                    //When velocity too small to rebounce again, then 
+                    //set it as zero.
+                    mDirection = DIRECTION_IDLE;
+                    mBallAbsVelocity = 0;
+                } else {
+                    //Or just reverse the direction.
+                    mDirection = -mDirection;
+                    evalVelocityLoss();
+                }
+            } else {
+                //Keep it going.
+                mBallAbsVelocity = v;
+            }
+        }
+    }
+
+    private void evalVelocityLoss() {
+        mBallAbsVelocity = mBallAbsVelocity*9/10;
+    }
+
+    /*
+     *The velocity can be a negative value. 
+     *But when it becomes negative, we should stop the animation. 
+     */
+    private int getDirection() {
+        if (mBallAbsVelocity <= 0 && isMeetEdge()) {
+            return DIRECTION_IDLE;
+        } else if (isMeetEdge() || mBallAbsVelocity == 0) {
+            return -mDirection;
+        } else {
+            return mDirection;
+        }
+        ////When ball hit ground and the velocity too small to bounds again.
+        //if(mBallEntity.isStoped()) {
+        //if (mBallEntity.isMeetEdge()) {
+        //return DIRECTION_IDLE;
+        //} else {
+        //return -mDirection;
+        //}
+        //} else {
+        //if (mBallEntity.isMeetEdge()) {
+        //}
+        //}
+    }
+
 
     public void draw() {
         GLES20.glUseProgram(mProgram);
