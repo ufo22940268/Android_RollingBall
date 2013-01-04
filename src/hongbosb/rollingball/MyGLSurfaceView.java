@@ -56,7 +56,7 @@ public class MyGLSurfaceView extends GLSurfaceView implements GLInputable {
             SharedData.mWindowHeight = height;
 
             GLES20.glViewport(0, 0, width, height);
-            GLES20.glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+            GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
             mEntity = new GLEnvironmentEntity(mContext);
         }
 

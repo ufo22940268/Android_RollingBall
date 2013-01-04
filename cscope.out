@@ -1,4 +1,4 @@
-cscope 15 $HOME/workspace/Android_RollingBall -q 0000000303 0000020120
+cscope 15 $HOME/workspace/Android_RollingBall -q 0000000353 0000029895
 	@gen/hongbosb/rollingball/BuildConfig.java
 
 2 
@@ -463,7 +463,17 @@ impÜt
 	gmod–
 .*;
 
-19 
+18 
+impÜt
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+.
+	gd©a
+.*;
+
+20 
 public
  cÏs 
 	cMyGLSurçûV›w
@@ -477,7 +487,7 @@ im¶em’ts
 	mGLIÅubË
  {
 
-21 
+22 
 ´iv©e
  
 MyR’d””
@@ -485,7 +495,7 @@ MyR’d””
 	mmR’d”
 ;
 
-23 
+24 
 public
  
 	$MyGLSurçûV›w
@@ -495,17 +505,17 @@ CÚ‹xt
 cÚ‹xt
 ) {
 
-24 
+25 
 	`su³r
 (
 cÚ‹xt
 );
 
-25 
+26 
 	`£tEGLCÚ‹xtCl›ÁV”siÚ
 (2);
 
-26 
+27 
 mR’d”
  = 
 Ãw
@@ -515,13 +525,13 @@ mR’d”
 cÚ‹xt
 );
 
-27 
+28 
 	`£tR’d””
 (
 mR’d”
 );
 
-30 
+31 
 public
  
 boŞ—n
@@ -531,7 +541,7 @@ boŞ—n
 keyCode
 ) {
 
-31 
+32 
 mR’d”
 .
 	`ÚKeyDown
@@ -539,19 +549,19 @@ mR’d”
 keyCode
 );
 
-32  
+33  
 Œue
 ;
 
-33 
+34 
 	}
 }
 
-35 @
+36 @
 Ov”ride
 
 
-36 
+37 
 public
  
 boŞ—n
@@ -563,7 +573,7 @@ MÙiÚEv’t
 ev’t
 ) {
 
-37  
+38  
 mR’d”
 .
 	`ÚTouch
@@ -571,11 +581,11 @@ mR’d”
 ev’t
 );
 
-38 
+39 
 	}
 }
 
-40 
+41 
 public
  
 şass
@@ -591,7 +601,7 @@ im¶em’ts
 	gGLIÅubË
  {
 
-42 
+43 
 ´iv©e
  
 CÚ‹xt
@@ -599,7 +609,7 @@ CÚ‹xt
 	gmCÚ‹xt
 ;
 
-44 
+45 
 ´iv©e
  
 GLEnvœÚm’tEÁ™y
@@ -607,7 +617,7 @@ GLEnvœÚm’tEÁ™y
 	gmEÁ™y
 ;
 
-46 
+47 
 public
  
 MyR’d””
@@ -617,13 +627,13 @@ CÚ‹xt
 cÚ‹xt
 ) {
 
-47 
+48 
 	gmCÚ‹xt
  = 
 cÚ‹xt
 ;
 
-50 
+51 
 public
  
 ÚSurçûC»©ed
@@ -637,7 +647,7 @@ EGLCÚfig
 cÚfig
 ) {
 
-53 
+54 
 public
  
 ÚSurçûChªged
@@ -651,7 +661,39 @@ width
 height
 ) {
 
-54 
+55 
+	gSh¬edD©a
+.
+	gmWšdowWidth
+ = 
+width
+;
+
+56 
+	gSh¬edD©a
+.
+	gmWšdowHeight
+ = 
+height
+;
+
+58 
+	gGLES20
+.
+glV›wpÜt
+(0, 0, 
+width
+, 
+height
+);
+
+59 
+	gGLES20
+.
+glCË¬CŞÜ
+(0.0f, 0.0f, 0.0f, 1.0f);
+
+60 
 	gmEÁ™y
  = 
 Ãw
@@ -659,13 +701,9 @@ height
 GLEnvœÚm’tEÁ™y
 (
 mCÚ‹xt
-, 
-width
-, 
-height
 );
 
-57 
+63 
 public
  
 ÚD¿wF¿me
@@ -675,17 +713,29 @@ GL10
 gl
 ) {
 
-58 
+64 
+	gGLES20
+.
+glCË¬
+(
+GLES20
+.
+GL_COLOR_BUFFER_BIT
+ | GLES20.
+GL_DEPTH_BUFFER_BIT
+);
+
+65 
 	gmEÁ™y
 .
 d¿w
 ();
 
-61 @
+68 @
 Ov”ride
 
 
-62 
+69 
 public
  
 boŞ—n
@@ -693,36 +743,6 @@ boŞ—n
 ÚKeyDown
 (
 keyCode
-) {
-
-63 ià(
-	gmEÁ™y
- !ğ
-nuÎ
-) {
-
-64  
-mEÁ™y
-.
-ÚKeyDown
-(
-keyCode
-);
-
-66  
-	gçl£
-;
-
-69 
-public
- 
-boŞ—n
- 
-ÚTouch
-(
-MÙiÚEv’t
- 
-ev’t
 ) {
 
 70 ià(
@@ -734,12 +754,42 @@ nuÎ
 71  
 mEÁ™y
 .
+ÚKeyDown
+(
+keyCode
+);
+
+73  
+	gçl£
+;
+
+76 
+public
+ 
+boŞ—n
+ 
+ÚTouch
+(
+MÙiÚEv’t
+ 
+ev’t
+) {
+
+77 ià(
+	gmEÁ™y
+ !ğ
+nuÎ
+) {
+
+78  
+mEÁ™y
+.
 ÚTouch
 (
 ev’t
 );
 
-73  
+80  
 	gçl£
 ;
 
@@ -803,7 +853,15 @@ fš®
 	mNORMAL_SCALE
  = 80.0f;
 
-7 
+6 
+public
+ 
+fš®
+ 
+	mBOARD_SIZE
+ = 100f;
+
+8 
 public
  
 fš®
@@ -811,7 +869,7 @@ fš®
 	mWALL_HEIGHT
  = 40;
 
-8 
+9 
 public
  
 fš®
@@ -825,8 +883,8 @@ public
 fš®
  
 	mWALL_ABS_INNER_X
- = 100 - 
-WALL_WIDTH
+ = 
+BOARD_SIZE
 ;
 
 11 
@@ -835,8 +893,8 @@ public
 fš®
  
 	mWALL_ABS_INNER_Y
- = 100 - 
-WALL_WIDTH
+ = 
+BOARD_SIZE
 ;
 
 12 
@@ -845,7 +903,11 @@ public
 fš®
  
 	mWALL_ABS_OUTER_X
- = 100;
+ = 
+BOARD_SIZE
+ + 
+WALL_WIDTH
+;
 
 13 
 public
@@ -853,106 +915,88 @@ public
 fš®
  
 	mWALL_ABS_OUTER_Y
- = 100;
+ = 
+BOARD_SIZE
+ + 
+WALL_WIDTH
+;
 
 15 
 public
  
 fš®
- 
-	mTRIANGLE_POS_ARRAY
-[] = {
+ 
+	mVERTEX_COUNT_WALL_TOP
+ = 10;
 
-17 -
-WALL_ABS_INNER_X
- , 
-WALL_ABS_INNER_Y
- , 
-WALL_HEIGHT
- ,
+16 
+public
+ 
+fš®
+ 
+	mVERTEX_COUNT_WALL_INNER_FACE
+ = 10;
 
-18 -
-WALL_ABS_OUTER_X
- , 
-WALL_ABS_OUTER_Y
- , 
-WALL_HEIGHT
- ,
+17 
+public
+ 
+fš®
+ 
+	mVERTEX_COUNT_WALL_OUTER_FACE
+ = 10;
 
-19 -
-WALL_ABS_INNER_X
- , -
-WALL_ABS_INNER_Y
- , 
-WALL_HEIGHT
- ,
+18 
+public
+ 
+fš®
+ 
+	mVERTEX_COUNT_FLOOR
+ = 4;
 
-20 -
-WALL_ABS_OUTER_X
- , -
-WALL_ABS_OUTER_Y
- , 
-WALL_HEIGHT
- ,
+20 
+public
+ 
+fš®
+ [] 
+	mITEMS_VERTEX_COUNT
+ = {
 
 21 
-WALL_ABS_INNER_X
- , -
-WALL_ABS_INNER_Y
- , 
-WALL_HEIGHT
- ,
+VERTEX_COUNT_WALL_TOP
+,
 
 22 
-WALL_ABS_OUTER_X
- , -
-WALL_ABS_OUTER_Y
- , 
-WALL_HEIGHT
- ,
+VERTEX_COUNT_WALL_INNER_FACE
+,
 
 23 
-WALL_ABS_INNER_X
- , 
-WALL_ABS_INNER_Y
- , 
-WALL_HEIGHT
- ,
+VERTEX_COUNT_WALL_OUTER_FACE
+,
 
 24 
-WALL_ABS_OUTER_X
- , 
-WALL_ABS_OUTER_Y
- , 
-WALL_HEIGHT
- ,
+VERTEX_COUNT_FLOOR
+,
 
-25 -
-WALL_ABS_INNER_X
- , 
-WALL_ABS_INNER_Y
- , 
-WALL_HEIGHT
- ,
-
-26 -
-WALL_ABS_OUTER_X
- , 
-WALL_ABS_OUTER_Y
- , 
-WALL_HEIGHT
- ,
+27 
+public
+ 
+fš®
+ 
+	gTRIANGLE_POS_ARRAY
+[] = {
 
 29 -
 WALL_ABS_INNER_X
  , 
 WALL_ABS_INNER_Y
- , 0 ,
+ , 
+WALL_HEIGHT
+ ,
 
 30 -
-WALL_ABS_INNER_X
+WALL_ABS_OUTER_X
  , 
-WALL_ABS_INNER_Y
+WALL_ABS_OUTER_Y
  , 
 WALL_HEIGHT
  ,
@@ -961,9 +1005,19 @@ WALL_HEIGHT
 WALL_ABS_INNER_X
  , -
 WALL_ABS_INNER_Y
- , 0 ,
+ , 
+WALL_HEIGHT
+ ,
 
 32 -
+WALL_ABS_OUTER_X
+ , -
+WALL_ABS_OUTER_Y
+ , 
+WALL_HEIGHT
+ ,
+
+33 
 WALL_ABS_INNER_X
  , -
 WALL_ABS_INNER_Y
@@ -972,26 +1026,30 @@ WALL_HEIGHT
  ,
 
 34 
-WALL_ABS_INNER_X
+WALL_ABS_OUTER_X
  , -
-WALL_ABS_INNER_Y
- , 0 ,
+WALL_ABS_OUTER_Y
+ , 
+WALL_HEIGHT
+ ,
 
 35 
 WALL_ABS_INNER_X
- , -
+ , 
 WALL_ABS_INNER_Y
  , 
 WALL_HEIGHT
  ,
 
 36 
-WALL_ABS_INNER_X
+WALL_ABS_OUTER_X
  , 
-WALL_ABS_INNER_Y
- , 0 ,
+WALL_ABS_OUTER_Y
+ , 
+WALL_HEIGHT
+ ,
 
-37 
+37 -
 WALL_ABS_INNER_X
  , 
 WALL_ABS_INNER_Y
@@ -1000,12 +1058,20 @@ WALL_HEIGHT
  ,
 
 38 -
+WALL_ABS_OUTER_X
+ , 
+WALL_ABS_OUTER_Y
+ , 
+WALL_HEIGHT
+ ,
+
+41 -
 WALL_ABS_INNER_X
  , 
 WALL_ABS_INNER_Y
  , 0 ,
 
-39 -
+42 -
 WALL_ABS_INNER_X
  , 
 WALL_ABS_INNER_Y
@@ -1013,7 +1079,157 @@ WALL_ABS_INNER_Y
 WALL_HEIGHT
  ,
 
-42 
+43 -
+WALL_ABS_INNER_X
+ , -
+WALL_ABS_INNER_Y
+ , 0 ,
+
+44 -
+WALL_ABS_INNER_X
+ , -
+WALL_ABS_INNER_Y
+ , 
+WALL_HEIGHT
+ ,
+
+45 
+WALL_ABS_INNER_X
+ , -
+WALL_ABS_INNER_Y
+ , 0 ,
+
+46 
+WALL_ABS_INNER_X
+ , -
+WALL_ABS_INNER_Y
+ , 
+WALL_HEIGHT
+ ,
+
+47 
+WALL_ABS_INNER_X
+ , 
+WALL_ABS_INNER_Y
+ , 0 ,
+
+48 
+WALL_ABS_INNER_X
+ , 
+WALL_ABS_INNER_Y
+ , 
+WALL_HEIGHT
+ ,
+
+49 -
+WALL_ABS_INNER_X
+ , 
+WALL_ABS_INNER_Y
+ , 0 ,
+
+50 -
+WALL_ABS_INNER_X
+ , 
+WALL_ABS_INNER_Y
+ , 
+WALL_HEIGHT
+ ,
+
+53 -
+WALL_ABS_OUTER_X
+ , 
+WALL_ABS_OUTER_Y
+ , 
+WALL_HEIGHT
+ ,
+
+54 -
+WALL_ABS_OUTER_X
+ , 
+WALL_ABS_OUTER_Y
+ , 0 ,
+
+55 -
+WALL_ABS_OUTER_X
+ , -
+WALL_ABS_OUTER_Y
+ , 
+WALL_HEIGHT
+ ,
+
+56 -
+WALL_ABS_OUTER_X
+ , -
+WALL_ABS_OUTER_Y
+ , 0 ,
+
+57 
+WALL_ABS_OUTER_X
+ , -
+WALL_ABS_OUTER_Y
+ , 
+WALL_HEIGHT
+ ,
+
+58 
+WALL_ABS_OUTER_X
+ , -
+WALL_ABS_OUTER_Y
+ , 0 ,
+
+59 
+WALL_ABS_OUTER_X
+ , 
+WALL_ABS_OUTER_Y
+ , 
+WALL_HEIGHT
+ ,
+
+60 
+WALL_ABS_OUTER_X
+ , 
+WALL_ABS_OUTER_Y
+ , 0 ,
+
+61 -
+WALL_ABS_OUTER_X
+ , 
+WALL_ABS_OUTER_Y
+ , 
+WALL_HEIGHT
+ ,
+
+62 -
+WALL_ABS_OUTER_X
+ , 
+WALL_ABS_OUTER_Y
+ , 0 ,
+
+65 
+WALL_ABS_INNER_X
+ , 
+WALL_ABS_INNER_Y
+ , 0 ,
+
+66 -
+WALL_ABS_INNER_X
+ , 
+WALL_ABS_INNER_Y
+ , 0 ,
+
+67 
+WALL_ABS_INNER_X
+ , -
+WALL_ABS_INNER_Y
+ , 0 ,
+
+68 -
+WALL_ABS_INNER_X
+ , -
+WALL_ABS_INNER_Y
+ , 0 ,
+
+71 
 public
  
 fš®
@@ -1021,87 +1237,143 @@ fš®
 	gNORMAL_ARRAY
 [] = {
 
-44 0.0à, 0.0à, 
+73 0.0à, 0.0à, 
 NORMAL_SCALE
  ,
 
-45 0.0à, 0.0à, 
+74 0.0à, 0.0à, 
 NORMAL_SCALE
  ,
 
-46 0.0à, 0.0à, 
+75 0.0à, 0.0à, 
 NORMAL_SCALE
  ,
 
-47 0.0à, 0.0à, 
+76 0.0à, 0.0à, 
 NORMAL_SCALE
  ,
 
-48 0.0à, 0.0à, 
+77 0.0à, 0.0à, 
 NORMAL_SCALE
  ,
 
-49 0.0à, 0.0à, 
+78 0.0à, 0.0à, 
 NORMAL_SCALE
  ,
 
-50 0.0à, 0.0à, 
+79 0.0à, 0.0à, 
 NORMAL_SCALE
  ,
 
-51 0.0à, 0.0à, 
+80 0.0à, 0.0à, 
 NORMAL_SCALE
  ,
 
-52 0.0à, 0.0à, 
+81 0.0à, 0.0à, 
 NORMAL_SCALE
  ,
 
-53 0.0à, 0.0à, 
+82 0.0à, 0.0à, 
 NORMAL_SCALE
  ,
 
-56 
+85 
 NORMAL_SCALE
  , 0.0f , 0.0f ,
 
-57 
+86 
 NORMAL_SCALE
  , 0.0f , 0.0f ,
 
-58 
+87 
 NORMAL_SCALE
  , 0.0f , 0.0f ,
 
-59 
+88 
 NORMAL_SCALE
  , 0.0f , 0.0f ,
 
-60 0.0à, 
+89 0.0à, 
 NORMAL_SCALE
  , 0.0f ,
 
-61 0.0à, 
+90 0.0à, 
 NORMAL_SCALE
  , 0.0f ,
 
-62 -
+91 -
 NORMAL_SCALE
  , 0.0f , 0.0f ,
 
-63 -
+92 -
 NORMAL_SCALE
  , 0.0f , 0.0f ,
 
-64 0.0à, -
+93 0.0à, -
 NORMAL_SCALE
  , 0.0f ,
 
-65 0.0à, -
+94 0.0à, -
 NORMAL_SCALE
  , 0.0f ,
 
-70 
+97 -
+NORMAL_SCALE
+ , 0.0f , 0.0f ,
+
+98 -
+NORMAL_SCALE
+ , 0.0f , 0.0f ,
+
+99 -
+NORMAL_SCALE
+ , 0.0f , 0.0f ,
+
+100 -
+NORMAL_SCALE
+ , 0.0f , 0.0f ,
+
+101 0.0à, -
+NORMAL_SCALE
+ , 0.0f ,
+
+102 0.0à, -
+NORMAL_SCALE
+ , 0.0f ,
+
+103 
+NORMAL_SCALE
+ , 0.0f , 0.0f ,
+
+104 
+NORMAL_SCALE
+ , 0.0f , 0.0f ,
+
+105 0.0à, 
+NORMAL_SCALE
+ , 0.0f ,
+
+106 0.0à, 
+NORMAL_SCALE
+ , 0.0f ,
+
+109 0.0à, 0.0à, 
+NORMAL_SCALE
+ ,
+
+110 0.0à, 0.0à, 
+NORMAL_SCALE
+ ,
+
+111 0.0à, 0.0à, 
+NORMAL_SCALE
+ ,
+
+112 0.0à, 0.0à, 
+NORMAL_SCALE
+ ,
+
+115 
 public
  
 fš®
@@ -1109,13 +1381,707 @@ fš®
 	gVERTEX_COLOR_ARRAY
 [] = {
 
-96 
+159 
 public
  
 fš®
  
 	gTEXTURE_COORD_ARRAY
 [] = {
+
+	@src/hongbosb/rollingball/data/SharedData.java
+
+1 
+·ckage
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+.
+	gd©a
+;
+
+3 
+public
+ cÏs 
+	cSh¬edD©a
+ {
+
+4 
+public
+ 
+	mmWšdowHeight
+;
+
+5 
+public
+ 
+	mmWšdowWidth
+;
+
+	@src/hongbosb/rollingball/model/GLBallEntity.java
+
+1 
+·ckage
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+.
+	gmod–
+;
+
+3 
+impÜt
+ 
+	gªdroid
+.
+	gut
+.*;
+
+4 
+impÜt
+ 
+	gªdroid
+.
+	gwidg‘
+.*;
+
+5 
+impÜt
+ 
+	gªdroid
+.
+	gv›w
+.*;
+
+6 
+impÜt
+ 
+	gªdroid
+.
+	gcÚ‹Á
+.*;
+
+7 
+impÜt
+ 
+	gªdroid
+.
+	g­p
+.*;
+
+8 
+impÜt
+ 
+	gªdroid
+.
+	gos
+.*;
+
+9 
+impÜt
+ 
+	gªdroid
+.
+	gd©aba£
+.*;
+
+10 
+impÜt
+ 
+	gªdroid
+.
+	gİ’gl
+.*;
+
+12 
+impÜt
+ 
+	gjava
+.
+	gut
+.*;
+
+13 
+impÜt
+ 
+	gjava
+.
+	gnio
+.*;
+
+15 
+impÜt
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+.
+	gut
+.*;
+
+16 
+impÜt
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+.*;
+
+17 
+impÜt
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+.
+	gd©a
+.*;
+
+19 
+impÜt
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+.
+	gN©u¿lCÚ¡ªts
+.*;
+
+21 
+public
+ cÏs 
+	cGLB®lEÁ™y
+ 
+ex‹nds
+ 
+	mGLEÁ™y
+ {
+
+23 
+public
+ 
+fš®
+ 
+	mBALL_RADIUS
+ = 10;
+
+25 
+´Ùeùed
+ 
+	mmProg¿m
+;
+
+27 
+´iv©e
+ 
+FlßtBufãr
+ 
+	mmPosBufãr
+;
+
+28 
+´iv©e
+ 
+FlßtBufãr
+ 
+	mmNÜm®Bufãr
+;
+
+29 
+´iv©e
+ 
+FlßtBufãr
+ 
+	mmCŞÜBufãr
+;
+
+30 
+´iv©e
+ 
+FlßtBufãr
+ 
+	mmTexCoÜdBufãr
+;
+
+32 
+´iv©e
+ 
+	mmaPosHªdËr
+;
+
+33 
+´iv©e
+ 
+	mmaCŞÜHªdËr
+;
+
+34 
+´iv©e
+ 
+	mmaNÜm®HªdËr
+;
+
+35 
+´iv©e
+ 
+	mmuMVPM©rixHªdËr
+;
+
+36 
+´iv©e
+ 
+	mmuMVM©rixHªdËr
+;
+
+37 
+´iv©e
+ 
+	mmuLightPosHªdËr
+;
+
+39 
+´iv©e
+ [] 
+	mmMVPM©rix
+ = 
+Ãw
+ [16];
+
+40 
+´iv©e
+ [] 
+	mmLightMVM©rix
+ = 
+Ãw
+ [16];
+
+41 
+´iv©e
+ [] 
+	mmV›wM©rix
+ = 
+Ãw
+ [16];
+
+42 
+´iv©e
+ [] 
+	mmMod–M©rix
+ = 
+Ãw
+ [16];
+
+43 
+´iv©e
+ [] 
+	mmProjeùiÚM©rix
+ = 
+Ãw
+ [16];
+
+45 
+´iv©e
+ 
+	mmT¿n¦©eX
+ = 0f;
+
+46 
+´iv©e
+ 
+	mmT¿n¦©eY
+ = 0f;
+
+49 
+´iv©e
+ 
+	mmF®lBÙtom
+ = -;
+
+51 
+´iv©e
+ 
+CÚ‹xt
+ 
+	mmCÚ‹xt
+;
+
+53 
+´iv©e
+ 
+Sph”e
+ 
+	mmSph”e
+;
+
+55 
+public
+ 
+	$GLB®lEÁ™y
+(
+CÚ‹xt
+ 
+cÚ‹xt
+) {
+
+56 
+mCÚ‹xt
+ = 
+cÚ‹xt
+;
+
+58 
+SŒšg
+[] 
+©Œibs
+ = {"a_VertexPos", "a_Color", "a_Normal"};
+
+59 
+Prog¿mLßd”
+ 
+pLßd”
+ = 
+Ãw
+ 
+	`Prog¿mLßd”
+(
+cÚ‹xt
+,
+
+60 "¥h”e_v”‹x_shad”.gl¦", "¥h”e_äagm’t_shad”.gl¦", 
+©Œibs
+ );
+
+61 
+mProg¿m
+ = 
+pLßd”
+.
+	`lßd
+();
+
+63 
+maPosHªdËr
+ = 
+GLES20
+.
+	`glG‘A‰ribLoÿtiÚ
+(
+mProg¿m
+, "a_VertexPos");
+
+64 
+maCŞÜHªdËr
+ = 
+GLES20
+.
+	`glG‘A‰ribLoÿtiÚ
+(
+mProg¿m
+, "a_Color");
+
+65 
+maNÜm®HªdËr
+ = 
+GLES20
+.
+	`glG‘A‰ribLoÿtiÚ
+(
+mProg¿m
+, "a_Normal");
+
+67 
+muMVPM©rixHªdËr
+ = 
+GLES20
+.
+	`glG‘UnifÜmLoÿtiÚ
+(
+mProg¿m
+, "u_MVPMatrix");
+
+68 
+muMVM©rixHªdËr
+ = 
+GLES20
+.
+	`glG‘UnifÜmLoÿtiÚ
+(
+mProg¿m
+, "u_MVMatrix");
+
+69 
+muLightPosHªdËr
+ = 
+GLES20
+.
+	`glG‘UnifÜmLoÿtiÚ
+(
+mProg¿m
+, "u_LightPos");
+
+71 
+mProjeùiÚM©rix
+ = 
+CommÚUts
+.
+	`š™ProjeùiÚM©rix
+();
+
+72 
+mV›wM©rix
+ = 
+CommÚUts
+.
+	`š™V›wM©rix
+();
+
+75 
+M©rix
+.
+	`Œª¦©eM
+(
+mMod–M©rix
+, 0, 0f, 0f, 
+BALL_RADIUS
+);
+
+77 
+mSph”e
+ = 
+Ãw
+ 
+	`Sph”e
+(
+BALL_RADIUS
+, 8);
+
+79 
+GLES20
+.
+	`glEÇbË
+(GLES20.
+GL_DEPTH_TEST
+);
+
+80 
+GLES20
+.
+	`glEÇbË
+(GLES20.
+GL_CULL_FACE
+);
+
+83 
+´iv©e
+ 
+boŞ—n
+ 
+	$isM“tEdge
+(
+d–X
+, 
+d–Y
+) {
+
+84 ià(
+M©h
+.
+	`abs
+(
+mT¿n¦©eX
+ + 
+d–X
+è+ 
+BALL_RADIUS
+ > 
+Sh¬edD©a
+.
+BOARD_SIZE
+ ||
+
+85 
+M©h
+.
+	`abs
+(
+mT¿n¦©eY
+ + 
+d–Y
+è+ 
+BALL_RADIUS
+ > 
+Sh¬edD©a
+.
+BOARD_SIZE
+) {
+
+86  
+Œue
+;
+
+88  
+çl£
+;
+
+90 
+	}
+}
+
+92 
+public
+ 
+	$Œª¦©e
+(
+d–X
+, 
+d–Y
+) {
+
+93 ià(!
+	`isM“tEdge
+(
+d–X
+, 
+d–Y
+)) {
+
+94 
+mT¿n¦©eX
+ +ğ
+d–X
+;
+
+95 
+mT¿n¦©eY
+ +ğ
+d–Y
+;
+
+97 
+	}
+}
+
+99 
+public
+ 
+	$d¿w
+() {
+
+100 
+GLES20
+.
+	`glU£Prog¿m
+(
+mProg¿m
+);
+
+102 
+M©rix
+.
+	`£tId’t™yM
+(
+mMod–M©rix
+, 0);
+
+104 
+GLES20
+.
+	`glUnifÜm3fv
+(
+muLightPosHªdËr
+, 1, 
+CommÚUts
+.
+	`š™LightPos™iÚVeùÜ
+(), 0);
+
+105 
+M©rix
+.
+	`muÉlyMM
+(
+mLightMVM©rix
+, 0, 
+mV›wM©rix
+, 0, 
+mMod–M©rix
+, 0);
+
+106 
+GLES20
+.
+	`glUnifÜmM©rix4fv
+(
+muMVM©rixHªdËr
+, 1, 
+çl£
+, 
+mLightMVM©rix
+, 0);
+
+108 
+M©rix
+.
+	`Œª¦©eM
+(
+mMod–M©rix
+, 0, 
+mT¿n¦©eX
+, 
+mT¿n¦©eY
+, 0);
+
+109 
+M©rix
+.
+	`muÉlyMM
+(
+mMVPM©rix
+, 0, 
+mV›wM©rix
+, 0, 
+mMod–M©rix
+, 0);
+
+110 
+M©rix
+.
+	`muÉlyMM
+(
+mMVPM©rix
+, 0, 
+mProjeùiÚM©rix
+, 0, mMVPMatrix, 0);
+
+111 
+GLES20
+.
+	`glUnifÜmM©rix4fv
+(
+muMVPM©rixHªdËr
+, 1, 
+çl£
+, 
+mMVPM©rix
+, 0);
+
+113 
+mSph”e
+.
+	`d¿w
+(
+maPosHªdËr
+, 
+maNÜm®HªdËr
+, 
+maCŞÜHªdËr
+);
+
+114 
+	}
+}
 
 	@src/hongbosb/rollingball/model/GLEntity.java
 
@@ -1156,22 +2122,42 @@ impÜt
 .*;
 
 7 
+impÜt
+ 
+	gjava
+.
+	gut
+.*;
+
+9 
 public
  
 ab¡¿ù
- 
-şass
- 
-GLEÁ™y
+ cÏs 
+	cGLEÁ™y
  
 im¶em’ts
  
-	gGLIÅubË
-, 
-	gGLTouchabË
+	mGLTouchabË
  {
 
-8 
+11 
+´iv©e
+ 
+	mLi¡
+<
+	mGLEÁ™y
+> 
+	mmChdEÁ™›s
+ = 
+Ãw
+ 
+A¼ayLi¡
+<
+GLEÁ™y
+>();
+
+13 
 public
  
 ab¡¿ù
@@ -1179,43 +2165,63 @@ ab¡¿ù
 d¿w
 ();
 
-10 @
-Ov”ride
-
-
-11 
+15 
 public
+ 
+	$addEÁ™y
+(
+GLEÁ™y
  
-boŞ—n
- 
-ÚKeyDown
-(
-keyCode
+chd
 ) {
 
-12  
-	gçl£
-;
+16 
+mChdEÁ™›s
+.
+	`add
+(
+chd
+);
 
-15 @
+19 @
 Ov”ride
 
 
-16 
+20 
 public
  
 boŞ—n
  
-ÚTouch
+	$ÚTouch
 (
 MÙiÚEv’t
  
 ev’t
 ) {
 
-17  
-	gçl£
+21 
+GLEÁ™y
+ 
+’t™y
+ : 
+mChdEÁ™›s
+) {
+
+22 
+’t™y
+.
+	`ÚTouch
+(
+ev’t
+);
+
+24  
+çl£
 ;
+
+25 
+	}
+}
 
 	@src/hongbosb/rollingball/model/GLEnvironmentEntity.java
 
@@ -1354,7 +2360,11 @@ public
  
 ex‹nds
  
-	mGLEÁ™y
+GLEÁ™y
+ 
+im¶em’ts
+ 
+	mGLIÅubË
  {
 
 23 
@@ -1365,7 +2375,15 @@ fš®
 	mROTATE_SCALE_FACTOR
  = 0.5f;
 
-25 
+24 
+public
+ 
+fš®
+ 
+	mTRANSLATE_SCALE_FACTOR
+ = 0.5f;
+
+26 
 ´iv©e
  
 CÚ‹xt
@@ -1373,37 +2391,25 @@ CÚ‹xt
 	mmCÚ‹xt
 ;
 
-26 
-´iv©e
- 
-	mmWšdowWidth
-;
-
-27 
-´iv©e
- 
-	mmWšdowHeight
-;
-
-29 
+28 
 ´iv©e
  
 	mmP»viousX
 ;
 
-30 
+29 
 ´iv©e
  
 	mmP»viousY
 ;
 
-32 
+31 
 ´Ùeùed
  
 	mmProg¿m
 ;
 
-34 
+33 
 ´iv©e
  
 FlßtBufãr
@@ -1411,7 +2417,7 @@ FlßtBufãr
 	mmPosBufãr
 ;
 
-35 
+34 
 ´iv©e
  
 FlßtBufãr
@@ -1419,7 +2425,7 @@ FlßtBufãr
 	mmNÜm®Bufãr
 ;
 
-36 
+35 
 ´iv©e
  
 FlßtBufãr
@@ -1427,7 +2433,7 @@ FlßtBufãr
 	mmCŞÜBufãr
 ;
 
-37 
+36 
 ´iv©e
  
 FlßtBufãr
@@ -1435,61 +2441,61 @@ FlßtBufãr
 	mmTexCoÜdBufãr
 ;
 
-39 
+38 
 ´iv©e
  
-	mmaV”‹xPosHªdËr
+	mmaPosHªdËr
 ;
 
-40 
+39 
 ´iv©e
  
 	mmaTexCoÜdHªdËr
 ;
 
-41 
+40 
 ´iv©e
  
-	mmaV”‹xCŞÜHªdËr
+	mmaCŞÜHªdËr
 ;
 
-42 
+41 
 ´iv©e
  
 	mmaNÜm®HªdËr
 ;
 
-43 
+42 
 ´iv©e
  
 	mmuMVPM©rixHªdËr
 ;
 
-44 
+43 
 ´iv©e
  
 	mmuMVM©rixHªdËr
 ;
 
-45 
+44 
 ´iv©e
  
 	mmuSam¶”HªdËr
 ;
 
-46 
+45 
 ´iv©e
  
 	mmuLightPosHªdËr
 ;
 
-47 
+46 
 ´iv©e
  
 	mmTextu»HªdËr
 ;
 
-49 
+48 
 ´iv©e
  [] 
 	mmMVPM©rix
@@ -1497,7 +2503,7 @@ FlßtBufãr
 Ãw
  [16];
 
-50 
+49 
 ´iv©e
  [] 
 	mmV›wM©rix
@@ -1505,7 +2511,7 @@ FlßtBufãr
 Ãw
  [16];
 
-51 
+50 
 ´iv©e
  [] 
 	mmMod–M©rix
@@ -1513,7 +2519,7 @@ FlßtBufãr
 Ãw
  [16];
 
-52 
+51 
 ´iv©e
  [] 
 	mmProjeùiÚM©rix
@@ -1523,65 +2529,49 @@ FlßtBufãr
 
 53 
 ´iv©e
- [] 
-	mmLightMod–M©rix
- = 
-Ãw
- [16];
-
-55 
-´iv©e
  
 	mmV›wX
  = 0.0f;
 
-56 
+54 
 ´iv©e
  
 	mmV›wY
  = 0.0f;
 
-57 
+55 
 ´iv©e
  
 	mmV›wZ
  = 200.0f;
 
-60 
+58 
 ´iv©e
  
 	mmV”tiÿlRÙ©eAngË
- = -30.0f;
+ = 0.0f;
 
-63 
+61 
 ´iv©e
  
 	mmHÜizÚlRÙ©eAngË
  = 0.0f;
 
+63 
+´iv©e
+ 
+	mmLightRÙ©eAngË
+ = 0.0f;
+
 65 
 ´iv©e
- 
-	mmLightPosInMod–S·û
-[] = {0.0f, 0.0f, 0.0f, 1.0f};
-
-66 
-´iv©e
- 
-	gmLightPosInEyeS·û
-[] = 
-Ãw
- [4];
+ 
+GLB®lEÁ™y
+ 
+	mmB®lEÁ™y
+;
 
 67 
-´iv©e
- 
-	gmLightPosInWÜldS·û
-[] = 
-Ãw
- [4];
-
-69 
 public
  
 	$GLEnvœÚm’tEÁ™y
@@ -1589,53 +2579,21 @@ public
 CÚ‹xt
  
 cÚ‹xt
-, 
-width
-, 
-height
 ) {
 
-70 
+68 
 mCÚ‹xt
  = 
 cÚ‹xt
 ;
 
 71 
-mWšdowWidth
- = 
-width
-;
-
-72 
-mWšdowHeight
- = 
-height
-;
-
-74 
-GLES20
-.
-	`glV›wpÜt
-(0, 0, 
-width
-, 
-height
-);
-
-75 
-GLES20
-.
-	`glCË¬CŞÜ
-(0.0f, 0.0f, 0.0f, 1.0f);
-
-78 
 SŒšg
 [] 
 ©Œibs
  = {"a_VertexPos", "a_TexCoord", "a_Color", "a_Normal",};
 
-79 
+72 
 Prog¿mLßd”
  
 pLßd”
@@ -1647,11 +2605,11 @@ pLßd”
 cÚ‹xt
 ,
 
-80 "’vœÚm’t_v”‹x_shad”.gl¦", "’vœÚm’t_äagm’t_shad”.gl¦", 
+73 "’vœÚm’t_v”‹x_shad”.gl¦", "’vœÚm’t_äagm’t_shad”.gl¦", 
 ©Œibs
  );
 
-81 
+74 
 mProg¿m
  = 
 pLßd”
@@ -1659,8 +2617,8 @@ pLßd”
 	`lßd
 ();
 
-83 
-maV”‹xPosHªdËr
+76 
+maPosHªdËr
  = 
 GLES20
 .
@@ -1669,7 +2627,7 @@ GLES20
 mProg¿m
 , "a_VertexPos");
 
-84 
+77 
 maTexCoÜdHªdËr
  = 
 GLES20
@@ -1679,8 +2637,8 @@ GLES20
 mProg¿m
 , "a_TexCoord");
 
-85 
-maV”‹xCŞÜHªdËr
+78 
+maCŞÜHªdËr
  = 
 GLES20
 .
@@ -1689,7 +2647,7 @@ GLES20
 mProg¿m
 , "a_Color");
 
-86 
+79 
 maNÜm®HªdËr
  = 
 GLES20
@@ -1699,7 +2657,7 @@ GLES20
 mProg¿m
 , "a_Normal");
 
-88 
+81 
 muMVPM©rixHªdËr
  = 
 GLES20
@@ -1709,7 +2667,7 @@ GLES20
 mProg¿m
 , "u_MVPMatrix");
 
-89 
+82 
 muMVM©rixHªdËr
  = 
 GLES20
@@ -1719,7 +2677,7 @@ GLES20
 mProg¿m
 , "u_MVMatrix");
 
-90 
+83 
 muSam¶”HªdËr
  = 
 GLES20
@@ -1729,7 +2687,7 @@ GLES20
 mProg¿m
 , "u_Sampler");
 
-91 
+84 
 muLightPosHªdËr
  = 
 GLES20
@@ -1739,7 +2697,7 @@ GLES20
 mProg¿m
 , "u_LightPos");
 
-93 
+86 
 mPosBufãr
  = 
 By‹Bufãr
@@ -1755,7 +2713,7 @@ TRIANGLE_POS_ARRAY
 FLOAT_SIZE
 )
 
-94 .
+87 .
 	`Üd”
 (
 By‹Ord”
@@ -1765,7 +2723,7 @@ By‹Ord”
 	`asFlßtBufãr
 ();
 
-95 
+88 
 mPosBufãr
 .
 	`put
@@ -1777,7 +2735,7 @@ TRIANGLE_POS_ARRAY
 	`pos™iÚ
 (0);
 
-97 
+90 
 mNÜm®Bufãr
  = 
 By‹Bufãr
@@ -1793,7 +2751,7 @@ NORMAL_ARRAY
 FLOAT_SIZE
 )
 
-98 .
+91 .
 	`Üd”
 (
 By‹Ord”
@@ -1801,75 +2759,75 @@ By‹Ord”
 	`ÇtiveOrd”
 ()).
 	`asFlßtBufãr
+();
+
+92 
+mNÜm®Bufãr
+.
+	`put
+(
+EnvœÚm’tD©a
+.
+NORMAL_ARRAY
+).
+	`pos™iÚ
+(0);
+
+94 
+mCŞÜBufãr
+ = 
+By‹Bufãr
+.
+	`®loÿ‹Dœeù
+(
+EnvœÚm’tD©a
+.
+VERTEX_COLOR_ARRAY
+.
+Ëngth
+*
+FLOAT_SIZE
+)
+
+95 .
+	`Üd”
+(
+By‹Ord”
+.
+	`ÇtiveOrd”
+()).
+	`asFlßtBufãr
+();
+
+96 
+mCŞÜBufãr
+.
+	`put
+(
+EnvœÚm’tD©a
+.
+VERTEX_COLOR_ARRAY
+).
+	`pos™iÚ
+(0);
+
+98 
+mProjeùiÚM©rix
+ = 
+CommÚUts
+.
+	`š™ProjeùiÚM©rix
 ();
 
 99 
-mNÜm®Bufãr
-.
-	`put
-(
-EnvœÚm’tD©a
-.
-NORMAL_ARRAY
-).
-	`pos™iÚ
-(0);
-
-101 
-mCŞÜBufãr
+mV›wM©rix
  = 
-By‹Bufãr
+CommÚUts
 .
-	`®loÿ‹Dœeù
-(
-EnvœÚm’tD©a
-.
-VERTEX_COLOR_ARRAY
-.
-Ëngth
-*
-FLOAT_SIZE
-)
-
-102 .
-	`Üd”
-(
-By‹Ord”
-.
-	`ÇtiveOrd”
-()).
-	`asFlßtBufãr
+	`š™V›wM©rix
 ();
 
-103 
-mCŞÜBufãr
-.
-	`put
-(
-EnvœÚm’tD©a
-.
-VERTEX_COLOR_ARRAY
-).
-	`pos™iÚ
-(0);
-
-105 
-M©rix
-.
-	`£tLookAtM
-(
-mV›wM©rix
-, 0,
-
-106 
-mV›wX
-, 
-mV›wY
-, 
-mV›wZ
-, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
-
-109 
+102 
 Textu»Lßd”
  
 tLßd”
@@ -1887,7 +2845,7 @@ d¿wabË
 wood_‹xtu»
 );
 
-110 
+103 
 mTextu»HªdËr
  = 
 tLßd”
@@ -1895,7 +2853,7 @@ tLßd”
 	`lßd
 ();
 
-112 
+105 
 mTexCoÜdBufãr
  = 
 By‹Bufãr
@@ -1911,7 +2869,7 @@ TEXTURE_COORD_ARRAY
 FLOAT_SIZE
 )
 
-113 .
+106 .
 	`Üd”
 (
 By‹Ord”
@@ -1921,7 +2879,7 @@ By‹Ord”
 	`asFlßtBufãr
 ();
 
-114 
+107 
 mTexCoÜdBufãr
 .
 	`put
@@ -1933,7 +2891,7 @@ TEXTURE_COORD_ARRAY
 	`pos™iÚ
 (0);
 
-116 
+109 
 GLES20
 .
 	`glEÇbË
@@ -1941,7 +2899,7 @@ GLES20
 GL_DEPTH_TEST
 );
 
-117 
+110 
 GLES20
 .
 	`glEÇbË
@@ -1949,15 +2907,27 @@ GLES20
 GL_CULL_FACE
 );
 
-120 
-	}
-}
+114 
+mB®lEÁ™y
+ = 
+Ãw
+ 
+	`GLB®lEÁ™y
+(
+mCÚ‹xt
+);
 
-122 @
+115 
+	`addEÁ™y
+(
+mB®lEÁ™y
+);
+
+118 @
 Ov”ride
 
 
-123 
+119 
 public
  
 boŞ—n
@@ -1967,7 +2937,7 @@ boŞ—n
 keyCode
 ) {
 
-124 ià(
+120 ià(
 keyCode
  =ğ
 KeyEv’t
@@ -1975,15 +2945,15 @@ KeyEv’t
 KEYCODE_VOLUME_UP
 ) {
 
-125 
+121 
 mV›wX
  += 0.3;
 
-126  
+122  
 Œue
 ;
 
-127 } ià(
+123 } ià(
 keyCode
  =ğ
 KeyEv’t
@@ -1991,23 +2961,23 @@ KeyEv’t
 KEYCODE_VOLUME_DOWN
 ) {
 
-128 
+124 
 mV›wX
  -= 0.3;
 
-129  
+125  
 Œue
 ;
 
-131  
+127  
 çl£
 ;
 
-132 
+128 
 	}
 }
 
-134 
+130 
 ´iv©e
  
 	$rÙ©e
@@ -2017,27 +2987,27 @@ dV”t
 dHÜi
 ) {
 
-135 
+131 
 mV”tiÿlRÙ©eAngË
- -ğ
+ +ğ
 dV”t
 ;
 
-136 
+132 
 mHÜizÚlRÙ©eAngË
  +ğ
 dHÜi
 ;
 
-137 
+133 
 	}
 }
 
-139 @
+135 @
 Ov”ride
 
 
-140 
+136 
 public
  
 boŞ—n
@@ -2049,7 +3019,15 @@ MÙiÚEv’t
 ev’t
 ) {
 
-141 
+137 
+su³r
+.
+	`ÚTouch
+(
+ev’t
+);
+
+138 
 x
  = 
 ev’t
@@ -2057,7 +3035,7 @@ ev’t
 	`g‘X
 ();
 
-142 
+139 
 y
  = 
 ev’t
@@ -2065,7 +3043,7 @@ ev’t
 	`g‘Y
 ();
 
-143 ià(
+140 ià(
 ev’t
 .
 	`g‘AùiÚ
@@ -2075,7 +3053,7 @@ MÙiÚEv’t
 ACTION_MOVE
 ) {
 
-144 
+141 
 dx
  = 
 x
@@ -2083,7 +3061,7 @@ x
 mP»viousX
 ;
 
-145 
+142 
 dy
  = 
 y
@@ -2092,14 +3070,16 @@ mP»viousY
 ;
 
 146 
-	`rÙ©e
+mB®lEÁ™y
+.
+	`Œª¦©e
 (
 dx
 *
-ROTATE_SCALE_FACTOR
-, 
+TRANSLATE_SCALE_FACTOR
+, -
 dy
-*ROTATE_SCALE_FACTOR);
+*TRANSLATE_SCALE_FACTOR);
 
 148 
 mP»viousX
@@ -2153,25 +3133,21 @@ public
 	`upd©eD©a
 () {
 
-162 
-mV”tiÿlRÙ©eAngË
- -ğ
-M©h
-.
-PI
-/6;
-
 164 
+mLightRÙ©eAngË
+ -= 0.5;
+
+166 
 	}
 };
 
-166 
+168 
 ´iv©e
  
 	$¡¬tTim”
 () {
 
-167 
+169 
 Tim”
  
 tim”
@@ -2181,7 +3157,7 @@ tim”
 	`Tim”
 ("view dataimer");
 
-168 
+170 
 tim”
 .
 	`scheduË
@@ -2189,29 +3165,19 @@ tim”
 mUpd©ePosTim”
 , 0, 10);
 
-169 
+171 
 	}
 }
 
-171 @
+173 @
 Ov”ride
 
 
-172 
+174 
 public
  
 	$d¿w
 () {
-
-173 
-GLES20
-.
-	`glCË¬
-(GLES20.
-GL_COLOR_BUFFER_BIT
- | GLES20.
-GL_DEPTH_BUFFER_BIT
-);
 
 175 
 GLES20
@@ -2276,20 +3242,6 @@ mMVPM©rix
 184 
 M©rix
 .
-	`ÜthoM
-(
-mProjeùiÚM©rix
-, 0,
-
-185 -250.0f*(()
-mWšdowWidth
-/
-mWšdowHeight
-), 250.0f*(()mWindowWidth/mWindowHeight), -250.0f, 250.0f,
-
-187 
-M©rix
-.
 	`muÉlyMM
 (
 mMVPM©rix
@@ -2297,7 +3249,7 @@ mMVPM©rix
 mProjeùiÚM©rix
 , 0, mMVPMatrix, 0);
 
-188 
+185 
 GLES20
 .
 	`glUnifÜmM©rix4fv
@@ -2309,57 +3261,19 @@ muMVPM©rixHªdËr
 mMVPM©rix
 , 0);
 
-190 
-M©rix
-.
-	`£tId’t™yM
-(
-mLightMod–M©rix
-, 0);
-
-191 
-M©rix
-.
-	`Œª¦©eM
-(
-mLightMod–M©rix
-, 0, 0.0f, 0.0f, 180.0f);
-
-192 
-M©rix
-.
-	`muÉlyMV
-(
-mLightPosInWÜldS·û
-, 0, 
-mLightMod–M©rix
-, 0, 
-mLightPosInMod–S·û
-, 0);
-
-193 
-M©rix
-.
-	`muÉlyMV
-(
-mLightPosInEyeS·û
-, 0, 
-mV›wM©rix
-, 0, 
-mLightPosInWÜldS·û
-, 0);
-
-194 
+187 
 GLES20
 .
 	`glUnifÜm3fv
 (
 muLightPosHªdËr
 , 1, 
-mLightPosInEyeS·û
-, 0);
+CommÚUts
+.
+	`š™LightPos™iÚVeùÜ
+(), 0);
 
-198 
+190 
 GLES20
 .
 	`glV”‹xA‰ribPoš‹r
@@ -2367,7 +3281,7 @@ GLES20
 maTexCoÜdHªdËr
 ,
 
-199 2, 
+191 2, 
 GLES20
 .
 GL_FLOAT
@@ -2377,7 +3291,7 @@ GL_FLOAT
 mTexCoÜdBufãr
 );
 
-200 
+192 
 GLES20
 .
 	`glEÇbËV”‹xA‰ribA¼ay
@@ -2385,7 +3299,7 @@ GLES20
 maTexCoÜdHªdËr
 );
 
-201 
+193 
 GLES20
 .
 	`glUnifÜm1i
@@ -2393,15 +3307,15 @@ GLES20
 muSam¶”HªdËr
 , 0);
 
-203 
+195 
 GLES20
 .
 	`glV”‹xA‰ribPoš‹r
 (
-maV”‹xCŞÜHªdËr
+maCŞÜHªdËr
 ,
 
-204 4, 
+196 4, 
 GLES20
 .
 GL_FLOAT
@@ -2411,23 +3325,23 @@ GL_FLOAT
 mCŞÜBufãr
 );
 
-205 
+197 
 GLES20
 .
 	`glEÇbËV”‹xA‰ribA¼ay
 (
-maV”‹xCŞÜHªdËr
+maCŞÜHªdËr
 );
 
-207 
+199 
 GLES20
 .
 	`glV”‹xA‰ribPoš‹r
 (
-maV”‹xPosHªdËr
+maPosHªdËr
 ,
 
-208 3, 
+200 3, 
 GLES20
 .
 GL_FLOAT
@@ -2437,15 +3351,15 @@ GL_FLOAT
 mPosBufãr
 );
 
-209 
+201 
 GLES20
 .
 	`glEÇbËV”‹xA‰ribA¼ay
 (
-maV”‹xPosHªdËr
+maPosHªdËr
 );
 
-211 
+203 
 GLES20
 .
 	`glV”‹xA‰ribPoš‹r
@@ -2453,7 +3367,7 @@ GLES20
 maNÜm®HªdËr
 ,
 
-212 3, 
+204 3, 
 GLES20
 .
 GL_FLOAT
@@ -2463,7 +3377,7 @@ GL_FLOAT
 mNÜm®Bufãr
 );
 
-213 
+205 
 GLES20
 .
 	`glEÇbËV”‹xA‰ribA¼ay
@@ -2471,23 +3385,895 @@ GLES20
 maNÜm®HªdËr
 );
 
-215 
+207 
+off£t
+ = 0;
+
+208 
+couÁ
+ : 
+EnvœÚm’tD©a
+.
+ITEMS_VERTEX_COUNT
+) {
+
+209 
 GLES20
 .
 	`glD¿wA¼ays
 (GLES20.
 GL_TRIANGLE_STRIP
-, 0, 10);
+, 
+off£t
+, 
+couÁ
+);
 
-216 
+210 
+off£t
+ +ğ
+couÁ
+;
+
+212 
+mB®lEÁ™y
+.
+	`d¿w
+();
+
+213 
+	}
+}
+
+	@src/hongbosb/rollingball/model/GLSphereEntity.java
+
+1 
+·ckage
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+.
+	gmod–
+;
+
+3 
+impÜt
+ 
+	gªdroid
+.
+	gut
+.*;
+
+4 
+impÜt
+ 
+	gªdroid
+.
+	gwidg‘
+.*;
+
+5 
+impÜt
+ 
+	gªdroid
+.
+	gv›w
+.*;
+
+6 
+impÜt
+ 
+	gªdroid
+.
+	gcÚ‹Á
+.*;
+
+7 
+impÜt
+ 
+	gªdroid
+.
+	g­p
+.*;
+
+8 
+impÜt
+ 
+	gªdroid
+.
+	gos
+.*;
+
+9 
+impÜt
+ 
+	gªdroid
+.
+	gd©aba£
+.*;
+
+10 
+impÜt
+ 
+	gªdroid
+.
+	gÃt
+.*;
+
+11 
+impÜt
+ 
+	gªdroid
+.
+	gİ’gl
+.*;
+
+12 
+impÜt
+ 
+	gªdroid
+.
+	gg¿phics
+.*;
+
+14 
+impÜt
+ 
+	gjava
+.
+	gut
+.*;
+
+16 
+public
+ cÏs 
+	cGLSph”eEÁ™y
+ {
+
+	@src/hongbosb/rollingball/model/Sphere.java
+
+1 
+·ckage
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+.
+	gmod–
+;
+
+3 
+impÜt
+ 
+	gªdroid
+.
+	gut
+.*;
+
+4 
+impÜt
+ 
+	gªdroid
+.
+	gwidg‘
+.*;
+
+5 
+impÜt
+ 
+	gªdroid
+.
+	gv›w
+.*;
+
+6 
+impÜt
+ 
+	gªdroid
+.
+	gcÚ‹Á
+.*;
+
+7 
+impÜt
+ 
+	gªdroid
+.
+	g­p
+.*;
+
+8 
+impÜt
+ 
+	gªdroid
+.
+	gos
+.*;
+
+9 
+impÜt
+ 
+	gªdroid
+.
+	gd©aba£
+.*;
+
+10 
+impÜt
+ 
+	gªdroid
+.
+	gÃt
+.*;
+
+11 
+impÜt
+ 
+	gªdroid
+.
+	gİ’gl
+.*;
+
+12 
+impÜt
+ 
+	gªdroid
+.
+	gg¿phics
+.*;
+
+14 
+impÜt
+ 
+	gjava
+.
+	gut
+.*;
+
+15 
+impÜt
+ 
+	gjava
+.
+	gio
+.*;
+
+16 
+impÜt
+ 
+	gjava
+.
+	gnio
+.*;
+
+18 
+public
+ cÏs 
+	cSph”e
+ {
+
+20 
+public
+ 
+fš®
+ 
+	mTO_RADIANS
+ = 
+M©h
+.
+PI
+/180;
+
+22 
+´iv©e
+ 
+	mmPoštCouÁ
+;
+
+23 
+´iv©e
+ 
+FlßtBufãr
+ 
+	mmPoštBufãr
+;
+
+24 
+´iv©e
+ 
+FlßtBufãr
+ 
+	mmCŞÜBufãr
+;
+
+25 
+´iv©e
+ 
+FlßtBufãr
+ 
+	mmNÜm®Bufãr
+;
+
+27 
+public
+ 
+	$Sph”e
+(
+¿dius
+, 
+deg»eS‹p
+) {
+
+28 
+	`bud
+(
+¿dius
+, 
+deg»eS‹p
+);
+
+36 
+´iv©e
+ 
+	$bud
+(
+¿dius
+, 
+deg»eS‹p
+) {
+
+37 
+¿dŸnsS‹p
+ = ()(
+deg»eS‹p
+*
+TO_RADIANS
+);
+
+39 
+bufãrSize
+ = 400000;
+
+40 
+mPoštBufãr
+ = 
+By‹Bufãr
+.
+	`®loÿ‹Dœeù
+(
+bufãrSize
+)
+
+41 .
+	`Üd”
+(
+By‹Ord”
+.
+	`ÇtiveOrd”
+()).
+	`asFlßtBufãr
+();
+
+42 
+mNÜm®Bufãr
+ = 
+By‹Bufãr
+.
+	`®loÿ‹Dœeù
+(
+bufãrSize
+).
+	`Üd”
+(
+By‹Ord”
+.
+	`ÇtiveOrd”
+()).
+	`asFlßtBufãr
+();
+
+43 
+mCŞÜBufãr
+ = 
+By‹Bufãr
+.
+	`®loÿ‹Dœeù
+(
+bufãrSize
+*4/3).
+	`Üd”
+(
+By‹Ord”
+.
+	`ÇtiveOrd”
+()).
+	`asFlßtBufãr
+();
+
+44 
+couÁ
+ = 0;
+
+45 
+phi
+ = 0;…h˜<ğ
+M©h
+.
+PI
+;…h˜+ğ
+¿dŸnsS‹p
+) {
+
+46 
+th‘a
+ = 0;h‘¨<ğ2*
+M©h
+.
+PI
+;h‘¨+ğ
+¿dŸnsS‹p
+) {
+
+47 
+mPoštBufãr
+.
+	`put
+(()(
+¿dius
+*
+M©h
+.
+	`sš
+(
+phi
+)*M©h.
+	`cos
+(
+th‘a
+)));
+
+48 
+mPoštBufãr
+.
+	`put
+(()(
+¿dius
+*
+M©h
+.
+	`sš
+(
+phi
+)*M©h.sš(
+th‘a
+)));
+
+49 
+mPoštBufãr
+.
+	`put
+(()(
+¿dius
+*
+M©h
+.
+	`cos
+(
+phi
+)));
+
+51 
+mNÜm®Bufãr
+.
+	`put
+(80*()(
+M©h
+.
+	`sš
+(
+phi
+)*M©h.
+	`cos
+(
+th‘a
+)));
+
+52 
+mNÜm®Bufãr
+.
+	`put
+(80*()(
+M©h
+.
+	`sš
+(
+phi
+)*M©h.sš(
+th‘a
+)));
+
+53 
+mNÜm®Bufãr
+.
+	`put
+(80*()(
+M©h
+.
+	`cos
+(
+phi
+)));
+
+55 
+mCŞÜBufãr
+.
+	`put
+(()0x66/0xff);
+
+56 
+mCŞÜBufãr
+.
+	`put
+(()0xcc/0xff);
+
+57 
+mCŞÜBufãr
+.
+	`put
+(()0xff/0xff);
+
+58 
+mCŞÜBufãr
+.
+	`put
+(()0xff/0xff);
+
+60 
+couÁ
+ += 1;
+
+63 
+mPoštBufãr
+.
+	`pos™iÚ
+(0);
+
+64 
+mNÜm®Bufãr
+.
+	`pos™iÚ
+(0);
+
+65 
+mCŞÜBufãr
+.
+	`pos™iÚ
+(0);
+
+66 
+mPoštCouÁ
+ = 
+couÁ
+;
+
+67 
+	}
+}
+
+69 
+public
+ 
+	$d¿w
+(
+posHªdËr
+, 
+nÜm®HªdËr
+, 
+cŞÜHªdËr
+) {
+
+70 
+GLES20
+.
+	`glV”‹xA‰ribPoš‹r
+(
+posHªdËr
+,
+
+71 3, 
+GLES20
+.
+GL_FLOAT
+, 
+çl£
+, 0, 
+mPoštBufãr
+);
+
+72 
+GLES20
+.
+	`glEÇbËV”‹xA‰ribA¼ay
+(
+posHªdËr
+);
+
+74 
+GLES20
+.
+	`glV”‹xA‰ribPoš‹r
+(
+nÜm®HªdËr
+,
+
+75 3, 
+GLES20
+.
+GL_FLOAT
+, 
+çl£
+, 0, 
+mNÜm®Bufãr
+);
+
+76 
+GLES20
+.
+	`glEÇbËV”‹xA‰ribA¼ay
+(
+nÜm®HªdËr
+);
+
+78 
+GLES20
+.
+	`glV”‹xA‰ribPoš‹r
+(
+cŞÜHªdËr
+,
+
+79 4, 
+GLES20
+.
+GL_FLOAT
+, 
+çl£
+, 0, 
+mCŞÜBufãr
+);
+
+80 
+GLES20
+.
+	`glEÇbËV”‹xA‰ribA¼ay
+(
+cŞÜHªdËr
+);
+
+82 
 GLES20
 .
 	`glD¿wA¼ays
 (GLES20.
-GL_TRIANGLE_STRIP
-, 10, 10);
+GL_TRIANGLE_FAN
+, 0, 
+mPoštCouÁ
+);
 
-219 
+83 
+	}
+}
+
+	@src/hongbosb/rollingball/util/CommonUtils.java
+
+1 
+·ckage
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+.
+	gut
+;
+
+3 
+impÜt
+ 
+	gªdroid
+.
+	gut
+.*;
+
+4 
+impÜt
+ 
+	gªdroid
+.
+	gwidg‘
+.*;
+
+5 
+impÜt
+ 
+	gªdroid
+.
+	gv›w
+.*;
+
+6 
+impÜt
+ 
+	gªdroid
+.
+	gcÚ‹Á
+.*;
+
+7 
+impÜt
+ 
+	gªdroid
+.
+	g­p
+.*;
+
+8 
+impÜt
+ 
+	gªdroid
+.
+	gos
+.*;
+
+9 
+impÜt
+ 
+	gªdroid
+.
+	gd©aba£
+.*;
+
+10 
+impÜt
+ 
+	gªdroid
+.
+	gg¿phics
+.*;
+
+11 
+impÜt
+ 
+	gªdroid
+.
+	gİ’gl
+.*;
+
+12 
+impÜt
+ 
+	gªdroid
+.
+	gİ’gl
+.
+	gM©rix
+;
+
+14 
+impÜt
+ 
+	gjava
+.
+	gut
+.*;
+
+16 
+impÜt
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+.
+	gd©a
+.*;
+
+18 
+public
+ cÏs 
+	cCommÚUts
+ {
+
+20 
+´iv©e
+ 
+fš®
+ [] 
+	mLIGHT_POSITION
+ = {0f, 0f, 100f};
+
+22 
+public
+ [] 
+	$š™ProjeùiÚM©rix
+() {
+
+23 [] 
+m©rix
+ = 
+Ãw
+ [16];
+
+24 
+M©rix
+.
+	`ÜthoM
+(
+m©rix
+, 0,
+
+25 -250.0f*(()
+Sh¬edD©a
+.
+mWšdowWidth
+/Sh¬edD©a.
+mWšdowHeight
+),
+
+26 250.0f*(()
+Sh¬edD©a
+.
+mWšdowWidth
+/Sh¬edD©a.
+mWšdowHeight
+),
+
+30  
+m©rix
+;
+
+31 
+	}
+}
+
+33 
+public
+ [] 
+	$š™LightPos™iÚVeùÜ
+() {
+
+34  
+LIGHT_POSITION
+;
+
+35 
+	}
+}
+
+37 
+public
+ [] 
+	$š™V›wM©rix
+() {
+
+38 [] 
+m©rix
+ = 
+Ãw
+ [16];
+
+39 
+M©rix
+.
+	`£tLookAtM
+(
+m©rix
+, 0,
+
+41  
+m©rix
+;
+
+42 
 	}
 }
 
@@ -3590,8 +5376,8 @@ TAG
 .
 1
 /usr/include
-15
-670
+20
+906
 gen/hongbosb/rollingball/BuildConfig.java
 gen/hongbosb/rollingball/R.java
 src/hongbosb/rollingball/GLInputable.java
@@ -3601,8 +5387,13 @@ src/hongbosb/rollingball/MyGLSurfaceView.java
 src/hongbosb/rollingball/MyRenderer.java
 src/hongbosb/rollingball/NaturalConstants.java
 src/hongbosb/rollingball/data/EnvironmentData.java
+src/hongbosb/rollingball/data/SharedData.java
+src/hongbosb/rollingball/model/GLBallEntity.java
 src/hongbosb/rollingball/model/GLEntity.java
 src/hongbosb/rollingball/model/GLEnvironmentEntity.java
+src/hongbosb/rollingball/model/GLSphereEntity.java
+src/hongbosb/rollingball/model/Sphere.java
+src/hongbosb/rollingball/util/CommonUtils.java
 src/hongbosb/rollingball/util/Loadable.java
 src/hongbosb/rollingball/util/ProgramLoader.java
 src/hongbosb/rollingball/util/TextureLoader.java

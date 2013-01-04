@@ -3,13 +3,14 @@ package hongbosb.rollingball.data;
 public class EnvironmentData {
 
     static public final float NORMAL_SCALE = 80.0f;
+    static public final float BOARD_SIZE = 100f;
 
     static public final float WALL_HEIGHT = 40;
     static public final float WALL_WIDTH = 20;
-    static public final float WALL_ABS_INNER_X = SharedData.BOARD_SIZE;
-    static public final float WALL_ABS_INNER_Y = SharedData.BOARD_SIZE;
-    static public final float WALL_ABS_OUTER_X = SharedData.BOARD_SIZE + WALL_WIDTH;
-    static public final float WALL_ABS_OUTER_Y = SharedData.BOARD_SIZE + WALL_WIDTH;
+    static public final float WALL_ABS_INNER_X = BOARD_SIZE;
+    static public final float WALL_ABS_INNER_Y = BOARD_SIZE;
+    static public final float WALL_ABS_OUTER_X = BOARD_SIZE + WALL_WIDTH;
+    static public final float WALL_ABS_OUTER_Y = BOARD_SIZE + WALL_WIDTH;
 
     static public final int VERTEX_COUNT_WALL_TOP = 10;
     static public final int VERTEX_COUNT_WALL_INNER_FACE = 10;

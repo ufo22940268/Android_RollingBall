@@ -44,6 +44,9 @@ public class GLBallEntity extends GLEntity {
 
     private float mTranslateX = 0f;
     private float mTranslateY = 0f;
+
+    //The bottom when the ball fall because of gravity.
+    private float mFallBottom = -EnvironmentData.BOARD_SIZE;
     
     private Context mContext;
 
@@ -78,19 +81,35 @@ public class GLBallEntity extends GLEntity {
     }
 
     private boolean isMeetEdge(float deltaX, float deltaY) {
-        if (mTranslateX + deltaX > SharedData.BOARD_SIZE ||
-                mTranslateY + deltaY > SharedData.BOARD_SIZE) {
+        if (Math.abs(mTranslateX + deltaX) + BALL_RADIUS > EnvironmentData.BOARD_SIZE ||
+                Math.abs(mTranslateY + deltaY) + BALL_RADIUS > EnvironmentData.BOARD_SIZE) {
             return true;
         } else {
             return false;
         }
     }
 
-    public void translate(float deltaX, float deltaY) {
-        if (!isMeetEdge(deltaX, deltaY)) {
-            mTranslateX += deltaX;
-            mTranslateY += deltaY;
+    public boolean isMeetEdge() {
+        if (Math.abs(mTranslateX) + BALL_RADIUS > EnvironmentData.BOARD_SIZE ||
+                Math.abs(mTranslateY) + BALL_RADIUS > EnvironmentData.BOARD_SIZE) {
+            return true;
+        } else {
+            return false;
         }
+    }
+
+    public void resetPosition() {
+        mTranslateX = 0;
+        mTranslateY = 0;
+    }
+
+    public void translate(float deltaX, float deltaY) {
+        mTranslateX += deltaX;
+        mTranslateY += deltaY;
+    }
+
+    public void fall(float height) {
+        translate(0, -height);
     }
 
     public void draw() {

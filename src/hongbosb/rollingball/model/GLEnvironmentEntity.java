@@ -23,6 +23,8 @@ public class GLEnvironmentEntity extends GLEntity implements GLInputable {
     static public final float ROTATE_SCALE_FACTOR = 0.5f;
     static public final float TRANSLATE_SCALE_FACTOR = 0.5f;
 
+    static public final int BALL_TIMER_UPDATE_INTERVAL = 10;
+
     private Context mContext;
 
     private float mPreviousX;
@@ -109,10 +111,10 @@ public class GLEnvironmentEntity extends GLEntity implements GLInputable {
         GLES20.glEnable(GLES20.GL_DEPTH_TEST);
         GLES20.glEnable(GLES20.GL_CULL_FACE);
 
-        //startTimer();
-        //TODO
         mBallEntity = new GLBallEntity(mContext);
         addEntity(mBallEntity);
+
+        startTimer();
     }
 
     @Override
@@ -151,23 +153,59 @@ public class GLEnvironmentEntity extends GLEntity implements GLInputable {
     }
 
     private TimerTask mUpdatePosTimer = new TimerTask() {
+
+        static public final int DIRECTION_DOWN   = 1;
+        static public final int DIRECTION_UP     = -1;
+        static public final int DIRECTION_IDLE = 0;
+
+        private float mBallAbsVelocity = 0;
+        private int mDirection = 1;
+
         @Override
         public void run() {
-            updateData();
+            updateBallPosition();
         }
 
-        private void updateData() {
-            //Actually, the unit of angle is degree. But because the short interval
-            //of timer task, so the animation appears just fine.
-            //mVerticalRotateAngle -= Math.PI/6;
+        //This method is called every time the timer update.
+        //The interval is defined in BALL_TIMER_UPDATE_INTERVAL.
+        private void updateBallPosition() {
+            //Convert the unit of timer to second.
+            float interval = (float)BALL_TIMER_UPDATE_INTERVAL/1000;
 
-            mLightRotateAngle -= 0.5;
+            float distance = interval*mBallAbsVelocity;
+            mBallEntity.fall(distance*mDirection);   
+
+            int newDirection = getDirection();
+            if (newDirection == DIRECTION_IDLE) {
+                cancel();
+                return;
+            } else if (newDirection != mDirection) {
+                evalVelocityLoss();
+                mDirection = newDirection;
+            }
+
+            mBallAbsVelocity = mBallAbsVelocity + mDirection*interval*NaturalConstants.GRAVITY;
         }
+
+        private void evalVelocityLoss() {
+            mBallAbsVelocity = mBallAbsVelocity*3/4;
+        }
+
+        private int getDirection() {
+            if (mBallAbsVelocity == 0 && mBallEntity.isMeetEdge()) {
+                return DIRECTION_IDLE;
+            } else if (mBallEntity.isMeetEdge() || mBallAbsVelocity == 0) {
+                return -mDirection;
+            } else {
+                return mDirection;
+            }
+        }
+        
     };
 
     private void startTimer() {
-        Timer timer = new Timer("view data timer"); 
-        timer.schedule(mUpdatePosTimer, 0, 10);
+        Timer timer = new Timer("ball fallen timer"); 
+        timer.schedule(mUpdatePosTimer, 0, BALL_TIMER_UPDATE_INTERVAL);
     }
 
     @Override
