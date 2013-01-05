@@ -26,7 +26,10 @@ public class GLBallEntity extends GLEntity {
     static public final int DIRECTION_UP     = -1;
     static public final int DIRECTION_IDLE = 0;
 
-    static public final float VELOCITY_STATIC_THRESHOLD = 1;
+    static public final float ABS_MAX_X = EnvironmentData.BOARD_SIZE - BALL_RADIUS;
+    static public final float ABS_MAX_Y = EnvironmentData.BOARD_SIZE - BALL_RADIUS;
+
+    static public final float VELOCITY_STATIC_THRESHOLD = 4;
 
     private float mBallAbsVelocity = 0;
     private int mDirection = 1;
@@ -51,8 +54,8 @@ public class GLBallEntity extends GLEntity {
     private float[] mModelMatrix = new float[16];
     private float[] mProjectionMatrix = new float[16];
 
-    private float mTranslateX = 0f;
-    private float mTranslateY = 0f;
+    public float mTranslateX = 0f;
+    public float mTranslateY = 0f;
 
     //The bottom when the ball fall because of gravity.
     private float mFallBottom = -EnvironmentData.BOARD_SIZE;
@@ -60,6 +63,10 @@ public class GLBallEntity extends GLEntity {
     private Context mContext;
 
     private Sphere mSphere;
+
+    //Only for test use.
+    public GLBallEntity() {
+    }
 
     public GLBallEntity(Context context) {
         mContext = context;
@@ -89,21 +96,22 @@ public class GLBallEntity extends GLEntity {
         GLES20.glEnable(GLES20.GL_CULL_FACE);
     }
 
-    private boolean isMeetEdge(float deltaX, float deltaY) {
-        if (Math.abs(mTranslateX + deltaX) + BALL_RADIUS >= EnvironmentData.BOARD_SIZE ||
-                Math.abs(mTranslateY + deltaY) + BALL_RADIUS >= EnvironmentData.BOARD_SIZE) {
+    public boolean isMeetEdge() {
+        if (Math.abs(mTranslateX) >= ABS_MAX_X ||
+                Math.abs(mTranslateY) >= ABS_MAX_Y) {
             return true;
         } else {
             return false;
         }
     }
 
-    public boolean isMeetEdge() {
-        if (Math.abs(mTranslateX) + BALL_RADIUS >= EnvironmentData.BOARD_SIZE ||
-                Math.abs(mTranslateY) + BALL_RADIUS >= EnvironmentData.BOARD_SIZE) {
-            return true;
-        } else {
-            return false;
+    public void fixEdgePosition() {
+        if (Math.abs(mTranslateX) - (double)ABS_MAX_X > 0) {
+            mTranslateX = ABS_MAX_X*(mTranslateX > 0 ? 1 : -1);
+        }
+
+        if (Math.abs(mTranslateY) - (double)ABS_MAX_Y > 0) {
+            mTranslateY = ABS_MAX_Y*(mTranslateY > 0 ? 1 : -1);
         }
     }
 
@@ -150,6 +158,8 @@ public class GLBallEntity extends GLEntity {
         float v = mBallAbsVelocity + mDirection*interval*NaturalConstants.GRAVITY;
         if (v <= 0) {
             if (isMeetEdge()) {
+                fixEdgePosition();
+
                 mDirection = DIRECTION_IDLE;
                 mBallAbsVelocity = 0;
             } else {
@@ -159,9 +169,9 @@ public class GLBallEntity extends GLEntity {
             }
         } else {
             if (isMeetEdge()) {
+                fixEdgePosition();
+
                 //Hit ground.
-                System.out.println("++++++++++++++++++++" + mBallAbsVelocity + "++++++++++++++++++++");
-                System.out.println("++++++++++++++++++++x:" + mTranslateX + "\ty:" + mTranslateY + "++++++++++++++++++++");
                 if (mBallAbsVelocity < VELOCITY_STATIC_THRESHOLD) {
                     //When velocity too small to rebounce again, then 
                     //set it as zero.
@@ -180,34 +190,8 @@ public class GLBallEntity extends GLEntity {
     }
 
     private void evalVelocityLoss() {
-        mBallAbsVelocity = mBallAbsVelocity*9/10;
+        mBallAbsVelocity = mBallAbsVelocity*3/4;
     }
-
-    /*
-     *The velocity can be a negative value. 
-     *But when it becomes negative, we should stop the animation. 
-     */
-    private int getDirection() {
-        if (mBallAbsVelocity <= 0 && isMeetEdge()) {
-            return DIRECTION_IDLE;
-        } else if (isMeetEdge() || mBallAbsVelocity == 0) {
-            return -mDirection;
-        } else {
-            return mDirection;
-        }
-        ////When ball hit ground and the velocity too small to bounds again.
-        //if(mBallEntity.isStoped()) {
-        //if (mBallEntity.isMeetEdge()) {
-        //return DIRECTION_IDLE;
-        //} else {
-        //return -mDirection;
-        //}
-        //} else {
-        //if (mBallEntity.isMeetEdge()) {
-        //}
-        //}
-    }
-
 
     public void draw() {
         GLES20.glUseProgram(mProgram);
