@@ -67,6 +67,11 @@ public class MyGLSurfaceView extends GLSurfaceView implements GLInputable {
 
         @Override
         public boolean onKeyDown(int keyCode) {
+            if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
+                mEntity.reset();
+                return true;
+            }
+
             if (mEntity != null) {
                 return mEntity.onKeyDown(keyCode);
             }

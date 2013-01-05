@@ -29,6 +29,7 @@ public class GLEnvironmentEntity extends GLEntity implements GLInputable {
 
     private float mPreviousX;
     private float mPreviousY;
+    private float mTiltingAngle;
 
     protected int mProgram; 
 
@@ -129,9 +130,24 @@ public class GLEnvironmentEntity extends GLEntity implements GLInputable {
         return false;
     }
 
+    public void reset() {
+        mPreviousX = 0.0f;
+        mPreviousY = 0.0f;
+        mTiltingAngle = 0.0f;
+        mVerticalRotateAngle = 0.0f;
+        mHorizontalRotateAngle = 0.0f;
+
+        mBallEntity.reset();
+    }
+
     private void rotate(float dVert, float dHori) {
         mVerticalRotateAngle += dVert;
         mHorizontalRotateAngle += dHori;
+
+        //Eval tilting angle.
+        float x = mVerticalRotateAngle;
+        float y = -mHorizontalRotateAngle;
+        mTiltingAngle = (float)Math.atan2(y, x);
     }
 
     @Override
@@ -143,9 +159,9 @@ public class GLEnvironmentEntity extends GLEntity implements GLInputable {
             float dx = x - mPreviousX;
             float dy = y - mPreviousY;
             //Don't rotate board when testing ball rotate.
-            //rotate(dx*ROTATE_SCALE_FACTOR, dy*ROTATE_SCALE_FACTOR);
-            
-            mBallEntity.translate(dx*TRANSLATE_SCALE_FACTOR, -dy*TRANSLATE_SCALE_FACTOR);
+            System.out.println("++++++++++++++++++++dx:" + dx + "\t dy:" + dy + "++++++++++++++++++++");
+            rotate(dx*ROTATE_SCALE_FACTOR, dy*ROTATE_SCALE_FACTOR);
+            mBallEntity.rotate(dx*ROTATE_SCALE_FACTOR, dy*ROTATE_SCALE_FACTOR);
         }
         mPreviousX = x;
         mPreviousY = y;
@@ -155,9 +171,7 @@ public class GLEnvironmentEntity extends GLEntity implements GLInputable {
     private TimerTask mUpdatePosTimer = new TimerTask() {
         @Override
         public void run() {
-            if (!mBallEntity.updatePosition()) {
-                cancel();
-            }
+            mBallEntity.updatePosition(mTiltingAngle);
         }
     };
 

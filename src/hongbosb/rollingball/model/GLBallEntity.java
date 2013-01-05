@@ -22,8 +22,6 @@ public class GLBallEntity extends GLEntity {
 
     static public final float BALL_RADIUS = 10;
 
-    static public final int DIRECTION_DOWN   = 1;
-    static public final int DIRECTION_UP     = -1;
     static public final int DIRECTION_IDLE = 0;
 
     static public final float ABS_MAX_X = EnvironmentData.BOARD_SIZE - BALL_RADIUS;
@@ -53,6 +51,9 @@ public class GLBallEntity extends GLEntity {
     private float[] mViewMatrix = new float[16];
     private float[] mModelMatrix = new float[16];
     private float[] mProjectionMatrix = new float[16];
+
+    private float mVerticalRotateAngle = 0.0f;
+    private float mHorizontalRotateAngle = 0.0f;
 
     public float mTranslateX = 0f;
     public float mTranslateY = 0f;
@@ -125,13 +126,9 @@ public class GLBallEntity extends GLEntity {
         mTranslateY += deltaY;
     }
 
-    public void fall(float height) {
-        translate(0, -height);
-    }
-
     //This method is called every time the timer update.
     //The interval is defined in BALL_TIMER_UPDATE_INTERVAL.
-    public boolean updatePosition() {
+    public boolean updatePosition(float tiltingAngle) {
         if (mDirection == DIRECTION_IDLE) {
             return false;
         }
@@ -140,14 +137,19 @@ public class GLBallEntity extends GLEntity {
         float interval = (float)GLEnvironmentEntity.BALL_TIMER_UPDATE_INTERVAL/1000;
 
         float distance = interval*mBallAbsVelocity;
-        fall(distance*mDirection);   
+        translate((float)(distance*Math.cos(tiltingAngle)),
+                (float)(distance*Math.sin(tiltingAngle)));   
 
         updateVolecity();
         return true;
     }
 
     /*
-     * Something wrong with this method. The ball rebounce for twice or three times, then it just stoped.
+     * Something wrong with this method. The ball rebounce for twice or three times,
+     * then it just stoped.
+     *
+     * TODO Because the gravity is determined by the rotating of board, so 
+     * we need to change the mDirection to be consistent with it.
      */
     private void updateVolecity() {
         if (mBallAbsVelocity < 0) {
@@ -189,14 +191,30 @@ public class GLBallEntity extends GLEntity {
         }
     }
 
+    public void reset() {
+        mVerticalRotateAngle = 0.0f;
+        mHorizontalRotateAngle = 0.0f;
+        mTranslateX = 0f;
+        mTranslateY = 0f;
+        mBallAbsVelocity = 0;
+        mDirection = 1;
+    }
+
     private void evalVelocityLoss() {
         mBallAbsVelocity = mBallAbsVelocity*3/4;
+    }
+
+    public void rotate(float dVert, float dHori) {
+        mVerticalRotateAngle += dVert;
+        mHorizontalRotateAngle += dHori;
     }
 
     public void draw() {
         GLES20.glUseProgram(mProgram);
 
         Matrix.setIdentityM(mModelMatrix, 0);
+        Matrix.rotateM(mModelMatrix, 0, mVerticalRotateAngle, 0.0f, 1.0f, 0.0f);
+        Matrix.rotateM(mModelMatrix, 0, mHorizontalRotateAngle, 1.0f, 0.0f, 0.0f);
 
         GLES20.glUniform3fv(muLightPosHandler, 1, CommonUtils.initLightPositionVector(), 0);
         Matrix.multiplyMM(mLightMVMatrix, 0, mViewMatrix, 0, mModelMatrix, 0);

@@ -47,4 +47,26 @@ public class BallEntityTest extends AndroidTestCase {
         assertEquals(-GLBallEntity.ABS_MAX_X, mBall.mTranslateX);
         assertEquals(-GLBallEntity.ABS_MAX_Y, mBall.mTranslateY);
     }
+
+    public void testMeetEdge() throws Exception {
+        mBall.mTranslateX = -110.0f;
+        mBall.mTranslateY = -120.0f;
+        assertTrue(mBall.isMeetEdge());
+
+        mBall.mTranslateX = -110.0f;
+        mBall.mTranslateY = 0.0f;
+        assertTrue(mBall.isMeetEdge());
+
+        mBall.mTranslateX = 110.0f;
+        mBall.mTranslateY = 0.0f;
+        assertTrue(mBall.isMeetEdge());
+
+        mBall.mTranslateX = 0.0f;
+        mBall.mTranslateY = 120.0f;
+        assertTrue(mBall.isMeetEdge());
+
+        mBall.mTranslateX = 30.0f;
+        mBall.mTranslateY = 20.0f;
+        assertFalse(mBall.isMeetEdge());
+    }
 }

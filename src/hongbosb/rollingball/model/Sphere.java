@@ -35,7 +35,6 @@ public class Sphere {
      */
     private void build(float radius, int degreeStep) {
         float radiansStep = (float)(degreeStep*TO_RADIANS);
-        //int bufferSize = ((int)(Math.PI/radiansStep + 1) + (int)(Math.PI*2/radiansStep + 1))*3;
         int bufferSize = 400000;
         mPointBuffer = ByteBuffer.allocateDirect(bufferSize)
                 .order(ByteOrder.nativeOrder()).asFloatBuffer();
@@ -46,11 +45,11 @@ public class Sphere {
             for (float theta = 0; theta <= 2*Math.PI; theta += radiansStep) {
                 mPointBuffer.put((float)(radius*Math.sin(phi)*Math.cos(theta))); //x
                 mPointBuffer.put((float)(radius*Math.sin(phi)*Math.sin(theta))); //y
-                mPointBuffer.put((float)(radius*Math.cos(phi))); //z
+                mPointBuffer.put((float)(radius*Math.cos(phi)) + GLBallEntity.BALL_RADIUS); //z
 
                 mNormalBuffer.put(80*(float)(Math.sin(phi)*Math.cos(theta))); //x
                 mNormalBuffer.put(80*(float)(Math.sin(phi)*Math.sin(theta))); //y
-                mNormalBuffer.put(80*(float)(Math.cos(phi))); //z
+                mNormalBuffer.put(80*(float)(Math.cos(phi)) + GLBallEntity.BALL_RADIUS); //z
 
                 mColorBuffer.put((float)0x66/0xff);
                 mColorBuffer.put((float)0xcc/0xff);
