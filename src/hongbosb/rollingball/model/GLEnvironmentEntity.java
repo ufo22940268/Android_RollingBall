@@ -159,7 +159,6 @@ public class GLEnvironmentEntity extends GLEntity implements GLInputable {
             float dx = x - mPreviousX;
             float dy = y - mPreviousY;
             //Don't rotate board when testing ball rotate.
-            System.out.println("++++++++++++++++++++dx:" + dx + "\t dy:" + dy + "++++++++++++++++++++");
             rotate(dx*ROTATE_SCALE_FACTOR, dy*ROTATE_SCALE_FACTOR);
             mBallEntity.rotate(dx*ROTATE_SCALE_FACTOR, dy*ROTATE_SCALE_FACTOR);
         }

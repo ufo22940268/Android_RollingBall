@@ -21,16 +21,12 @@ import static hongbosb.rollingball.NaturalConstants.*;
 public class GLBallEntity extends GLEntity {
 
     static public final float BALL_RADIUS = 10;
-
     static public final int DIRECTION_IDLE = 0;
-
+    static public final float INTERVAL_IN_SECONDS = (float)GLEnvironmentEntity.BALL_TIMER_UPDATE_INTERVAL/1000;
     static public final float ABS_MAX_X = EnvironmentData.BOARD_SIZE - BALL_RADIUS;
     static public final float ABS_MAX_Y = EnvironmentData.BOARD_SIZE - BALL_RADIUS;
 
     static public final float VELOCITY_STATIC_THRESHOLD = 4;
-
-    private float mBallAbsVelocity = 0;
-    private int mDirection = 1;
 
     protected int mProgram; 
 
@@ -57,6 +53,8 @@ public class GLBallEntity extends GLEntity {
 
     public float mTranslateX = 0f;
     public float mTranslateY = 0f;
+    public float mVelocityX = 0f;
+    public float mVelocityY = 0f;
 
     //The bottom when the ball fall because of gravity.
     private float mFallBottom = -EnvironmentData.BOARD_SIZE;
@@ -106,6 +104,26 @@ public class GLBallEntity extends GLEntity {
         }
     }
 
+    public boolean isMeetEdge(float deltaTranslateX, float deltaTranslateY) {
+        if (Math.abs(mTranslateX + deltaTranslateX) >= ABS_MAX_X ||
+                Math.abs(mTranslateY + deltaTranslateY) >= ABS_MAX_Y) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean canMove(float deltaVelocityX, float deltaVelocityY) {
+        float dx = INTERVAL_IN_SECONDS*(mVelocityX + deltaVelocityX*INTERVAL_IN_SECONDS);
+        float dy = INTERVAL_IN_SECONDS*(mVelocityY + deltaVelocityY*INTERVAL_IN_SECONDS);
+        if (Math.abs(mTranslateX + dx) >= ABS_MAX_X ||
+                Math.abs(mTranslateY + dy) >= ABS_MAX_Y) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     public void fixEdgePosition() {
         if (Math.abs(mTranslateX) - (double)ABS_MAX_X > 0) {
             mTranslateX = ABS_MAX_X*(mTranslateX > 0 ? 1 : -1);
@@ -122,86 +140,45 @@ public class GLBallEntity extends GLEntity {
     }
 
     public void translate(float deltaX, float deltaY) {
-        mTranslateX += deltaX;
-        mTranslateY += deltaY;
+        if (!isMeetEdge(deltaX, deltaY)) {
+            mTranslateX += deltaX;
+            mTranslateY += deltaY;
+        }
     }
 
     //This method is called every time the timer update.
-    //The interval is defined in BALL_TIMER_UPDATE_INTERVAL.
+    //The INTERVAL_IN_SECONDS is defined in BALL_TIMER_UPDATE_INTERVAL.
     public boolean updatePosition(float tiltingAngle) {
-        if (mDirection == DIRECTION_IDLE) {
-            return false;
-        }
+        fixEdgePosition();
 
-        //Convert the unit of timer to second.
-        float interval = (float)GLEnvironmentEntity.BALL_TIMER_UPDATE_INTERVAL/1000;
-
-        float distance = interval*mBallAbsVelocity;
-        translate((float)(distance*Math.cos(tiltingAngle)),
-                (float)(distance*Math.sin(tiltingAngle)));   
-
-        updateVolecity();
+        float dx = INTERVAL_IN_SECONDS*mVelocityX;
+        float dy = INTERVAL_IN_SECONDS*mVelocityY;
+        translate(dx, dy);   
+        updateVolecity(tiltingAngle);
         return true;
     }
 
-    /*
-     * Something wrong with this method. The ball rebounce for twice or three times,
-     * then it just stoped.
-     *
-     * TODO Because the gravity is determined by the rotating of board, so 
-     * we need to change the mDirection to be consistent with it.
-     */
-    private void updateVolecity() {
-        if (mBallAbsVelocity < 0) {
-            mBallAbsVelocity = 0;
-        }
-
-        float interval = (float)GLEnvironmentEntity.BALL_TIMER_UPDATE_INTERVAL/1000;
-        float v = mBallAbsVelocity + mDirection*interval*NaturalConstants.GRAVITY;
-        if (v <= 0) {
-            if (isMeetEdge()) {
-                fixEdgePosition();
-
-                mDirection = DIRECTION_IDLE;
-                mBallAbsVelocity = 0;
-            } else {
-                //It's in the air and need to change direction.
-                mDirection = -mDirection;
-                mBallAbsVelocity = 0;
-            }
-        } else {
-            if (isMeetEdge()) {
-                fixEdgePosition();
-
-                //Hit ground.
-                if (mBallAbsVelocity < VELOCITY_STATIC_THRESHOLD) {
-                    //When velocity too small to rebounce again, then 
-                    //set it as zero.
-                    mDirection = DIRECTION_IDLE;
-                    mBallAbsVelocity = 0;
-                } else {
-                    //Or just reverse the direction.
-                    mDirection = -mDirection;
-                    evalVelocityLoss();
-                }
-            } else {
-                //Keep it going.
-                mBallAbsVelocity = v;
-            }
+    private void updateVolecity(float tiltingAngle) {
+        float dv = NaturalConstants.GRAVITY*INTERVAL_IN_SECONDS;    
+        float dvx = (float)(dv*Math.cos(tiltingAngle));
+        float dvy = (float)(dv*Math.sin(tiltingAngle));
+        if (canMove(dvx, dvy)) {
+            mVelocityX += dvx;
+            mVelocityY += dvy;
         }
     }
 
+    //TODO
     public void reset() {
         mVerticalRotateAngle = 0.0f;
         mHorizontalRotateAngle = 0.0f;
         mTranslateX = 0f;
         mTranslateY = 0f;
-        mBallAbsVelocity = 0;
-        mDirection = 1;
     }
 
+    //TODO
     private void evalVelocityLoss() {
-        mBallAbsVelocity = mBallAbsVelocity*3/4;
+        //mBallAbsVelocity = mBallAbsVelocity*3/4;
     }
 
     public void rotate(float dVert, float dHori) {
