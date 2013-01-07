@@ -19,6 +19,9 @@ import hongbosb.rollingball.data.*;
 import static hongbosb.rollingball.NaturalConstants.*;
 
 public class GLEnvironmentEntity extends GLEntity implements GLInputable {
+
+    //static public final float ROTATE_RANGE = (float)Math.PI/3;
+    static public final float ROTATE_RANGE = 60f;
     
     static public final float ROTATE_SCALE_FACTOR = 0.5f;
     static public final float TRANSLATE_SCALE_FACTOR = 0.5f;
@@ -150,6 +153,10 @@ public class GLEnvironmentEntity extends GLEntity implements GLInputable {
         mTiltingAngle = (float)Math.atan2(y, x);
     }
 
+    private boolean isInRotateRange(float deltaRX, float deltaRY) {
+        return Math.abs(mVerticalRotateAngle + deltaRX) <= ROTATE_RANGE && Math.abs(mHorizontalRotateAngle + deltaRY) <= ROTATE_RANGE;
+    }
+
     @Override
     public boolean onTouch(MotionEvent event) {
         super.onTouch(event);
@@ -159,8 +166,13 @@ public class GLEnvironmentEntity extends GLEntity implements GLInputable {
             float dx = x - mPreviousX;
             float dy = y - mPreviousY;
             //Don't rotate board when testing ball rotate.
-            rotate(dx*ROTATE_SCALE_FACTOR, dy*ROTATE_SCALE_FACTOR);
-            mBallEntity.rotate(dx*ROTATE_SCALE_FACTOR, dy*ROTATE_SCALE_FACTOR);
+
+            float rx = dx*ROTATE_SCALE_FACTOR;
+            float ry = dy*ROTATE_SCALE_FACTOR;
+            if (isInRotateRange(rx, ry)) {
+                rotate(rx, ry);
+                mBallEntity.rotate(rx, ry);
+            }
         }
         mPreviousX = x;
         mPreviousY = y;

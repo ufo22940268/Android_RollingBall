@@ -162,6 +162,7 @@ public class GLBallEntity extends GLEntity {
         float dv = NaturalConstants.GRAVITY*INTERVAL_IN_SECONDS;    
         float dvx = (float)(dv*Math.cos(tiltingAngle));
         float dvy = (float)(dv*Math.sin(tiltingAngle));
+        System.out.println("++++++++++++++++++++dvx:" + dvx + "\tdvy:" + dvy + "++++++++++++++++++++");
         if (canMove(dvx, dvy)) {
             mVelocityX += dvx;
             mVelocityY += dvy;

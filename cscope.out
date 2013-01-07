@@ -1,0 +1,6488 @@
+cscope 15 $HOME/workspace/Android_RollingBall -q 0000000392 0000035752
+	@gen/hongbosb/rollingball/BuildConfig.java
+
+2 
+·ckage
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+;
+
+4 
+public
+ 
+fš®
+ cÏs 
+	cBudCÚfig
+ {
+
+5 
+public
+ 
+fš®
+ 
+boŞ—n
+ 
+	mDEBUG
+ = 
+Œue
+;
+
+	@gen/hongbosb/rollingball/R.java
+
+8 
+·ckage
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+;
+
+10 
+public
+ 
+fš®
+ cÏs 
+	cR
+ {
+
+11 
+public
+ 
+fš®
+ cÏs 
+	c©Œ
+ {
+
+13 
+public
+ 
+fš®
+ cÏs 
+	cd¿wabË
+ {
+
+14 
+public
+ 
+fš®
+ 
+	gic_Ïunch”
+=0x7f020000;
+
+15 
+public
+ 
+fš®
+ 
+	gwood_‹xtu»
+=0x7f020001;
+
+17 
+public
+ 
+fš®
+ cÏs 
+	cÏyout
+ {
+
+18 
+public
+ 
+fš®
+ 
+	gmaš
+=0x7f030000;
+
+20 
+public
+ 
+fš®
+ cÏs 
+	c¿w
+ {
+
+21 
+public
+ 
+fš®
+ 
+	g’vœÚm’t_äagm’t_shad”
+=0x7f040000;
+
+22 
+public
+ 
+fš®
+ 
+	g’vœÚm’t_v”‹x_shad”
+=0x7f040001;
+
+24 
+public
+ 
+fš®
+ cÏs 
+	c¡ršg
+ {
+
+25 
+public
+ 
+fš®
+ 
+	g­p_Çme
+=0x7f050000;
+
+	@src/hongbosb/rollingball/GLInputable.java
+
+1 
+·ckage
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+;
+
+3 
+public
+ 
+š‹rçû
+ 
+	gGLIÅubË
+ {
+
+4 
+boŞ—n
+ 
+ÚKeyDown
+(
+keyCode
+);
+
+	@src/hongbosb/rollingball/GLTouchable.java
+
+1 
+·ckage
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+;
+
+3 
+impÜt
+ 
+	gªdroid
+.
+	gv›w
+.*;
+
+5 
+public
+ 
+š‹rçû
+ 
+	gGLTouchabË
+ {
+
+6 
+boŞ—n
+ 
+ÚTouch
+(
+MÙiÚEv’t
+ 
+ev’t
+);
+
+	@src/hongbosb/rollingball/MainActivity.java
+
+1 
+·ckage
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+;
+
+3 
+impÜt
+ 
+	gªdroid
+.
+	g­p
+.
+	gAùiv™y
+;
+
+4 
+impÜt
+ 
+	gªdroid
+.
+	gos
+.
+	gBundË
+;
+
+5 
+impÜt
+ 
+	gªdroid
+.
+	gv›w
+.*;
+
+7 
+public
+ cÏs 
+	cMašAùiv™y
+ 
+ex‹nds
+ 
+	mAùiv™y
+
+
+9 
+´iv©e
+ 
+MyGLSurçûV›w
+ 
+	mmGlV›w
+;
+
+12 @
+Ov”ride
+
+
+13 
+public
+ 
+	$ÚC»©e
+(
+BundË
+ 
+§vedIn¡ªûS‹
+)
+
+15 
+su³r
+.
+	`ÚC»©e
+(
+§vedIn¡ªûS‹
+);
+
+16 
+mGlV›w
+ = 
+Ãw
+ 
+	`MyGLSurçûV›w
+(
+this
+);
+
+17 
+	`£tCÚ‹ÁV›w
+(
+mGlV›w
+);
+
+20 @
+Ov”ride
+
+
+21 
+public
+ 
+boŞ—n
+ 
+	$ÚKeyDown
+(
+keyCode
+, 
+KeyEv’t
+ 
+ev’t
+) {
+
+22 ià(
+keyCode
+ =ğ
+KeyEv’t
+.
+KEYCODE_VOLUME_UP
+ || keyCod=ğKeyEv’t.
+KEYCODE_VOLUME_DOWN
+) {
+
+23 
+mGlV›w
+.
+	`ÚKeyDown
+(
+keyCode
+);
+
+24  
+Œue
+;
+
+27  
+çl£
+;
+
+28 
+	}
+}
+
+	@src/hongbosb/rollingball/MyGLSurfaceView.java
+
+1 
+·ckage
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+;
+
+3 
+impÜt
+ 
+	gªdroid
+.
+	g­p
+.*;
+
+4 
+impÜt
+ 
+	gªdroid
+.
+	gcÚ‹Á
+.*;
+
+5 
+impÜt
+ 
+	gªdroid
+.
+	gd©aba£
+.*;
+
+6 
+impÜt
+ 
+	gªdroid
+.
+	gÃt
+.*;
+
+7 
+impÜt
+ 
+	gªdroid
+.
+	gİ’gl
+.*;
+
+8 
+impÜt
+ 
+	gªdroid
+.
+	gos
+.*;
+
+9 
+impÜt
+ 
+	gªdroid
+.
+	gut
+.*;
+
+10 
+impÜt
+ 
+	gªdroid
+.
+	gv›w
+.*;
+
+11 
+impÜt
+ 
+	gªdroid
+.
+	gwidg‘
+.*;
+
+13 
+impÜt
+ 
+	gjava
+.
+	gut
+.*;
+
+14 
+impÜt
+ 
+	gjavax
+.
+	gmiüÛd™iÚ
+.
+	gkhrÚos
+.
+	gegl
+.*;
+
+15 
+impÜt
+ 
+	gjavax
+.
+	gmiüÛd™iÚ
+.
+	gkhrÚos
+.
+	gİ’gËs
+.*;
+
+17 
+impÜt
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+.
+	gmod–
+.*;
+
+18 
+impÜt
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+.
+	gd©a
+.*;
+
+20 
+public
+ cÏs 
+	cMyGLSurçûV›w
+ 
+ex‹nds
+ 
+GLSurçûV›w
+ 
+im¶em’ts
+ 
+	mGLIÅubË
+ {
+
+22 
+´iv©e
+ 
+MyR’d””
+ 
+	mmR’d”
+;
+
+24 
+public
+ 
+	$MyGLSurçûV›w
+(
+CÚ‹xt
+ 
+cÚ‹xt
+) {
+
+25 
+	`su³r
+(
+cÚ‹xt
+);
+
+26 
+	`£tEGLCÚ‹xtCl›ÁV”siÚ
+(2);
+
+27 
+mR’d”
+ = 
+Ãw
+ 
+	`MyR’d””
+(
+cÚ‹xt
+);
+
+28 
+	`£tR’d””
+(
+mR’d”
+);
+
+31 
+public
+ 
+boŞ—n
+ 
+	$ÚKeyDown
+(
+keyCode
+) {
+
+32 
+mR’d”
+.
+	`ÚKeyDown
+(
+keyCode
+);
+
+33  
+Œue
+;
+
+34 
+	}
+}
+
+36 @
+Ov”ride
+
+
+37 
+public
+ 
+boŞ—n
+ 
+	$ÚTouchEv’t
+(
+MÙiÚEv’t
+ 
+ev’t
+) {
+
+38  
+mR’d”
+.
+	`ÚTouch
+(
+ev’t
+);
+
+39 
+	}
+}
+
+41 
+public
+ 
+şass
+ 
+MyR’d””
+ 
+im¶em’ts
+ 
+	gGLSurçûV›w
+.
+	gR’d””
+, 
+	gGLIÅubË
+ {
+
+43 
+´iv©e
+ 
+CÚ‹xt
+ 
+	gmCÚ‹xt
+;
+
+45 
+´iv©e
+ 
+GLEnvœÚm’tEÁ™y
+ 
+	gmEÁ™y
+;
+
+47 
+public
+ 
+MyR’d””
+(
+CÚ‹xt
+ 
+cÚ‹xt
+) {
+
+48 
+	gmCÚ‹xt
+ = 
+cÚ‹xt
+;
+
+51 
+public
+ 
+ÚSurçûC»©ed
+(
+GL10
+ 
+gl
+, 
+EGLCÚfig
+ 
+cÚfig
+) {
+
+54 
+public
+ 
+ÚSurçûChªged
+(
+GL10
+ 
+gl
+, 
+width
+, 
+height
+) {
+
+55 
+	gSh¬edD©a
+.
+	gmWšdowWidth
+ = 
+width
+;
+
+56 
+	gSh¬edD©a
+.
+	gmWšdowHeight
+ = 
+height
+;
+
+58 
+	gGLES20
+.
+glV›wpÜt
+(0, 0, 
+width
+, 
+height
+);
+
+59 
+	gGLES20
+.
+glCË¬CŞÜ
+(0.0f, 0.0f, 0.0f, 1.0f);
+
+60 
+	gmEÁ™y
+ = 
+Ãw
+ 
+GLEnvœÚm’tEÁ™y
+(
+mCÚ‹xt
+);
+
+63 
+public
+ 
+ÚD¿wF¿me
+(
+GL10
+ 
+gl
+) {
+
+64 
+	gGLES20
+.
+glCË¬
+(
+GLES20
+.
+GL_COLOR_BUFFER_BIT
+ | GLES20.
+GL_DEPTH_BUFFER_BIT
+);
+
+65 
+	gmEÁ™y
+.
+d¿w
+();
+
+68 @
+Ov”ride
+
+
+69 
+public
+ 
+boŞ—n
+ 
+ÚKeyDown
+(
+keyCode
+) {
+
+70 ià(
+	gkeyCode
+ =ğ
+KeyEv’t
+.
+KEYCODE_VOLUME_DOWN
+) {
+
+71 
+mEÁ™y
+.
+»£t
+();
+
+72  
+	gŒue
+;
+
+75 ià(
+	gmEÁ™y
+ !ğ
+nuÎ
+) {
+
+76  
+mEÁ™y
+.
+ÚKeyDown
+(
+keyCode
+);
+
+78  
+	gçl£
+;
+
+81 
+public
+ 
+boŞ—n
+ 
+ÚTouch
+(
+MÙiÚEv’t
+ 
+ev’t
+) {
+
+82 ià(
+	gmEÁ™y
+ !ğ
+nuÎ
+) {
+
+83  
+mEÁ™y
+.
+ÚTouch
+(
+ev’t
+);
+
+85  
+	gçl£
+;
+
+	@src/hongbosb/rollingball/MyRenderer.java
+
+1 
+·ckage
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+;
+
+	@src/hongbosb/rollingball/NaturalConstants.java
+
+1 
+·ckage
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+;
+
+3 
+public
+ cÏs 
+	cN©u¿lCÚ¡ªts
+ {
+
+4 
+public
+ 
+fš®
+ 
+	mFLOAT_SIZE
+ = 4;
+
+8 
+public
+ 
+fš®
+ 
+	mGRAVITY
+ = 100.0f;
+
+	@src/hongbosb/rollingball/data/EnvironmentData.java
+
+1 
+·ckage
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+.
+	gd©a
+;
+
+3 
+public
+ cÏs 
+	cEnvœÚm’tD©a
+ {
+
+5 
+public
+ 
+fš®
+ 
+	mNORMAL_SCALE
+ = 80.0f;
+
+6 
+public
+ 
+fš®
+ 
+	mBOARD_SIZE
+ = 100f;
+
+8 
+public
+ 
+fš®
+ 
+	mWALL_HEIGHT
+ = 40;
+
+9 
+public
+ 
+fš®
+ 
+	mWALL_WIDTH
+ = 20;
+
+10 
+public
+ 
+fš®
+ 
+	mWALL_ABS_INNER_X
+ = 
+BOARD_SIZE
+;
+
+11 
+public
+ 
+fš®
+ 
+	mWALL_ABS_INNER_Y
+ = 
+BOARD_SIZE
+;
+
+12 
+public
+ 
+fš®
+ 
+	mWALL_ABS_OUTER_X
+ = 
+BOARD_SIZE
+ + 
+WALL_WIDTH
+;
+
+13 
+public
+ 
+fš®
+ 
+	mWALL_ABS_OUTER_Y
+ = 
+BOARD_SIZE
+ + 
+WALL_WIDTH
+;
+
+15 
+public
+ 
+fš®
+ 
+	mVERTEX_COUNT_WALL_TOP
+ = 10;
+
+16 
+public
+ 
+fš®
+ 
+	mVERTEX_COUNT_WALL_INNER_FACE
+ = 10;
+
+17 
+public
+ 
+fš®
+ 
+	mVERTEX_COUNT_WALL_OUTER_FACE
+ = 10;
+
+18 
+public
+ 
+fš®
+ 
+	mVERTEX_COUNT_FLOOR
+ = 4;
+
+20 
+public
+ 
+fš®
+ [] 
+	mITEMS_VERTEX_COUNT
+ = {
+
+21 
+VERTEX_COUNT_WALL_TOP
+,
+
+22 
+VERTEX_COUNT_WALL_INNER_FACE
+,
+
+23 
+VERTEX_COUNT_WALL_OUTER_FACE
+,
+
+24 
+VERTEX_COUNT_FLOOR
+,
+
+27 
+public
+ 
+fš®
+ 
+	gTRIANGLE_POS_ARRAY
+[] = {
+
+29 -
+WALL_ABS_INNER_X
+ , 
+WALL_ABS_INNER_Y
+ , 
+WALL_HEIGHT
+ ,
+
+30 -
+WALL_ABS_OUTER_X
+ , 
+WALL_ABS_OUTER_Y
+ , 
+WALL_HEIGHT
+ ,
+
+31 -
+WALL_ABS_INNER_X
+ , -
+WALL_ABS_INNER_Y
+ , 
+WALL_HEIGHT
+ ,
+
+32 -
+WALL_ABS_OUTER_X
+ , -
+WALL_ABS_OUTER_Y
+ , 
+WALL_HEIGHT
+ ,
+
+33 
+WALL_ABS_INNER_X
+ , -
+WALL_ABS_INNER_Y
+ , 
+WALL_HEIGHT
+ ,
+
+34 
+WALL_ABS_OUTER_X
+ , -
+WALL_ABS_OUTER_Y
+ , 
+WALL_HEIGHT
+ ,
+
+35 
+WALL_ABS_INNER_X
+ , 
+WALL_ABS_INNER_Y
+ , 
+WALL_HEIGHT
+ ,
+
+36 
+WALL_ABS_OUTER_X
+ , 
+WALL_ABS_OUTER_Y
+ , 
+WALL_HEIGHT
+ ,
+
+37 -
+WALL_ABS_INNER_X
+ , 
+WALL_ABS_INNER_Y
+ , 
+WALL_HEIGHT
+ ,
+
+38 -
+WALL_ABS_OUTER_X
+ , 
+WALL_ABS_OUTER_Y
+ , 
+WALL_HEIGHT
+ ,
+
+41 -
+WALL_ABS_INNER_X
+ , 
+WALL_ABS_INNER_Y
+ , 0 ,
+
+42 -
+WALL_ABS_INNER_X
+ , 
+WALL_ABS_INNER_Y
+ , 
+WALL_HEIGHT
+ ,
+
+43 -
+WALL_ABS_INNER_X
+ , -
+WALL_ABS_INNER_Y
+ , 0 ,
+
+44 -
+WALL_ABS_INNER_X
+ , -
+WALL_ABS_INNER_Y
+ , 
+WALL_HEIGHT
+ ,
+
+45 
+WALL_ABS_INNER_X
+ , -
+WALL_ABS_INNER_Y
+ , 0 ,
+
+46 
+WALL_ABS_INNER_X
+ , -
+WALL_ABS_INNER_Y
+ , 
+WALL_HEIGHT
+ ,
+
+47 
+WALL_ABS_INNER_X
+ , 
+WALL_ABS_INNER_Y
+ , 0 ,
+
+48 
+WALL_ABS_INNER_X
+ , 
+WALL_ABS_INNER_Y
+ , 
+WALL_HEIGHT
+ ,
+
+49 -
+WALL_ABS_INNER_X
+ , 
+WALL_ABS_INNER_Y
+ , 0 ,
+
+50 -
+WALL_ABS_INNER_X
+ , 
+WALL_ABS_INNER_Y
+ , 
+WALL_HEIGHT
+ ,
+
+53 -
+WALL_ABS_OUTER_X
+ , 
+WALL_ABS_OUTER_Y
+ , 
+WALL_HEIGHT
+ ,
+
+54 -
+WALL_ABS_OUTER_X
+ , 
+WALL_ABS_OUTER_Y
+ , 0 ,
+
+55 -
+WALL_ABS_OUTER_X
+ , -
+WALL_ABS_OUTER_Y
+ , 
+WALL_HEIGHT
+ ,
+
+56 -
+WALL_ABS_OUTER_X
+ , -
+WALL_ABS_OUTER_Y
+ , 0 ,
+
+57 
+WALL_ABS_OUTER_X
+ , -
+WALL_ABS_OUTER_Y
+ , 
+WALL_HEIGHT
+ ,
+
+58 
+WALL_ABS_OUTER_X
+ , -
+WALL_ABS_OUTER_Y
+ , 0 ,
+
+59 
+WALL_ABS_OUTER_X
+ , 
+WALL_ABS_OUTER_Y
+ , 
+WALL_HEIGHT
+ ,
+
+60 
+WALL_ABS_OUTER_X
+ , 
+WALL_ABS_OUTER_Y
+ , 0 ,
+
+61 -
+WALL_ABS_OUTER_X
+ , 
+WALL_ABS_OUTER_Y
+ , 
+WALL_HEIGHT
+ ,
+
+62 -
+WALL_ABS_OUTER_X
+ , 
+WALL_ABS_OUTER_Y
+ , 0 ,
+
+65 
+WALL_ABS_INNER_X
+ , 
+WALL_ABS_INNER_Y
+ , 0 ,
+
+66 -
+WALL_ABS_INNER_X
+ , 
+WALL_ABS_INNER_Y
+ , 0 ,
+
+67 
+WALL_ABS_INNER_X
+ , -
+WALL_ABS_INNER_Y
+ , 0 ,
+
+68 -
+WALL_ABS_INNER_X
+ , -
+WALL_ABS_INNER_Y
+ , 0 ,
+
+71 
+public
+ 
+fš®
+ 
+	gNORMAL_ARRAY
+[] = {
+
+73 0.0à, 0.0à, 
+NORMAL_SCALE
+ ,
+
+74 0.0à, 0.0à, 
+NORMAL_SCALE
+ ,
+
+75 0.0à, 0.0à, 
+NORMAL_SCALE
+ ,
+
+76 0.0à, 0.0à, 
+NORMAL_SCALE
+ ,
+
+77 0.0à, 0.0à, 
+NORMAL_SCALE
+ ,
+
+78 0.0à, 0.0à, 
+NORMAL_SCALE
+ ,
+
+79 0.0à, 0.0à, 
+NORMAL_SCALE
+ ,
+
+80 0.0à, 0.0à, 
+NORMAL_SCALE
+ ,
+
+81 0.0à, 0.0à, 
+NORMAL_SCALE
+ ,
+
+82 0.0à, 0.0à, 
+NORMAL_SCALE
+ ,
+
+85 
+NORMAL_SCALE
+ , 0.0f , 0.0f ,
+
+86 
+NORMAL_SCALE
+ , 0.0f , 0.0f ,
+
+87 
+NORMAL_SCALE
+ , 0.0f , 0.0f ,
+
+88 
+NORMAL_SCALE
+ , 0.0f , 0.0f ,
+
+89 0.0à, 
+NORMAL_SCALE
+ , 0.0f ,
+
+90 0.0à, 
+NORMAL_SCALE
+ , 0.0f ,
+
+91 -
+NORMAL_SCALE
+ , 0.0f , 0.0f ,
+
+92 -
+NORMAL_SCALE
+ , 0.0f , 0.0f ,
+
+93 0.0à, -
+NORMAL_SCALE
+ , 0.0f ,
+
+94 0.0à, -
+NORMAL_SCALE
+ , 0.0f ,
+
+97 -
+NORMAL_SCALE
+ , 0.0f , 0.0f ,
+
+98 -
+NORMAL_SCALE
+ , 0.0f , 0.0f ,
+
+99 -
+NORMAL_SCALE
+ , 0.0f , 0.0f ,
+
+100 -
+NORMAL_SCALE
+ , 0.0f , 0.0f ,
+
+101 0.0à, -
+NORMAL_SCALE
+ , 0.0f ,
+
+102 0.0à, -
+NORMAL_SCALE
+ , 0.0f ,
+
+103 
+NORMAL_SCALE
+ , 0.0f , 0.0f ,
+
+104 
+NORMAL_SCALE
+ , 0.0f , 0.0f ,
+
+105 0.0à, 
+NORMAL_SCALE
+ , 0.0f ,
+
+106 0.0à, 
+NORMAL_SCALE
+ , 0.0f ,
+
+109 0.0à, 0.0à, 
+NORMAL_SCALE
+ ,
+
+110 0.0à, 0.0à, 
+NORMAL_SCALE
+ ,
+
+111 0.0à, 0.0à, 
+NORMAL_SCALE
+ ,
+
+112 0.0à, 0.0à, 
+NORMAL_SCALE
+ ,
+
+115 
+public
+ 
+fš®
+ 
+	gVERTEX_COLOR_ARRAY
+[] = {
+
+159 
+public
+ 
+fš®
+ 
+	gTEXTURE_COORD_ARRAY
+[] = {
+
+	@src/hongbosb/rollingball/data/SharedData.java
+
+1 
+·ckage
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+.
+	gd©a
+;
+
+3 
+public
+ cÏs 
+	cSh¬edD©a
+ {
+
+4 
+public
+ 
+	mmWšdowHeight
+;
+
+5 
+public
+ 
+	mmWšdowWidth
+;
+
+	@src/hongbosb/rollingball/model/GLBallEntity.java
+
+1 
+·ckage
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+.
+	gmod–
+;
+
+3 
+impÜt
+ 
+	gªdroid
+.
+	gut
+.*;
+
+4 
+impÜt
+ 
+	gªdroid
+.
+	gwidg‘
+.*;
+
+5 
+impÜt
+ 
+	gªdroid
+.
+	gv›w
+.*;
+
+6 
+impÜt
+ 
+	gªdroid
+.
+	gcÚ‹Á
+.*;
+
+7 
+impÜt
+ 
+	gªdroid
+.
+	g­p
+.*;
+
+8 
+impÜt
+ 
+	gªdroid
+.
+	gos
+.*;
+
+9 
+impÜt
+ 
+	gªdroid
+.
+	gd©aba£
+.*;
+
+10 
+impÜt
+ 
+	gªdroid
+.
+	gİ’gl
+.*;
+
+12 
+impÜt
+ 
+	gjava
+.
+	gut
+.*;
+
+13 
+impÜt
+ 
+	gjava
+.
+	gnio
+.*;
+
+15 
+impÜt
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+.
+	gut
+.*;
+
+16 
+impÜt
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+.*;
+
+17 
+impÜt
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+.
+	gd©a
+.*;
+
+19 
+impÜt
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+.
+	gN©u¿lCÚ¡ªts
+.*;
+
+21 
+public
+ cÏs 
+	cGLB®lEÁ™y
+ 
+ex‹nds
+ 
+	mGLEÁ™y
+ {
+
+23 
+public
+ 
+fš®
+ 
+	mBALL_RADIUS
+ = 10;
+
+24 
+public
+ 
+fš®
+ 
+	mDIRECTION_IDLE
+ = 0;
+
+25 
+public
+ 
+fš®
+ 
+	mINTERVAL_IN_SECONDS
+ = ()
+GLEnvœÚm’tEÁ™y
+.
+BALL_TIMER_UPDATE_INTERVAL
+/1000;
+
+26 
+public
+ 
+fš®
+ 
+	mABS_MAX_X
+ = 
+EnvœÚm’tD©a
+.
+BOARD_SIZE
+ - 
+BALL_RADIUS
+;
+
+27 
+public
+ 
+fš®
+ 
+	mABS_MAX_Y
+ = 
+EnvœÚm’tD©a
+.
+BOARD_SIZE
+ - 
+BALL_RADIUS
+;
+
+29 
+public
+ 
+fš®
+ 
+	mVELOCITY_STATIC_THRESHOLD
+ = 4;
+
+31 
+´Ùeùed
+ 
+	mmProg¿m
+;
+
+33 
+´iv©e
+ 
+FlßtBufãr
+ 
+	mmPosBufãr
+;
+
+34 
+´iv©e
+ 
+FlßtBufãr
+ 
+	mmNÜm®Bufãr
+;
+
+35 
+´iv©e
+ 
+FlßtBufãr
+ 
+	mmCŞÜBufãr
+;
+
+36 
+´iv©e
+ 
+FlßtBufãr
+ 
+	mmTexCoÜdBufãr
+;
+
+38 
+´iv©e
+ 
+	mmaPosHªdËr
+;
+
+39 
+´iv©e
+ 
+	mmaCŞÜHªdËr
+;
+
+40 
+´iv©e
+ 
+	mmaNÜm®HªdËr
+;
+
+41 
+´iv©e
+ 
+	mmuMVPM©rixHªdËr
+;
+
+42 
+´iv©e
+ 
+	mmuMVM©rixHªdËr
+;
+
+43 
+´iv©e
+ 
+	mmuLightPosHªdËr
+;
+
+45 
+´iv©e
+ [] 
+	mmMVPM©rix
+ = 
+Ãw
+ [16];
+
+46 
+´iv©e
+ [] 
+	mmLightMVM©rix
+ = 
+Ãw
+ [16];
+
+47 
+´iv©e
+ [] 
+	mmV›wM©rix
+ = 
+Ãw
+ [16];
+
+48 
+´iv©e
+ [] 
+	mmMod–M©rix
+ = 
+Ãw
+ [16];
+
+49 
+´iv©e
+ [] 
+	mmProjeùiÚM©rix
+ = 
+Ãw
+ [16];
+
+51 
+´iv©e
+ 
+	mmV”tiÿlRÙ©eAngË
+ = 0.0f;
+
+52 
+´iv©e
+ 
+	mmHÜizÚlRÙ©eAngË
+ = 0.0f;
+
+54 
+public
+ 
+	mmT¿n¦©eX
+ = 0f;
+
+55 
+public
+ 
+	mmT¿n¦©eY
+ = 0f;
+
+56 
+public
+ 
+	mmV–oc™yX
+ = 0f;
+
+57 
+public
+ 
+	mmV–oc™yY
+ = 0f;
+
+60 
+´iv©e
+ 
+	mmF®lBÙtom
+ = -
+EnvœÚm’tD©a
+.
+BOARD_SIZE
+;
+
+62 
+´iv©e
+ 
+CÚ‹xt
+ 
+	mmCÚ‹xt
+;
+
+64 
+´iv©e
+ 
+Sph”e
+ 
+	mmSph”e
+;
+
+67 
+public
+ 
+	$GLB®lEÁ™y
+() {
+
+70 
+public
+ 
+	$GLB®lEÁ™y
+(
+CÚ‹xt
+ 
+cÚ‹xt
+) {
+
+71 
+mCÚ‹xt
+ = 
+cÚ‹xt
+;
+
+73 
+SŒšg
+[] 
+©Œibs
+ = {"a_VertexPos", "a_Color", "a_Normal"};
+
+74 
+Prog¿mLßd”
+ 
+pLßd”
+ = 
+Ãw
+ 
+	`Prog¿mLßd”
+(
+cÚ‹xt
+,
+
+75 "¥h”e_v”‹x_shad”.gl¦", "¥h”e_äagm’t_shad”.gl¦", 
+©Œibs
+ );
+
+76 
+mProg¿m
+ = 
+pLßd”
+.
+	`lßd
+();
+
+78 
+maPosHªdËr
+ = 
+GLES20
+.
+	`glG‘A‰ribLoÿtiÚ
+(
+mProg¿m
+, "a_VertexPos");
+
+79 
+maCŞÜHªdËr
+ = 
+GLES20
+.
+	`glG‘A‰ribLoÿtiÚ
+(
+mProg¿m
+, "a_Color");
+
+80 
+maNÜm®HªdËr
+ = 
+GLES20
+.
+	`glG‘A‰ribLoÿtiÚ
+(
+mProg¿m
+, "a_Normal");
+
+82 
+muMVPM©rixHªdËr
+ = 
+GLES20
+.
+	`glG‘UnifÜmLoÿtiÚ
+(
+mProg¿m
+, "u_MVPMatrix");
+
+83 
+muMVM©rixHªdËr
+ = 
+GLES20
+.
+	`glG‘UnifÜmLoÿtiÚ
+(
+mProg¿m
+, "u_MVMatrix");
+
+84 
+muLightPosHªdËr
+ = 
+GLES20
+.
+	`glG‘UnifÜmLoÿtiÚ
+(
+mProg¿m
+, "u_LightPos");
+
+86 
+mProjeùiÚM©rix
+ = 
+CommÚUts
+.
+	`š™ProjeùiÚM©rix
+();
+
+87 
+mV›wM©rix
+ = 
+CommÚUts
+.
+	`š™V›wM©rix
+();
+
+90 
+M©rix
+.
+	`Œª¦©eM
+(
+mMod–M©rix
+, 0, 0f, 0f, 
+BALL_RADIUS
+);
+
+92 
+mSph”e
+ = 
+Ãw
+ 
+	`Sph”e
+(
+BALL_RADIUS
+, 8);
+
+94 
+GLES20
+.
+	`glEÇbË
+(GLES20.
+GL_DEPTH_TEST
+);
+
+95 
+GLES20
+.
+	`glEÇbË
+(GLES20.
+GL_CULL_FACE
+);
+
+96 
+	}
+}
+
+98 
+public
+ 
+boŞ—n
+ 
+	$isM“tEdge
+() {
+
+99 ià(
+M©h
+.
+	`abs
+(
+mT¿n¦©eX
+è>ğ
+ABS_MAX_X
+ ||
+
+100 
+M©h
+.
+	`abs
+(
+mT¿n¦©eY
+è>ğ
+ABS_MAX_Y
+) {
+
+101  
+Œue
+;
+
+103  
+çl£
+;
+
+105 
+	}
+}
+
+107 
+public
+ 
+boŞ—n
+ 
+	$isM“tEdge
+(
+d–T¿n¦©eX
+, 
+d–T¿n¦©eY
+) {
+
+108 ià(
+M©h
+.
+	`abs
+(
+mT¿n¦©eX
+ + 
+d–T¿n¦©eX
+è>ğ
+ABS_MAX_X
+ ||
+
+109 
+M©h
+.
+	`abs
+(
+mT¿n¦©eY
+ + 
+d–T¿n¦©eY
+è>ğ
+ABS_MAX_Y
+) {
+
+110  
+Œue
+;
+
+112  
+çl£
+;
+
+114 
+	}
+}
+
+116 
+public
+ 
+boŞ—n
+ 
+	$ÿnMove
+(
+d–V–oc™yX
+, 
+d–V–oc™yY
+) {
+
+117 
+dx
+ = 
+INTERVAL_IN_SECONDS
+*(
+mV–oc™yX
+ + 
+d–V–oc™yX
+*INTERVAL_IN_SECONDS);
+
+118 
+dy
+ = 
+INTERVAL_IN_SECONDS
+*(
+mV–oc™yY
+ + 
+d–V–oc™yY
+*INTERVAL_IN_SECONDS);
+
+119 ià(
+M©h
+.
+	`abs
+(
+mT¿n¦©eX
+ + 
+dx
+è>ğ
+ABS_MAX_X
+ ||
+
+120 
+M©h
+.
+	`abs
+(
+mT¿n¦©eY
+ + 
+dy
+è>ğ
+ABS_MAX_Y
+) {
+
+121  
+çl£
+;
+
+123  
+Œue
+;
+
+125 
+	}
+}
+
+127 
+public
+ 
+	$fixEdgePos™iÚ
+() {
+
+128 ià(
+M©h
+.
+	`abs
+(
+mT¿n¦©eX
+è- ()
+ABS_MAX_X
+ > 0) {
+
+129 
+mT¿n¦©eX
+ = 
+ABS_MAX_X
+*(mTranslateX > 0 ? 1 : -1);
+
+132 ià(
+M©h
+.
+	`abs
+(
+mT¿n¦©eY
+è- ()
+ABS_MAX_Y
+ > 0) {
+
+133 
+mT¿n¦©eY
+ = 
+ABS_MAX_Y
+*(mTranslateY > 0 ? 1 : -1);
+
+135 
+	}
+}
+
+137 
+public
+ 
+	$»£tPos™iÚ
+() {
+
+138 
+mT¿n¦©eX
+ = 0;
+
+139 
+mT¿n¦©eY
+ = 0;
+
+140 
+	}
+}
+
+142 
+public
+ 
+	$Œª¦©e
+(
+d–X
+, 
+d–Y
+) {
+
+143 ià(!
+	`isM“tEdge
+(
+d–X
+, 
+d–Y
+)) {
+
+144 
+mT¿n¦©eX
+ +ğ
+d–X
+;
+
+145 
+mT¿n¦©eY
+ +ğ
+d–Y
+;
+
+147 
+	}
+}
+
+151 
+public
+ 
+boŞ—n
+ 
+	$upd©ePos™iÚ
+(
+ttšgAngË
+) {
+
+152 
+	`fixEdgePos™iÚ
+();
+
+154 
+dx
+ = 
+INTERVAL_IN_SECONDS
+*
+mV–oc™yX
+;
+
+155 
+dy
+ = 
+INTERVAL_IN_SECONDS
+*
+mV–oc™yY
+;
+
+156 
+	`Œª¦©e
+(
+dx
+, 
+dy
+);
+
+157 
+	`upd©eVŞec™y
+(
+ttšgAngË
+);
+
+158  
+Œue
+;
+
+159 
+	}
+}
+
+161 
+´iv©e
+ 
+	$upd©eVŞec™y
+(
+ttšgAngË
+) {
+
+162 
+dv
+ = 
+N©u¿lCÚ¡ªts
+.
+GRAVITY
+*
+INTERVAL_IN_SECONDS
+;
+
+163 
+dvx
+ = ()(
+dv
+*
+M©h
+.
+	`cos
+(
+ttšgAngË
+));
+
+164 
+dvy
+ = ()(
+dv
+*
+M©h
+.
+	`sš
+(
+ttšgAngË
+));
+
+165 ià(
+	`ÿnMove
+(
+dvx
+, 
+dvy
+)) {
+
+166 
+mV–oc™yX
+ +ğ
+dvx
+;
+
+167 
+mV–oc™yY
+ +ğ
+dvy
+;
+
+169 
+	}
+}
+
+172 
+public
+ 
+	$»£t
+() {
+
+173 
+mV”tiÿlRÙ©eAngË
+ = 0.0f;
+
+174 
+mHÜizÚlRÙ©eAngË
+ = 0.0f;
+
+175 
+mT¿n¦©eX
+ = 0f;
+
+176 
+mT¿n¦©eY
+ = 0f;
+
+177 
+	}
+}
+
+180 
+´iv©e
+ 
+	$ev®V–oc™yLoss
+() {
+
+182 
+	}
+}
+
+184 
+public
+ 
+	$rÙ©e
+(
+dV”t
+, 
+dHÜi
+) {
+
+185 
+mV”tiÿlRÙ©eAngË
+ +ğ
+dV”t
+;
+
+186 
+mHÜizÚlRÙ©eAngË
+ +ğ
+dHÜi
+;
+
+187 
+	}
+}
+
+189 
+public
+ 
+	$d¿w
+() {
+
+190 
+GLES20
+.
+	`glU£Prog¿m
+(
+mProg¿m
+);
+
+192 
+M©rix
+.
+	`£tId’t™yM
+(
+mMod–M©rix
+, 0);
+
+193 
+M©rix
+.
+	`rÙ©eM
+(
+mMod–M©rix
+, 0, 
+mV”tiÿlRÙ©eAngË
+, 0.0f, 1.0f, 0.0f);
+
+194 
+M©rix
+.
+	`rÙ©eM
+(
+mMod–M©rix
+, 0, 
+mHÜizÚlRÙ©eAngË
+, 1.0f, 0.0f, 0.0f);
+
+196 
+GLES20
+.
+	`glUnifÜm3fv
+(
+muLightPosHªdËr
+, 1, 
+CommÚUts
+.
+	`š™LightPos™iÚVeùÜ
+(), 0);
+
+197 
+M©rix
+.
+	`muÉlyMM
+(
+mLightMVM©rix
+, 0, 
+mV›wM©rix
+, 0, 
+mMod–M©rix
+, 0);
+
+198 
+GLES20
+.
+	`glUnifÜmM©rix4fv
+(
+muMVM©rixHªdËr
+, 1, 
+çl£
+, 
+mLightMVM©rix
+, 0);
+
+200 
+M©rix
+.
+	`Œª¦©eM
+(
+mMod–M©rix
+, 0, 
+mT¿n¦©eX
+, 
+mT¿n¦©eY
+, 0);
+
+201 
+M©rix
+.
+	`muÉlyMM
+(
+mMVPM©rix
+, 0, 
+mV›wM©rix
+, 0, 
+mMod–M©rix
+, 0);
+
+202 
+M©rix
+.
+	`muÉlyMM
+(
+mMVPM©rix
+, 0, 
+mProjeùiÚM©rix
+, 0, mMVPMatrix, 0);
+
+203 
+GLES20
+.
+	`glUnifÜmM©rix4fv
+(
+muMVPM©rixHªdËr
+, 1, 
+çl£
+, 
+mMVPM©rix
+, 0);
+
+205 
+mSph”e
+.
+	`d¿w
+(
+maPosHªdËr
+, 
+maNÜm®HªdËr
+, 
+maCŞÜHªdËr
+);
+
+206 
+	}
+}
+
+	@src/hongbosb/rollingball/model/GLEntity.java
+
+1 
+·ckage
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+.
+	gmod–
+;
+
+3 
+impÜt
+ 
+	gªdroid
+.
+	gcÚ‹Á
+.
+	gCÚ‹xt
+;
+
+4 
+impÜt
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+.*;
+
+5 
+impÜt
+ 
+	gªdroid
+.
+	gv›w
+.*;
+
+7 
+impÜt
+ 
+	gjava
+.
+	gut
+.*;
+
+9 
+public
+ 
+ab¡¿ù
+ cÏs 
+	cGLEÁ™y
+ 
+im¶em’ts
+ 
+	mGLTouchabË
+ {
+
+11 
+´iv©e
+ 
+	mLi¡
+<
+	mGLEÁ™y
+> 
+	mmChdEÁ™›s
+ = 
+Ãw
+ 
+A¼ayLi¡
+<
+GLEÁ™y
+>();
+
+13 
+public
+ 
+ab¡¿ù
+ 
+d¿w
+();
+
+15 
+public
+ 
+	$addEÁ™y
+(
+GLEÁ™y
+ 
+chd
+) {
+
+16 
+mChdEÁ™›s
+.
+	`add
+(
+chd
+);
+
+19 @
+Ov”ride
+
+
+20 
+public
+ 
+boŞ—n
+ 
+	$ÚTouch
+(
+MÙiÚEv’t
+ 
+ev’t
+) {
+
+21 
+GLEÁ™y
+ 
+’t™y
+ : 
+mChdEÁ™›s
+) {
+
+22 
+’t™y
+.
+	`ÚTouch
+(
+ev’t
+);
+
+24  
+çl£
+;
+
+25 
+	}
+}
+
+	@src/hongbosb/rollingball/model/GLEnvironmentEntity.java
+
+1 
+·ckage
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+.
+	gmod–
+;
+
+3 
+impÜt
+ 
+	gªdroid
+.
+	gut
+.*;
+
+4 
+impÜt
+ 
+	gªdroid
+.
+	gwidg‘
+.*;
+
+5 
+impÜt
+ 
+	gªdroid
+.
+	gv›w
+.*;
+
+6 
+impÜt
+ 
+	gªdroid
+.
+	gcÚ‹Á
+.*;
+
+7 
+impÜt
+ 
+	gªdroid
+.
+	g­p
+.*;
+
+8 
+impÜt
+ 
+	gªdroid
+.
+	gos
+.*;
+
+9 
+impÜt
+ 
+	gªdroid
+.
+	gd©aba£
+.*;
+
+10 
+impÜt
+ 
+	gªdroid
+.
+	gİ’gl
+.*;
+
+12 
+impÜt
+ 
+	gjava
+.
+	gut
+.*;
+
+13 
+impÜt
+ 
+	gjava
+.
+	gnio
+.*;
+
+15 
+impÜt
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+.
+	gut
+.*;
+
+16 
+impÜt
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+.*;
+
+17 
+impÜt
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+.
+	gd©a
+.*;
+
+19 
+impÜt
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+.
+	gN©u¿lCÚ¡ªts
+.*;
+
+21 
+public
+ cÏs 
+	cGLEnvœÚm’tEÁ™y
+ 
+ex‹nds
+ 
+GLEÁ™y
+ 
+im¶em’ts
+ 
+	mGLIÅubË
+ {
+
+23 
+public
+ 
+fš®
+ 
+	mROTATE_SCALE_FACTOR
+ = 0.5f;
+
+24 
+public
+ 
+fš®
+ 
+	mTRANSLATE_SCALE_FACTOR
+ = 0.5f;
+
+26 
+public
+ 
+fš®
+ 
+	mBALL_TIMER_UPDATE_INTERVAL
+ = 10;
+
+28 
+´iv©e
+ 
+CÚ‹xt
+ 
+	mmCÚ‹xt
+;
+
+30 
+´iv©e
+ 
+	mmP»viousX
+;
+
+31 
+´iv©e
+ 
+	mmP»viousY
+;
+
+32 
+´iv©e
+ 
+	mmTtšgAngË
+;
+
+34 
+´Ùeùed
+ 
+	mmProg¿m
+;
+
+36 
+´iv©e
+ 
+FlßtBufãr
+ 
+	mmPosBufãr
+;
+
+37 
+´iv©e
+ 
+FlßtBufãr
+ 
+	mmNÜm®Bufãr
+;
+
+38 
+´iv©e
+ 
+FlßtBufãr
+ 
+	mmCŞÜBufãr
+;
+
+39 
+´iv©e
+ 
+FlßtBufãr
+ 
+	mmTexCoÜdBufãr
+;
+
+41 
+´iv©e
+ 
+	mmaPosHªdËr
+;
+
+42 
+´iv©e
+ 
+	mmaTexCoÜdHªdËr
+;
+
+43 
+´iv©e
+ 
+	mmaCŞÜHªdËr
+;
+
+44 
+´iv©e
+ 
+	mmaNÜm®HªdËr
+;
+
+45 
+´iv©e
+ 
+	mmuMVPM©rixHªdËr
+;
+
+46 
+´iv©e
+ 
+	mmuMVM©rixHªdËr
+;
+
+47 
+´iv©e
+ 
+	mmuSam¶”HªdËr
+;
+
+48 
+´iv©e
+ 
+	mmuLightPosHªdËr
+;
+
+49 
+´iv©e
+ 
+	mmTextu»HªdËr
+;
+
+51 
+´iv©e
+ [] 
+	mmMVPM©rix
+ = 
+Ãw
+ [16];
+
+52 
+´iv©e
+ [] 
+	mmV›wM©rix
+ = 
+Ãw
+ [16];
+
+53 
+´iv©e
+ [] 
+	mmMod–M©rix
+ = 
+Ãw
+ [16];
+
+54 
+´iv©e
+ [] 
+	mmProjeùiÚM©rix
+ = 
+Ãw
+ [16];
+
+56 
+´iv©e
+ 
+	mmV›wX
+ = 0.0f;
+
+57 
+´iv©e
+ 
+	mmV›wY
+ = 0.0f;
+
+58 
+´iv©e
+ 
+	mmV›wZ
+ = 200.0f;
+
+61 
+´iv©e
+ 
+	mmV”tiÿlRÙ©eAngË
+ = 0.0f;
+
+64 
+´iv©e
+ 
+	mmHÜizÚlRÙ©eAngË
+ = 0.0f;
+
+66 
+´iv©e
+ 
+	mmLightRÙ©eAngË
+ = 0.0f;
+
+68 
+´iv©e
+ 
+GLB®lEÁ™y
+ 
+	mmB®lEÁ™y
+;
+
+70 
+public
+ 
+	$GLEnvœÚm’tEÁ™y
+(
+CÚ‹xt
+ 
+cÚ‹xt
+) {
+
+71 
+mCÚ‹xt
+ = 
+cÚ‹xt
+;
+
+74 
+SŒšg
+[] 
+©Œibs
+ = {"a_VertexPos", "a_TexCoord", "a_Color", "a_Normal",};
+
+75 
+Prog¿mLßd”
+ 
+pLßd”
+ = 
+Ãw
+ 
+	`Prog¿mLßd”
+(
+cÚ‹xt
+,
+
+76 "’vœÚm’t_v”‹x_shad”.gl¦", "’vœÚm’t_äagm’t_shad”.gl¦", 
+©Œibs
+ );
+
+77 
+mProg¿m
+ = 
+pLßd”
+.
+	`lßd
+();
+
+79 
+maPosHªdËr
+ = 
+GLES20
+.
+	`glG‘A‰ribLoÿtiÚ
+(
+mProg¿m
+, "a_VertexPos");
+
+80 
+maTexCoÜdHªdËr
+ = 
+GLES20
+.
+	`glG‘A‰ribLoÿtiÚ
+(
+mProg¿m
+, "a_TexCoord");
+
+81 
+maCŞÜHªdËr
+ = 
+GLES20
+.
+	`glG‘A‰ribLoÿtiÚ
+(
+mProg¿m
+, "a_Color");
+
+82 
+maNÜm®HªdËr
+ = 
+GLES20
+.
+	`glG‘A‰ribLoÿtiÚ
+(
+mProg¿m
+, "a_Normal");
+
+84 
+muMVPM©rixHªdËr
+ = 
+GLES20
+.
+	`glG‘UnifÜmLoÿtiÚ
+(
+mProg¿m
+, "u_MVPMatrix");
+
+85 
+muMVM©rixHªdËr
+ = 
+GLES20
+.
+	`glG‘UnifÜmLoÿtiÚ
+(
+mProg¿m
+, "u_MVMatrix");
+
+86 
+muSam¶”HªdËr
+ = 
+GLES20
+.
+	`glG‘UnifÜmLoÿtiÚ
+(
+mProg¿m
+, "u_Sampler");
+
+87 
+muLightPosHªdËr
+ = 
+GLES20
+.
+	`glG‘UnifÜmLoÿtiÚ
+(
+mProg¿m
+, "u_LightPos");
+
+89 
+mPosBufãr
+ = 
+By‹Bufãr
+.
+	`®loÿ‹Dœeù
+(
+EnvœÚm’tD©a
+.
+TRIANGLE_POS_ARRAY
+.
+Ëngth
+*
+FLOAT_SIZE
+)
+
+90 .
+	`Üd”
+(
+By‹Ord”
+.
+	`ÇtiveOrd”
+()).
+	`asFlßtBufãr
+();
+
+91 
+mPosBufãr
+.
+	`put
+(
+EnvœÚm’tD©a
+.
+TRIANGLE_POS_ARRAY
+).
+	`pos™iÚ
+(0);
+
+93 
+mNÜm®Bufãr
+ = 
+By‹Bufãr
+.
+	`®loÿ‹Dœeù
+(
+EnvœÚm’tD©a
+.
+NORMAL_ARRAY
+.
+Ëngth
+*
+FLOAT_SIZE
+)
+
+94 .
+	`Üd”
+(
+By‹Ord”
+.
+	`ÇtiveOrd”
+()).
+	`asFlßtBufãr
+();
+
+95 
+mNÜm®Bufãr
+.
+	`put
+(
+EnvœÚm’tD©a
+.
+NORMAL_ARRAY
+).
+	`pos™iÚ
+(0);
+
+97 
+mCŞÜBufãr
+ = 
+By‹Bufãr
+.
+	`®loÿ‹Dœeù
+(
+EnvœÚm’tD©a
+.
+VERTEX_COLOR_ARRAY
+.
+Ëngth
+*
+FLOAT_SIZE
+)
+
+98 .
+	`Üd”
+(
+By‹Ord”
+.
+	`ÇtiveOrd”
+()).
+	`asFlßtBufãr
+();
+
+99 
+mCŞÜBufãr
+.
+	`put
+(
+EnvœÚm’tD©a
+.
+VERTEX_COLOR_ARRAY
+).
+	`pos™iÚ
+(0);
+
+101 
+mProjeùiÚM©rix
+ = 
+CommÚUts
+.
+	`š™ProjeùiÚM©rix
+();
+
+102 
+mV›wM©rix
+ = 
+CommÚUts
+.
+	`š™V›wM©rix
+();
+
+105 
+Textu»Lßd”
+ 
+tLßd”
+ = 
+Ãw
+ 
+	`Textu»Lßd”
+(
+cÚ‹xt
+, 
+R
+.
+d¿wabË
+.
+wood_‹xtu»
+);
+
+106 
+mTextu»HªdËr
+ = 
+tLßd”
+.
+	`lßd
+();
+
+108 
+mTexCoÜdBufãr
+ = 
+By‹Bufãr
+.
+	`®loÿ‹Dœeù
+(
+EnvœÚm’tD©a
+.
+TEXTURE_COORD_ARRAY
+.
+Ëngth
+*
+FLOAT_SIZE
+)
+
+109 .
+	`Üd”
+(
+By‹Ord”
+.
+	`ÇtiveOrd”
+()).
+	`asFlßtBufãr
+();
+
+110 
+mTexCoÜdBufãr
+.
+	`put
+(
+EnvœÚm’tD©a
+.
+TEXTURE_COORD_ARRAY
+).
+	`pos™iÚ
+(0);
+
+112 
+GLES20
+.
+	`glEÇbË
+(GLES20.
+GL_DEPTH_TEST
+);
+
+113 
+GLES20
+.
+	`glEÇbË
+(GLES20.
+GL_CULL_FACE
+);
+
+115 
+mB®lEÁ™y
+ = 
+Ãw
+ 
+	`GLB®lEÁ™y
+(
+mCÚ‹xt
+);
+
+116 
+	`addEÁ™y
+(
+mB®lEÁ™y
+);
+
+118 
+	`¡¬tTim”
+();
+
+121 @
+Ov”ride
+
+
+122 
+public
+ 
+boŞ—n
+ 
+	$ÚKeyDown
+(
+keyCode
+) {
+
+123 ià(
+keyCode
+ =ğ
+KeyEv’t
+.
+KEYCODE_VOLUME_UP
+) {
+
+124 
+mV›wX
+ += 0.3;
+
+125  
+Œue
+;
+
+126 } ià(
+keyCode
+ =ğ
+KeyEv’t
+.
+KEYCODE_VOLUME_DOWN
+) {
+
+127 
+mV›wX
+ -= 0.3;
+
+128  
+Œue
+;
+
+130  
+çl£
+;
+
+131 
+	}
+}
+
+133 
+public
+ 
+	$»£t
+() {
+
+134 
+mP»viousX
+ = 0.0f;
+
+135 
+mP»viousY
+ = 0.0f;
+
+136 
+mTtšgAngË
+ = 0.0f;
+
+137 
+mV”tiÿlRÙ©eAngË
+ = 0.0f;
+
+138 
+mHÜizÚlRÙ©eAngË
+ = 0.0f;
+
+140 
+mB®lEÁ™y
+.
+	`»£t
+();
+
+141 
+	}
+}
+
+143 
+´iv©e
+ 
+	$rÙ©e
+(
+dV”t
+, 
+dHÜi
+) {
+
+144 
+mV”tiÿlRÙ©eAngË
+ +ğ
+dV”t
+;
+
+145 
+mHÜizÚlRÙ©eAngË
+ +ğ
+dHÜi
+;
+
+148 
+x
+ = 
+mV”tiÿlRÙ©eAngË
+;
+
+149 
+y
+ = -
+mHÜizÚlRÙ©eAngË
+;
+
+150 
+mTtšgAngË
+ = ()
+M©h
+.
+	`©ª2
+(
+y
+, 
+x
+);
+
+151 
+	}
+}
+
+153 @
+Ov”ride
+
+
+154 
+public
+ 
+boŞ—n
+ 
+	$ÚTouch
+(
+MÙiÚEv’t
+ 
+ev’t
+) {
+
+155 
+su³r
+.
+	`ÚTouch
+(
+ev’t
+);
+
+156 
+x
+ = 
+ev’t
+.
+	`g‘X
+();
+
+157 
+y
+ = 
+ev’t
+.
+	`g‘Y
+();
+
+158 ià(
+ev’t
+.
+	`g‘AùiÚ
+(è=ğ
+MÙiÚEv’t
+.
+ACTION_MOVE
+) {
+
+159 
+dx
+ = 
+x
+ - 
+mP»viousX
+;
+
+160 
+dy
+ = 
+y
+ - 
+mP»viousY
+;
+
+162 
+	`rÙ©e
+(
+dx
+*
+ROTATE_SCALE_FACTOR
+, 
+dy
+*ROTATE_SCALE_FACTOR);
+
+163 
+mB®lEÁ™y
+.
+	`rÙ©e
+(
+dx
+*
+ROTATE_SCALE_FACTOR
+, 
+dy
+*ROTATE_SCALE_FACTOR);
+
+165 
+mP»viousX
+ = 
+x
+;
+
+166 
+mP»viousY
+ = 
+y
+;
+
+167  
+Œue
+;
+
+168 
+	}
+}
+
+170 
+´iv©e
+ 
+Tim”Task
+ 
+	gmUpd©ePosTim”
+ = 
+Ãw
+ 
+	$Tim”Task
+() {
+
+171 @
+Ov”ride
+
+
+172 
+public
+ 
+	`run
+() {
+
+173 
+mB®lEÁ™y
+.
+	`upd©ePos™iÚ
+(
+mTtšgAngË
+);
+
+175 
+	}
+};
+
+177 
+´iv©e
+ 
+	$¡¬tTim”
+() {
+
+178 
+Tim”
+ 
+tim”
+ = 
+Ãw
+ 
+	`Tim”
+("ball fallenimer");
+
+179 
+tim”
+.
+	`scheduË
+(
+mUpd©ePosTim”
+, 0, 
+BALL_TIMER_UPDATE_INTERVAL
+);
+
+180 
+	}
+}
+
+182 @
+Ov”ride
+
+
+183 
+public
+ 
+	$d¿w
+() {
+
+184 
+GLES20
+.
+	`glU£Prog¿m
+(
+mProg¿m
+);
+
+186 
+M©rix
+.
+	`£tId’t™yM
+(
+mMod–M©rix
+, 0);
+
+187 
+M©rix
+.
+	`rÙ©eM
+(
+mMod–M©rix
+, 0, 
+mV”tiÿlRÙ©eAngË
+, 0.0f, 1.0f, 0.0f);
+
+188 
+M©rix
+.
+	`rÙ©eM
+(
+mMod–M©rix
+, 0, 
+mHÜizÚlRÙ©eAngË
+, 1.0f, 0.0f, 0.0f);
+
+190 
+M©rix
+.
+	`muÉlyMM
+(
+mMVPM©rix
+, 0, 
+mV›wM©rix
+, 0, 
+mMod–M©rix
+, 0);
+
+191 
+GLES20
+.
+	`glUnifÜmM©rix4fv
+(
+muMVM©rixHªdËr
+, 1, 
+çl£
+, 
+mMVPM©rix
+, 0);
+
+193 
+M©rix
+.
+	`muÉlyMM
+(
+mMVPM©rix
+, 0, 
+mProjeùiÚM©rix
+, 0, mMVPMatrix, 0);
+
+194 
+GLES20
+.
+	`glUnifÜmM©rix4fv
+(
+muMVPM©rixHªdËr
+, 1, 
+çl£
+, 
+mMVPM©rix
+, 0);
+
+196 
+GLES20
+.
+	`glUnifÜm3fv
+(
+muLightPosHªdËr
+, 1, 
+CommÚUts
+.
+	`š™LightPos™iÚVeùÜ
+(), 0);
+
+199 
+GLES20
+.
+	`glV”‹xA‰ribPoš‹r
+(
+maTexCoÜdHªdËr
+,
+
+200 2, 
+GLES20
+.
+GL_FLOAT
+, 
+çl£
+, 0, 
+mTexCoÜdBufãr
+);
+
+201 
+GLES20
+.
+	`glEÇbËV”‹xA‰ribA¼ay
+(
+maTexCoÜdHªdËr
+);
+
+202 
+GLES20
+.
+	`glUnifÜm1i
+(
+muSam¶”HªdËr
+, 0);
+
+204 
+GLES20
+.
+	`glV”‹xA‰ribPoš‹r
+(
+maCŞÜHªdËr
+,
+
+205 4, 
+GLES20
+.
+GL_FLOAT
+, 
+çl£
+, 0, 
+mCŞÜBufãr
+);
+
+206 
+GLES20
+.
+	`glEÇbËV”‹xA‰ribA¼ay
+(
+maCŞÜHªdËr
+);
+
+208 
+GLES20
+.
+	`glV”‹xA‰ribPoš‹r
+(
+maPosHªdËr
+,
+
+209 3, 
+GLES20
+.
+GL_FLOAT
+, 
+çl£
+, 0, 
+mPosBufãr
+);
+
+210 
+GLES20
+.
+	`glEÇbËV”‹xA‰ribA¼ay
+(
+maPosHªdËr
+);
+
+212 
+GLES20
+.
+	`glV”‹xA‰ribPoš‹r
+(
+maNÜm®HªdËr
+,
+
+213 3, 
+GLES20
+.
+GL_FLOAT
+, 
+çl£
+, 0, 
+mNÜm®Bufãr
+);
+
+214 
+GLES20
+.
+	`glEÇbËV”‹xA‰ribA¼ay
+(
+maNÜm®HªdËr
+);
+
+216 
+off£t
+ = 0;
+
+217 
+couÁ
+ : 
+EnvœÚm’tD©a
+.
+ITEMS_VERTEX_COUNT
+) {
+
+218 
+GLES20
+.
+	`glD¿wA¼ays
+(GLES20.
+GL_TRIANGLE_STRIP
+, 
+off£t
+, 
+couÁ
+);
+
+219 
+off£t
+ +ğ
+couÁ
+;
+
+221 
+mB®lEÁ™y
+.
+	`d¿w
+();
+
+222 
+	}
+}
+
+	@src/hongbosb/rollingball/model/GLSphereEntity.java
+
+1 
+·ckage
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+.
+	gmod–
+;
+
+3 
+impÜt
+ 
+	gªdroid
+.
+	gut
+.*;
+
+4 
+impÜt
+ 
+	gªdroid
+.
+	gwidg‘
+.*;
+
+5 
+impÜt
+ 
+	gªdroid
+.
+	gv›w
+.*;
+
+6 
+impÜt
+ 
+	gªdroid
+.
+	gcÚ‹Á
+.*;
+
+7 
+impÜt
+ 
+	gªdroid
+.
+	g­p
+.*;
+
+8 
+impÜt
+ 
+	gªdroid
+.
+	gos
+.*;
+
+9 
+impÜt
+ 
+	gªdroid
+.
+	gd©aba£
+.*;
+
+10 
+impÜt
+ 
+	gªdroid
+.
+	gÃt
+.*;
+
+11 
+impÜt
+ 
+	gªdroid
+.
+	gİ’gl
+.*;
+
+12 
+impÜt
+ 
+	gªdroid
+.
+	gg¿phics
+.*;
+
+14 
+impÜt
+ 
+	gjava
+.
+	gut
+.*;
+
+16 
+public
+ cÏs 
+	cGLSph”eEÁ™y
+ {
+
+	@src/hongbosb/rollingball/model/Sphere.java
+
+1 
+·ckage
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+.
+	gmod–
+;
+
+3 
+impÜt
+ 
+	gªdroid
+.
+	gut
+.*;
+
+4 
+impÜt
+ 
+	gªdroid
+.
+	gwidg‘
+.*;
+
+5 
+impÜt
+ 
+	gªdroid
+.
+	gv›w
+.*;
+
+6 
+impÜt
+ 
+	gªdroid
+.
+	gcÚ‹Á
+.*;
+
+7 
+impÜt
+ 
+	gªdroid
+.
+	g­p
+.*;
+
+8 
+impÜt
+ 
+	gªdroid
+.
+	gos
+.*;
+
+9 
+impÜt
+ 
+	gªdroid
+.
+	gd©aba£
+.*;
+
+10 
+impÜt
+ 
+	gªdroid
+.
+	gÃt
+.*;
+
+11 
+impÜt
+ 
+	gªdroid
+.
+	gİ’gl
+.*;
+
+12 
+impÜt
+ 
+	gªdroid
+.
+	gg¿phics
+.*;
+
+14 
+impÜt
+ 
+	gjava
+.
+	gut
+.*;
+
+15 
+impÜt
+ 
+	gjava
+.
+	gio
+.*;
+
+16 
+impÜt
+ 
+	gjava
+.
+	gnio
+.*;
+
+18 
+public
+ cÏs 
+	cSph”e
+ {
+
+20 
+public
+ 
+fš®
+ 
+	mTO_RADIANS
+ = 
+M©h
+.
+PI
+/180;
+
+22 
+´iv©e
+ 
+	mmPoštCouÁ
+;
+
+23 
+´iv©e
+ 
+FlßtBufãr
+ 
+	mmPoštBufãr
+;
+
+24 
+´iv©e
+ 
+FlßtBufãr
+ 
+	mmCŞÜBufãr
+;
+
+25 
+´iv©e
+ 
+FlßtBufãr
+ 
+	mmNÜm®Bufãr
+;
+
+27 
+public
+ 
+	$Sph”e
+(
+¿dius
+, 
+deg»eS‹p
+) {
+
+28 
+	`bud
+(
+¿dius
+, 
+deg»eS‹p
+);
+
+36 
+´iv©e
+ 
+	$bud
+(
+¿dius
+, 
+deg»eS‹p
+) {
+
+37 
+¿dŸnsS‹p
+ = ()(
+deg»eS‹p
+*
+TO_RADIANS
+);
+
+38 
+bufãrSize
+ = 400000;
+
+39 
+mPoštBufãr
+ = 
+By‹Bufãr
+.
+	`®loÿ‹Dœeù
+(
+bufãrSize
+)
+
+40 .
+	`Üd”
+(
+By‹Ord”
+.
+	`ÇtiveOrd”
+()).
+	`asFlßtBufãr
+();
+
+41 
+mNÜm®Bufãr
+ = 
+By‹Bufãr
+.
+	`®loÿ‹Dœeù
+(
+bufãrSize
+).
+	`Üd”
+(
+By‹Ord”
+.
+	`ÇtiveOrd”
+()).
+	`asFlßtBufãr
+();
+
+42 
+mCŞÜBufãr
+ = 
+By‹Bufãr
+.
+	`®loÿ‹Dœeù
+(
+bufãrSize
+*4/3).
+	`Üd”
+(
+By‹Ord”
+.
+	`ÇtiveOrd”
+()).
+	`asFlßtBufãr
+();
+
+43 
+couÁ
+ = 0;
+
+44 
+phi
+ = 0;…h˜<ğ
+M©h
+.
+PI
+;…h˜+ğ
+¿dŸnsS‹p
+) {
+
+45 
+th‘a
+ = 0;h‘¨<ğ2*
+M©h
+.
+PI
+;h‘¨+ğ
+¿dŸnsS‹p
+) {
+
+46 
+mPoštBufãr
+.
+	`put
+(()(
+¿dius
+*
+M©h
+.
+	`sš
+(
+phi
+)*M©h.
+	`cos
+(
+th‘a
+)));
+
+47 
+mPoštBufãr
+.
+	`put
+(()(
+¿dius
+*
+M©h
+.
+	`sš
+(
+phi
+)*M©h.sš(
+th‘a
+)));
+
+48 
+mPoštBufãr
+.
+	`put
+(()(
+¿dius
+*
+M©h
+.
+	`cos
+(
+phi
+)è+ 
+GLB®lEÁ™y
+.
+BALL_RADIUS
+);
+
+50 
+mNÜm®Bufãr
+.
+	`put
+(80*()(
+M©h
+.
+	`sš
+(
+phi
+)*M©h.
+	`cos
+(
+th‘a
+)));
+
+51 
+mNÜm®Bufãr
+.
+	`put
+(80*()(
+M©h
+.
+	`sš
+(
+phi
+)*M©h.sš(
+th‘a
+)));
+
+52 
+mNÜm®Bufãr
+.
+	`put
+(80*()(
+M©h
+.
+	`cos
+(
+phi
+)è+ 
+GLB®lEÁ™y
+.
+BALL_RADIUS
+);
+
+54 
+mCŞÜBufãr
+.
+	`put
+(()0x66/0xff);
+
+55 
+mCŞÜBufãr
+.
+	`put
+(()0xcc/0xff);
+
+56 
+mCŞÜBufãr
+.
+	`put
+(()0xff/0xff);
+
+57 
+mCŞÜBufãr
+.
+	`put
+(()0xff/0xff);
+
+59 
+couÁ
+ += 1;
+
+62 
+mPoštBufãr
+.
+	`pos™iÚ
+(0);
+
+63 
+mNÜm®Bufãr
+.
+	`pos™iÚ
+(0);
+
+64 
+mCŞÜBufãr
+.
+	`pos™iÚ
+(0);
+
+65 
+mPoštCouÁ
+ = 
+couÁ
+;
+
+66 
+	}
+}
+
+68 
+public
+ 
+	$d¿w
+(
+posHªdËr
+, 
+nÜm®HªdËr
+, 
+cŞÜHªdËr
+) {
+
+69 
+GLES20
+.
+	`glV”‹xA‰ribPoš‹r
+(
+posHªdËr
+,
+
+70 3, 
+GLES20
+.
+GL_FLOAT
+, 
+çl£
+, 0, 
+mPoštBufãr
+);
+
+71 
+GLES20
+.
+	`glEÇbËV”‹xA‰ribA¼ay
+(
+posHªdËr
+);
+
+73 
+GLES20
+.
+	`glV”‹xA‰ribPoš‹r
+(
+nÜm®HªdËr
+,
+
+74 3, 
+GLES20
+.
+GL_FLOAT
+, 
+çl£
+, 0, 
+mNÜm®Bufãr
+);
+
+75 
+GLES20
+.
+	`glEÇbËV”‹xA‰ribA¼ay
+(
+nÜm®HªdËr
+);
+
+77 
+GLES20
+.
+	`glV”‹xA‰ribPoš‹r
+(
+cŞÜHªdËr
+,
+
+78 4, 
+GLES20
+.
+GL_FLOAT
+, 
+çl£
+, 0, 
+mCŞÜBufãr
+);
+
+79 
+GLES20
+.
+	`glEÇbËV”‹xA‰ribA¼ay
+(
+cŞÜHªdËr
+);
+
+81 
+GLES20
+.
+	`glD¿wA¼ays
+(GLES20.
+GL_TRIANGLE_FAN
+, 0, 
+mPoštCouÁ
+);
+
+82 
+	}
+}
+
+	@src/hongbosb/rollingball/util/CommonUtils.java
+
+1 
+·ckage
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+.
+	gut
+;
+
+3 
+impÜt
+ 
+	gªdroid
+.
+	gut
+.*;
+
+4 
+impÜt
+ 
+	gªdroid
+.
+	gwidg‘
+.*;
+
+5 
+impÜt
+ 
+	gªdroid
+.
+	gv›w
+.*;
+
+6 
+impÜt
+ 
+	gªdroid
+.
+	gcÚ‹Á
+.*;
+
+7 
+impÜt
+ 
+	gªdroid
+.
+	g­p
+.*;
+
+8 
+impÜt
+ 
+	gªdroid
+.
+	gos
+.*;
+
+9 
+impÜt
+ 
+	gªdroid
+.
+	gd©aba£
+.*;
+
+10 
+impÜt
+ 
+	gªdroid
+.
+	gg¿phics
+.*;
+
+11 
+impÜt
+ 
+	gªdroid
+.
+	gİ’gl
+.*;
+
+12 
+impÜt
+ 
+	gªdroid
+.
+	gİ’gl
+.
+	gM©rix
+;
+
+14 
+impÜt
+ 
+	gjava
+.
+	gut
+.*;
+
+16 
+impÜt
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+.
+	gd©a
+.*;
+
+18 
+public
+ cÏs 
+	cCommÚUts
+ {
+
+20 
+´iv©e
+ 
+fš®
+ [] 
+	mLIGHT_POSITION
+ = {0f, 0f, 100f};
+
+22 
+public
+ [] 
+	$š™ProjeùiÚM©rix
+() {
+
+23 [] 
+m©rix
+ = 
+Ãw
+ [16];
+
+24 
+M©rix
+.
+	`ÜthoM
+(
+m©rix
+, 0,
+
+25 -250.0f*(()
+Sh¬edD©a
+.
+mWšdowWidth
+/Sh¬edD©a.
+mWšdowHeight
+),
+
+26 250.0f*(()
+Sh¬edD©a
+.
+mWšdowWidth
+/Sh¬edD©a.
+mWšdowHeight
+),
+
+30  
+m©rix
+;
+
+31 
+	}
+}
+
+33 
+public
+ [] 
+	$š™LightPos™iÚVeùÜ
+() {
+
+34  
+LIGHT_POSITION
+;
+
+35 
+	}
+}
+
+37 
+public
+ [] 
+	$š™V›wM©rix
+() {
+
+38 [] 
+m©rix
+ = 
+Ãw
+ [16];
+
+39 
+M©rix
+.
+	`£tLookAtM
+(
+m©rix
+, 0,
+
+41  
+m©rix
+;
+
+42 
+	}
+}
+
+	@src/hongbosb/rollingball/util/Loadable.java
+
+1 
+·ckage
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+.
+	gut
+;
+
+3 
+š‹rçû
+ 
+	gLßdabË
+ {
+
+4 
+lßd
+();
+
+	@src/hongbosb/rollingball/util/ProgramLoader.java
+
+1 
+·ckage
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+.
+	gut
+;
+
+3 
+impÜt
+ 
+	gªdroid
+.
+	gut
+.*;
+
+4 
+impÜt
+ 
+	gªdroid
+.
+	gwidg‘
+.*;
+
+5 
+impÜt
+ 
+	gªdroid
+.
+	gv›w
+.*;
+
+6 
+impÜt
+ 
+	gªdroid
+.
+	gcÚ‹Á
+.*;
+
+7 
+impÜt
+ 
+	gªdroid
+.
+	g­p
+.*;
+
+8 
+impÜt
+ 
+	gªdroid
+.
+	gos
+.*;
+
+9 
+impÜt
+ 
+	gªdroid
+.
+	gd©aba£
+.*;
+
+10 
+impÜt
+ 
+	gªdroid
+.
+	gİ’gl
+.*;
+
+12 
+impÜt
+ 
+	gjava
+.
+	gut
+.*;
+
+13 
+impÜt
+ 
+	gjava
+.
+	gio
+.*;
+
+15 
+impÜt
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+.*;
+
+17 
+public
+ cÏs 
+	cProg¿mLßd”
+ 
+im¶em’ts
+ 
+	mLßdabË
+ {
+
+18 
+public
+ 
+fš®
+ 
+SŒšg
+ 
+	mTAG
+ = "Utils";
+
+20 
+public
+ 
+fš®
+ 
+boŞ—n
+ 
+	mDEBUG
+ = 
+çl£
+;
+
+22 
+´iv©e
+ 
+SŒšg
+ 
+	mmV”‹xFe
+;
+
+23 
+´iv©e
+ 
+SŒšg
+ 
+	mmF¿gm’tFe
+;
+
+24 
+´iv©e
+ 
+CÚ‹xt
+ 
+	mmCÚ‹xt
+;
+
+25 
+´iv©e
+ 
+	mSŒšg
+[] 
+	mmA‰ribNames
+;
+
+27 
+public
+ 
+	$Prog¿mLßd”
+(
+CÚ‹xt
+ 
+cÚ‹xt
+, 
+SŒšg
+ 
+v”‹xFe
+, SŒšg 
+äagm’tFe
+, SŒšg[] 
+©Œibs
+) {
+
+28 
+mCÚ‹xt
+ = 
+cÚ‹xt
+;
+
+29 
+mV”‹xFe
+ = 
+v”‹xFe
+;
+
+30 
+mF¿gm’tFe
+ = 
+äagm’tFe
+;
+
+31 
+mA‰ribNames
+ = 
+©Œibs
+;
+
+34 
+´iv©e
+ 
+	$bšdA‰ribs
+(
+´og¿m
+) {
+
+35 
+i
+ = 0; i < 
+mA‰ribNames
+.
+Ëngth
+; i ++) {
+
+36 
+SŒšg
+ 
+©Œib
+ = 
+mA‰ribNames
+[
+i
+];
+
+37 
+GLES20
+.
+	`glBšdA‰ribLoÿtiÚ
+(
+´og¿m
+, 
+i
+, 
+©Œib
+);
+
+39 
+	}
+}
+
+41 @
+Ov”ride
+
+
+42 
+public
+ 
+	$lßd
+() {
+
+43 
+´og¿m
+ = 
+GLES20
+.
+	`glC»©eProg¿m
+();
+
+44 ià(
+´og¿m
+ == 0) {
+
+45 
+throw
+ 
+Ãw
+ 
+	`GLExû±iÚ
+(0);
+
+48 
+	`bšdA‰ribs
+(
+´og¿m
+);
+
+50 
+v”‹xHªdËr
+ = 
+	`lßdShad”
+(
+´og¿m
+, 
+mV”‹xFe
+, 
+GLES20
+.
+GL_VERTEX_SHADER
+);
+
+51 
+äagm’tHªdËr
+ = 
+	`lßdShad”
+(
+´og¿m
+, 
+mF¿gm’tFe
+, 
+GLES20
+.
+GL_FRAGMENT_SHADER
+);
+
+52 
+GLES20
+.
+	`glLškProg¿m
+(
+´og¿m
+);
+
+53 
+	`checkLškE¼Ü
+(
+´og¿m
+);
+
+54  
+´og¿m
+;
+
+55 
+	}
+}
+
+57 
+´iv©e
+ 
+	$lßdShad”
+(
+´og¿m
+, 
+SŒšg
+ 
+fe
+, 
+ty³
+) {
+
+58 
+shad”HªdËr
+ = 
+GLES20
+.
+	`glC»©eShad”
+(
+ty³
+);
+
+59 ià(
+shad”HªdËr
+ == 0) {
+
+60 
+throw
+ 
+Ãw
+ 
+	`GLExû±iÚ
+(0);
+
+63 
+SŒšg
+ 
+sourû
+ = 
+	`lßdSourû
+(
+fe
+);
+
+64 
+GLES20
+.
+	`glA‰achShad”
+(
+´og¿m
+, 
+shad”HªdËr
+);
+
+65 
+GLES20
+.
+	`glShad”Sourû
+(
+shad”HªdËr
+, 
+sourû
+);
+
+66 
+GLES20
+.
+	`glCompeShad”
+(
+shad”HªdËr
+);
+
+67 
+	`checkCompeE¼Ü
+(
+shad”HªdËr
+, 
+ty³
+);
+
+68  
+shad”HªdËr
+;
+
+69 
+	}
+}
+
+71 
+´iv©e
+ 
+	$checkCompeE¼Ü
+(
+hªdËr
+, 
+ty³
+) {
+
+72 [] 
+»suÉ
+ = 
+Ãw
+ [1];
+
+73 
+GLES20
+.
+	`glG‘Shad”iv
+(
+hªdËr
+, GLES20.
+GL_COMPILE_STATUS
+, 
+»suÉ
+, 0);
+
+74 ià(
+»suÉ
+[0] =ğ
+GLES20
+.
+GL_FALSE
+) {
+
+76 
+SŒšg
+ 
+ty³SŒ
+ = 
+ty³
+ =ğ
+GLES20
+.
+GL_VERTEX_SHADER
+ ? "vertex" : "fragment";
+
+77 
+SŒšg
+ 
+log
+ = 
+GLES20
+.
+	`glG‘Shad”InfoLog
+(
+hªdËr
+);
+
+78 
+Log
+.
+	`d
+(
+TAG
+, 
+ty³SŒ
+ + " comp”rÜ:\n" + 
+log
+);
+
+79 
+GLES20
+.
+	`glD–‘eShad”
+(
+hªdËr
+);
+
+80 
+throw
+ 
+Ãw
+ 
+	`GLExû±iÚ
+(0);
+
+82 
+	}
+}
+
+84 
+´iv©e
+ 
+	$checkLškE¼Ü
+(
+´og¿m
+) {
+
+85 
+»suÉ
+[] = 
+Ãw
+ [1];
+
+86 
+GLES20
+.
+	`glG‘Prog¿miv
+(
+´og¿m
+, GLES20.
+GL_LINK_STATUS
+, 
+»suÉ
+, 0);
+
+87 ià(
+»suÉ
+[0] =ğ
+GLES20
+.
+GL_FALSE
+) {
+
+88 
+Log
+.
+	`d
+(
+TAG
+, "lškƒ¼Ü:\n" + 
+GLES20
+.
+	`glG‘Prog¿mInfoLog
+(
+´og¿m
+));
+
+89 
+GLES20
+.
+	`glD–‘eProg¿m
+(
+´og¿m
+);
+
+90 
+throw
+ 
+Ãw
+ 
+	`GLExû±iÚ
+(0);
+
+92 
+	}
+}
+
+94 
+´iv©e
+ 
+SŒšg
+ 
+	$lßdSourû
+(
+SŒšg
+ 
+feName
+) {
+
+95 
+Œy
+ {
+
+96 
+IÅutSŒ—m
+ 
+š
+ = 
+mCÚ‹xt
+.
+	`g‘As£ts
+().
+	`İ’
+(
+feName
+);
+
+97 
+Bufã»dR—d”
+ 
+»ad”
+ = 
+Ãw
+ 
+	`Bufã»dR—d”
+Òew 
+	`IÅutSŒ—mR—d”
+(
+š
+));
+
+98 
+SŒšgBufãr
+ 
+sb
+ = 
+Ãw
+ 
+	`SŒšgBufãr
+();
+
+99 
+SŒšg
+ 
+lše
+;
+
+100 (
+lše
+ = 
+»ad”
+.
+	`»adLše
+()è!ğ
+nuÎ
+) {
+
+101 
+sb
+.
+	`­³nd
+(
+lše
+);
+
+102 
+sb
+.
+	`­³nd
+('\n');
+
+105 ià(
+DEBUG
+) {
+
+106 
+Log
+.
+	`d
+(
+TAG
+, "sourû: " + 
+sb
+.
+	`toSŒšg
+());
+
+108  
+sb
+.
+	`toSŒšg
+();
+
+109 } 
+	`ÿtch
+ (
+IOExû±iÚ
+ 
+e
+) {
+
+110 
+e
+.
+	`´štSckT¿û
+();
+
+112  
+nuÎ
+;
+
+113 
+	}
+}
+
+	@src/hongbosb/rollingball/util/TextureLoader.java
+
+1 
+·ckage
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+.
+	gut
+;
+
+3 
+impÜt
+ 
+	gªdroid
+.
+	gut
+.*;
+
+4 
+impÜt
+ 
+	gªdroid
+.
+	gwidg‘
+.*;
+
+5 
+impÜt
+ 
+	gªdroid
+.
+	gv›w
+.*;
+
+6 
+impÜt
+ 
+	gªdroid
+.
+	gcÚ‹Á
+.*;
+
+7 
+impÜt
+ 
+	gªdroid
+.
+	g­p
+.*;
+
+8 
+impÜt
+ 
+	gªdroid
+.
+	gos
+.*;
+
+9 
+impÜt
+ 
+	gªdroid
+.
+	gd©aba£
+.*;
+
+10 
+impÜt
+ 
+	gªdroid
+.
+	gg¿phics
+.*;
+
+11 
+impÜt
+ 
+	gªdroid
+.
+	gİ’gl
+.*;
+
+13 
+impÜt
+ 
+	gjava
+.
+	gut
+.*;
+
+15 
+public
+ cÏs 
+	cTextu»Lßd”
+ 
+im¶em’ts
+ 
+	mLßdabË
+ {
+
+17 
+´iv©e
+ 
+CÚ‹xt
+ 
+	mmCÚ‹xt
+;
+
+18 
+´iv©e
+ 
+	mmRes
+;
+
+20 
+public
+ 
+	$Textu»Lßd”
+(
+CÚ‹xt
+ 
+cÚ‹xt
+, 
+»s
+) {
+
+21 
+mCÚ‹xt
+ = 
+cÚ‹xt
+;
+
+22 
+mRes
+ = 
+»s
+;
+
+25 @
+Ov”ride
+
+
+26 
+public
+ 
+	$lßd
+() {
+
+27 
+‹xtu»HªdËrs
+[] = 
+Ãw
+ [1];
+
+28 
+GLES20
+.
+	`glG’Textu»s
+(1, 
+‹xtu»HªdËrs
+, 0);
+
+29 
+GLES20
+.
+	`glAùiveTextu»
+(GLES20.
+GL_TEXTURE0
+);
+
+30 
+GLES20
+.
+	`glBšdTextu»
+(GLES20.
+GL_TEXTURE_2D
+, 
+‹xtu»HªdËrs
+[0]);
+
+31 
+GLES20
+.
+	`glTexP¬am‘”i
+(GLES20.
+GL_TEXTURE_2D
+, GLES20.
+GL_TEXTURE_MIN_FILTER
+, GLES20.
+GL_NEAREST
+);
+
+32 
+GLES20
+.
+	`glTexP¬am‘”i
+(GLES20.
+GL_TEXTURE_2D
+, GLES20.
+GL_TEXTURE_MAG_FILTER
+, GLES20.
+GL_NEAREST
+);
+
+34 
+	`lßdTextu»Resourû
+();
+
+35  
+‹xtu»HªdËrs
+[0];
+
+36 
+	}
+}
+
+38 
+´iv©e
+ 
+	$lßdTextu»Resourû
+() {
+
+39 
+B™m­FaùÜy
+.
+O±iÚs
+ 
+İtiÚs
+ = 
+Ãw
+ B™m­FaùÜy.
+	`O±iÚs
+();
+
+40 
+İtiÚs
+.
+šSÿËd
+ = 
+çl£
+;
+
+41 
+B™m­
+ 
+b™m­
+ = 
+B™m­FaùÜy
+.
+	`decodeResourû
+(
+mCÚ‹xt
+.
+	`g‘Resourûs
+(), 
+mRes
+, 
+İtiÚs
+);
+
+42 
+GLUts
+.
+	`‹xImage2D
+(
+GLES20
+.
+GL_TEXTURE_2D
+, 0, 
+b™m­
+, 0);
+
+44 
+	}
+}
+
+	@src/hongbosb/rollingball/util/Utils.java
+
+1 
+·ckage
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+.
+	gut
+;
+
+3 
+impÜt
+ 
+	gªdroid
+.
+	gut
+.*;
+
+4 
+impÜt
+ 
+	gªdroid
+.
+	gİ’gl
+.
+	gGLES20
+;
+
+6 
+public
+ cÏs 
+	cUts
+ {
+
+7 
+public
+ 
+fš®
+ 
+SŒšg
+ 
+	mTAG
+ = "Utils";
+
+8 
+public
+ 
+	$checkGLE¼Ü
+() {
+
+9 
+”rÜCode
+ = 
+GLES20
+.
+	`glG‘E¼Ü
+();
+
+10 ià(
+”rÜCode
+ !ğ
+GLES20
+.
+GL_NO_ERROR
+) {
+
+11 
+Log
+.
+	`d
+(
+TAG
+, "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^”rÜ! cod" + 
+”rÜCode
+ + "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+
+14 
+	}
+}
+
+	@tests/gen/hongbosb/rollingball/tests/BuildConfig.java
+
+2 
+·ckage
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+.
+	g‹¡s
+;
+
+4 
+public
+ 
+fš®
+ cÏs 
+	cBudCÚfig
+ {
+
+5 
+public
+ 
+fš®
+ 
+boŞ—n
+ 
+	mDEBUG
+ = 
+Œue
+;
+
+	@tests/src/hongbosb/rollingball/BallEntityTest.java
+
+1 
+·ckage
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+;
+
+3 
+impÜt
+ 
+	gªdroid
+.
+	g‹¡
+.
+	gAndroidTe¡Ca£
+;
+
+4 
+impÜt
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+.
+	gmod–
+.*;
+
+5 
+impÜt
+ 
+	ghÚgbosb
+.
+	grŞlšgb®l
+.
+	gd©a
+.*;
+
+17 
+public
+ cÏs 
+	cB®lEÁ™yTe¡
+ 
+ex‹nds
+ 
+	mAndroidTe¡Ca£
+ {
+
+19 
+´iv©e
+ 
+GLB®lEÁ™y
+ 
+	mmB®l
+;
+
+21 
+´Ùeùed
+ 
+	$£tUp
+() {
+
+22 
+mB®l
+ = 
+Ãw
+ 
+	`GLB®lEÁ™y
+();
+
+25 
+public
+ 
+	$‹¡FixEdge
+(è
+throws
+ 
+Exû±iÚ
+ {
+
+26 
+mB®l
+.
+mT¿n¦©eX
+ = 50.0f;
+
+27 
+mB®l
+.
+mT¿n¦©eY
+ = 0.0f;
+
+28 
+mB®l
+.
+	`fixEdgePos™iÚ
+();
+
+29 
+	`as£¹Equ®s
+(50.0f, 
+mB®l
+.
+mT¿n¦©eX
+);
+
+30 
+	`as£¹Equ®s
+(0.0f, 
+mB®l
+.
+mT¿n¦©eY
+);
+
+32 
+mB®l
+.
+mT¿n¦©eX
+ = 110.0f;
+
+33 
+mB®l
+.
+mT¿n¦©eY
+ = 0.0f;
+
+34 
+mB®l
+.
+	`fixEdgePos™iÚ
+();
+
+35 
+	`as£¹Equ®s
+(
+GLB®lEÁ™y
+.
+ABS_MAX_X
+, 
+mB®l
+.
+mT¿n¦©eX
+);
+
+36 
+	`as£¹Equ®s
+(0.0f, 
+mB®l
+.
+mT¿n¦©eY
+);
+
+38 
+mB®l
+.
+mT¿n¦©eX
+ = 110.0f;
+
+39 
+mB®l
+.
+mT¿n¦©eY
+ = 120.0f;
+
+40 
+mB®l
+.
+	`fixEdgePos™iÚ
+();
+
+41 
+	`as£¹Equ®s
+(
+GLB®lEÁ™y
+.
+ABS_MAX_X
+, 
+mB®l
+.
+mT¿n¦©eX
+);
+
+42 
+	`as£¹Equ®s
+(
+GLB®lEÁ™y
+.
+ABS_MAX_Y
+, 
+mB®l
+.
+mT¿n¦©eY
+);
+
+44 
+mB®l
+.
+mT¿n¦©eX
+ = -110.0f;
+
+45 
+mB®l
+.
+mT¿n¦©eY
+ = -120.0f;
+
+46 
+mB®l
+.
+	`fixEdgePos™iÚ
+();
+
+47 
+	`as£¹Equ®s
+(-
+GLB®lEÁ™y
+.
+ABS_MAX_X
+, 
+mB®l
+.
+mT¿n¦©eX
+);
+
+48 
+	`as£¹Equ®s
+(-
+GLB®lEÁ™y
+.
+ABS_MAX_Y
+, 
+mB®l
+.
+mT¿n¦©eY
+);
+
+49 
+	}
+}
+
+51 
+public
+ 
+	$‹¡M“tEdge
+(è
+throws
+ 
+Exû±iÚ
+ {
+
+52 
+mB®l
+.
+mT¿n¦©eX
+ = -110.0f;
+
+53 
+mB®l
+.
+mT¿n¦©eY
+ = -120.0f;
+
+54 
+	`as£¹True
+(
+mB®l
+.
+	`isM“tEdge
+());
+
+56 
+mB®l
+.
+mT¿n¦©eX
+ = -110.0f;
+
+57 
+mB®l
+.
+mT¿n¦©eY
+ = 0.0f;
+
+58 
+	`as£¹True
+(
+mB®l
+.
+	`isM“tEdge
+());
+
+60 
+mB®l
+.
+mT¿n¦©eX
+ = 110.0f;
+
+61 
+mB®l
+.
+mT¿n¦©eY
+ = 0.0f;
+
+62 
+	`as£¹True
+(
+mB®l
+.
+	`isM“tEdge
+());
+
+64 
+mB®l
+.
+mT¿n¦©eX
+ = 0.0f;
+
+65 
+mB®l
+.
+mT¿n¦©eY
+ = 120.0f;
+
+66 
+	`as£¹True
+(
+mB®l
+.
+	`isM“tEdge
+());
+
+68 
+mB®l
+.
+mT¿n¦©eX
+ = 30.0f;
+
+69 
+mB®l
+.
+mT¿n¦©eY
+ = 20.0f;
+
+70 
+	`as£¹F®£
+(
+mB®l
+.
+	`isM“tEdge
+());
+
+71 
+	}
+}
+
+73 
+public
+ 
+	$‹¡CªMove
+(è
+throws
+ 
+Exû±iÚ
+ {
+
+74 
+mB®l
+.
+mT¿n¦©eX
+ = 
+GLB®lEÁ™y
+.
+ABS_MAX_X
+;
+
+75 
+mB®l
+.
+mT¿n¦©eY
+ = 
+GLB®lEÁ™y
+.
+ABS_MAX_Y
+;
+
+76 
+mB®l
+.
+mV–oc™yX
+ = 5f;
+
+77 
+mB®l
+.
+mV–oc™yY
+ = 0f;
+
+78 
+	`as£¹F®£
+(
+mB®l
+.
+	`ÿnMove
+(1f, 0f));
+
+80 
+mB®l
+.
+mT¿n¦©eX
+ = -
+GLB®lEÁ™y
+.
+ABS_MAX_X
+;
+
+81 
+mB®l
+.
+mT¿n¦©eY
+ = 0;
+
+82 
+mB®l
+.
+mV–oc™yX
+ = -5f;
+
+83 
+mB®l
+.
+mV–oc™yY
+ = 0f;
+
+84 
+	`as£¹F®£
+(
+mB®l
+.
+	`ÿnMove
+(-1f, 0f));
+
+86 
+mB®l
+.
+mT¿n¦©eX
+ = -
+GLB®lEÁ™y
+.
+ABS_MAX_X
+;
+
+87 
+mB®l
+.
+mT¿n¦©eY
+ = 0;
+
+88 
+mB®l
+.
+mV–oc™yX
+ = 5f;
+
+89 
+mB®l
+.
+mV–oc™yY
+ = 0f;
+
+90 
+	`as£¹True
+(
+mB®l
+.
+	`ÿnMove
+(-1f, 0f));
+
+91 
+	}
+}
+
+	@
+1
+.
+1
+/usr/include
+22
+1011
+gen/hongbosb/rollingball/BuildConfig.java
+gen/hongbosb/rollingball/R.java
+src/hongbosb/rollingball/GLInputable.java
+src/hongbosb/rollingball/GLTouchable.java
+src/hongbosb/rollingball/MainActivity.java
+src/hongbosb/rollingball/MyGLSurfaceView.java
+src/hongbosb/rollingball/MyRenderer.java
+src/hongbosb/rollingball/NaturalConstants.java
+src/hongbosb/rollingball/data/EnvironmentData.java
+src/hongbosb/rollingball/data/SharedData.java
+src/hongbosb/rollingball/model/GLBallEntity.java
+src/hongbosb/rollingball/model/GLEntity.java
+src/hongbosb/rollingball/model/GLEnvironmentEntity.java
+src/hongbosb/rollingball/model/GLSphereEntity.java
+src/hongbosb/rollingball/model/Sphere.java
+src/hongbosb/rollingball/util/CommonUtils.java
+src/hongbosb/rollingball/util/Loadable.java
+src/hongbosb/rollingball/util/ProgramLoader.java
+src/hongbosb/rollingball/util/TextureLoader.java
+src/hongbosb/rollingball/util/Utils.java
+tests/gen/hongbosb/rollingball/tests/BuildConfig.java
+tests/src/hongbosb/rollingball/BallEntityTest.java
