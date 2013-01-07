@@ -6,3 +6,7 @@ local.properties
 proguard-project.txt
 project.properties
 tags
+cscope.files
+cscope.in.out
+cscope.out
+cscope.po.out
